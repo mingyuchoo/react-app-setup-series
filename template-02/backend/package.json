@@ -7,7 +7,11 @@
     "start": "npm run clean && npm run lint && tsc && node dist/server",
     "clean": "rimraf ./dist",
     "lint": "tslint -p .",
+<<<<<<< HEAD
     "test": "mocha --require ts-node/register ./**/*.test.ts"
+=======
+    "test": "mocha --require ts-node/register test/**/*.spec.ts"
+>>>>>>> master
   },
   "keywords": [],
   "author": "",

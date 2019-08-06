@@ -2,6 +2,7 @@
 
 ## Referenced
 - https://github.com/microsoft/TypeScript-React-Starter
+<<<<<<< HEAD
 - https://facebook.github.io/create-react-app/
 
 
@@ -67,3 +68,20 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+=======
+
+## Install packages
+```
+npm install --save enzyme react react-dom react-redux redux
+npm install --save @types/enzyme @types/jest @types/node @types/react @types/react-dom @types/react-redux
+npm install --save-dev react-addons-test-utils react-scripts-ts
+```
+
+## Commands
+```
+$ npm run start
+$ npm run build
+$ npm run test
+$ npm run eject
+```
+>>>>>>> master

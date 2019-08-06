@@ -1,11 +1,22 @@
 {
   "compilerOptions": {
+<<<<<<< HEAD
     "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
+=======
+    "target": "es5",
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable"
+    ],
+    "jsx": "preserve",
+    "strict": true,
+>>>>>>> master
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -15,9 +26,13 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+<<<<<<< HEAD
     "noEmit": true,
     "jsx": "preserve",
     "strict": true
+=======
+    "noEmit": true
+>>>>>>> master
   },
   "include": [
     "src"
