@@ -1,65 +1,36 @@
-<<<<<<< HEAD
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-=======
 import React, { Component } from 'react';
 
 import logo from './logo.svg';
 import './App.css';
 
-interface ImageProps {logo: any }
-interface ImageState {}
-class Image extends Component<ImageProps, ImageState> {
-  constructor(props: ImageProps) {
-    super(props);
-  }
+
+class Image extends Component {
   render() {
     return (
-      <img src={this.props.logo} className="Frontend" alt="logo" />
+      <img src={logo} className="Frontend" alt="logo" />
     );
   }
 }
 
-interface ParagraphProps {}
-interface ParagraphState {}
-class Paragraph extends Component<ParagraphProps, ParagraphState> {
-  constructor(props: ParagraphProps) {
-    super(props);
+class Paragraph extends Component {
+  state = {echo: null}
+  componentDidMount() {
+    fetch('http://localhost/api/echo')
+    .then(response => response.json())
+    .then(data => this.setState({echo: data.echo}))
   }
   render() {
     return (
       <p>
         Edit <code>src/App.tsx</code> and save to reload.
+        {" "}
+        {this.state.echo}
       </p>
     );
   }
 }
 
-interface LinkProps {}
-interface LinkState {}
-class Link extends Component<LinkProps, LinkState> {
-  constructor(props: LinkProps) {
-    super(props);
-  }
+class Link extends Component {
   render() {
     return (
       <a
@@ -73,16 +44,11 @@ class Link extends Component<LinkProps, LinkState> {
   }
 }
 
-interface HeaderProps {logo: any }
-interface HeaderState {}
-class Header extends Component<HeaderProps, HeaderState> {
-  constructor(props: HeaderProps) {
-    super(props);
-  }
+class Header extends Component {
   render() {
     return (
       <header className="App-header">
-        <Image logo={this.props.logo} />
+        <Image />
         <Paragraph />
         <Link />
       </header>
@@ -93,8 +59,7 @@ class Header extends Component<HeaderProps, HeaderState> {
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Header logo={logo} />
->>>>>>> master
+      <Header />
     </div>
   );
 }

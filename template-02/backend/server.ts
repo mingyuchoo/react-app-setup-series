@@ -9,8 +9,8 @@ const normalizePort = (val: any) => {
 }
 
 // server setting
-const port = normalizePort(process.env.PORT || '3000')
-const devPort = normalizePort(process.env.PORT || '3001')
+const port = normalizePort(process.env.PORT || '80')
+const devPort = normalizePort(process.env.PORT || '3000')
 
 // listen
 const server = app.listen(port, () => {

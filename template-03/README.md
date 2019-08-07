@@ -1,5 +1,4 @@
-# Typescript-template-02
-# Typescript-template-02
+# Typescript-template-03
 1. frontend
 2. backend
 

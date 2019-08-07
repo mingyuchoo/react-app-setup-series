@@ -11,8 +11,8 @@ const normalizePort = (val) => {
     return false;
 };
 // server setting
-const port = normalizePort(process.env.PORT || '3000');
-const devPort = normalizePort(process.env.PORT || '3001');
+const port = normalizePort(process.env.PORT || '80');
+const devPort = normalizePort(process.env.PORT || '3000');
 // listen
 const server = app_1.default.listen(port, () => {
     console.log(`This application listening on port ${port}.`);
