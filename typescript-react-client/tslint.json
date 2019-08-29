@@ -1,7 +1,0 @@
-{
-    "extends": "tslint-config-standard",
-    "rules": {},
-    "compileOptions": {
-      "strictNullChecks": true
-    }
-  }
