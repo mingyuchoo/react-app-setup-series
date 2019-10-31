@@ -1,0 +1,14 @@
+---
+extends: "@istanbuljs/nyc-config-typescript"
+all: true
+extension:
+  - ".ts"
+include:
+  - src/**/*.ts
+  - test/**/*.spec.ts
+exclude:
+  - config
+  - node_modules
+reporter:
+  - html
+  - text

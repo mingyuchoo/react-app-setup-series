@@ -1,0 +1,29 @@
+{
+  "name": "nyc-01-initial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:jasmine-ts",
+    "test:jasmine-ts": "jasmine-ts --config=config/jasmine.json",
+    "test:ts-node": "ts-node ./node_modules/.bin/jasmine --config=config/jasmine.json",
+    "coverage": "npm run coverage:unit",
+    "coverage:unit": "nyc --nycrc-path=config/.nycrc.yaml npm run test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jasmine": "^3.4.4",
+    "jasmine": "^3.5.0",
+    "jasmine-spec-reporter": "^4.2.1",
+    "jasmine-ts": "^0.3.0",
+    "nyc": "^14.1.1",
+    "source-map-support": "^0.5.13",
+    "ts-node": "^8.4.1"
+  },
+  "dependencies": {
+    "@types/node": "^12.11.1",
+    "typescript": "^3.6.4"
+  }
+}

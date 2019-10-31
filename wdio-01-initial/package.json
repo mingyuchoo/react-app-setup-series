@@ -1,0 +1,20 @@
+{
+  "name": "wdio-01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/wdio ./wdio.conf.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wdio/cli": "^5.12.5",
+    "@wdio/dot-reporter": "^5.12.1",
+    "@wdio/jasmine-framework": "^5.12.1",
+    "@wdio/local-runner": "^5.12.5",
+    "chromedriver": "^76.0.1",
+    "wdio-chromedriver-service": "^5.0.2"
+  }
+}
