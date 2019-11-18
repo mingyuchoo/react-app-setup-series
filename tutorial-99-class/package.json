@@ -1,0 +1,15 @@
+{
+  "name": "tutorial-01-initial",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "typescript": "^3.7.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "tsc && node dist/class.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
