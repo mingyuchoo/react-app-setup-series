@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
 const AppLink: React.FC = () => {
+  const [link, setLink] = useState("https://reactjs.org")
+  const [target, setTarget] = useState("_blank")
+  const [rel, setRel] = useState("noopener noreferrer")
+
   return (
     <a
       className="App-link"
-      href="https://reactjs.org"
-      target="_blank"
-      rel="noopener noreferrer"
+      href={link}
+      target={target}
+      rel={rel}
     >
       Learn React
     </a>
