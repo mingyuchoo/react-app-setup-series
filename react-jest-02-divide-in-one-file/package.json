@@ -1,5 +1,5 @@
 {
-  "name": "react-jest-01-initial",
+  "name": "react-jest-02-divide-in-one-file",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
