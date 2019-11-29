@@ -28,3 +28,4 @@ plugins:
 rules:
   prettier/prettier: error
   '@typescript-eslint/prefer-regexp-exec': off
+  '@typescript-eslint/no-unused-vars': off

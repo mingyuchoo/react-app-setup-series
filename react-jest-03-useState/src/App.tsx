@@ -6,7 +6,9 @@ import {
   ButtonClass,
   ButtonFunction1,
   ButtonFunction2,
-} from './components/UseStateExample'
+} from './components/Button'
+
+import { Counter } from './components/Counter'
 
 const AppLink: React.FC = () => {
   const [link, setLink] = useState('https://reactjs.org')
@@ -38,6 +40,7 @@ const AppHeader: React.FC = () => {
       <ButtonClass />
       <ButtonFunction1 />
       <ButtonFunction2 />
+      <Counter initialCount={1} />
       <header className="App-header">
         <AppLogo />
         <AppParagraph />
