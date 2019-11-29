@@ -1,5 +1,4 @@
 import React, { Component, useState, ReactElement } from 'react'
-import { ReactElementLike } from 'prop-types'
 
 export class ButtonClass extends Component {
   state = { buttonText: 'ButtonClass' }

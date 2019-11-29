@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { useState, ReactElement } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
@@ -9,8 +9,9 @@ import {
 } from './components/Button'
 
 import { Counter } from './components/Counter'
+import { DataLoader } from './components/DataLoader'
 
-const AppLink: React.FC = () => {
+const AppLink: React.FC = (): ReactElement => {
   const [link, setLink] = useState('https://reactjs.org')
   const [target, setTarget] = useState('_blank')
   const [rel, setRel] = useState('noopener noreferrer')
@@ -22,7 +23,7 @@ const AppLink: React.FC = () => {
   )
 }
 
-const AppParagraph: React.FC = () => {
+const AppParagraph: React.FC = (): ReactElement => {
   return (
     <p>
       Edit <code>src/App.tsx</code> and save to reload.
@@ -30,17 +31,18 @@ const AppParagraph: React.FC = () => {
   )
 }
 
-const AppLogo: React.FC = () => {
+const AppLogo: React.FC = (): ReactElement => {
   return <img src={logo} className="App-logo" alt="logo" />
 }
 
-const AppHeader: React.FC = () => {
+const AppHeader: React.FC = (): ReactElement => {
   return (
     <div>
       <ButtonClass />
       <ButtonFunction1 />
       <ButtonFunction2 />
-      <Counter initialCount={1} />
+      <Counter initial={1} />
+      <DataLoader />
       <header className="App-header">
         <AppLogo />
         <AppParagraph />
@@ -50,7 +52,7 @@ const AppHeader: React.FC = () => {
   )
 }
 
-const App: React.FC = () => {
+const App: React.FC = (): ReactElement => {
   return (
     <div className="App">
       <AppHeader />
