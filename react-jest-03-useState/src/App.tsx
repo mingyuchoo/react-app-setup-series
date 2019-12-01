@@ -2,12 +2,6 @@ import React, { useState, ReactElement } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
-import {
-  ButtonClass,
-  ButtonFunction1,
-  ButtonFunction2,
-} from './components/Button'
-
 import { Counter } from './components/Counter'
 import { DataLoader } from './components/DataLoader'
 
@@ -38,11 +32,7 @@ const AppLogo: React.FC = (): ReactElement => {
 const AppHeader: React.FC = (): ReactElement => {
   return (
     <div>
-      <ButtonClass />
-      <ButtonFunction1 />
-      <ButtonFunction2 />
       <Counter initial={1} />
-      <DataLoader />
       <header className="App-header">
         <AppLogo />
         <AppParagraph />

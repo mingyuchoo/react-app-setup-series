@@ -1,10 +1,23 @@
-import React, { useState, useEffect, ReactElement } from 'react'
+import React, {
+  useState,
+  useEffect,
+  ReactElement,
+  MouseEventHandler,
+} from 'react'
 
-interface Count {
+interface ButtonProps {
+  handleClick: MouseEventHandler
+  text: string
+}
+export const Button: React.FC<ButtonProps> = (props): ReactElement => {
+  return <button onClick={props.handleClick}>{props.text}</button>
+}
+
+interface CounterProps {
   initial: number
 }
 
-export const Counter: React.FC<Count> = (props: Count): ReactElement => {
+export const Counter: React.FC<CounterProps> = (props): ReactElement => {
   const [count, setCount] = useState(props.initial)
 
   useEffect(() => {
@@ -14,9 +27,12 @@ export const Counter: React.FC<Count> = (props: Count): ReactElement => {
   return (
     <div>
       <p>You clicked {count} times</p>
-      <button onClick={(): void => setCount(props.initial)}>Reset</button>
-      <button onClick={(): void => setCount(count - 1)}>Minus</button>
-      <button onClick={(): void => setCount(count + 1)}>Plus</button>
+      <Button handleClick={(): void => setCount(count - 1)} text={'Minus'} />
+      <Button
+        handleClick={(): void => setCount(props.initial)}
+        text={'Reset'}
+      />
+      <Button handleClick={(): void => setCount(count + 1)} text={'Plus'} />
     </div>
   )
 }
