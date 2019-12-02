@@ -1,103 +1,97 @@
-import React, { useState, FormEvent, ChangeEvent, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
+import logo from './logo.svg';
+import './App.css';
+
+import ToDo from './components/ToDo';
 
 /**
- * https://medium.com/javascript-in-plain-english/i-tested-a-react-app-with-jest-testing-library-and-cypress-here-are-the-differences-3192eae03850
- * https://github.com/mingyuchoo/todo-list-react-ts/blob/master/src/App.tsx
- * https://github.com/mingyuchoo/react-todo-2019/blob/master/src/components/ToDo.js
+ * AppLink
  */
-interface NewTaskFormProps {
-  task: Task;
-  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+interface AppLinkProps {
+  href: string;
+  target: string;
+  rel: string;
 }
 
-const NewTaskForm: React.FC<NewTaskFormProps> = ({
-  task,
-  onSubmit,
-  onChange,
-}): ReactElement => {
+// function AppLink<AppLinkProps>(props: AppLinkProps): ReactElement {
+const AppLink: React.FC<AppLinkProps> = (props: AppLinkProps): ReactElement => {
   return (
-    <form onSubmit={onSubmit}>
-      <input onChange={onChange} value={task.name} />
-      <button type="submit">Add a task</button>
-    </form>
+    <a
+      className="App-link"
+      href={props.href}
+      target={props.target}
+      rel={props.rel}
+    >
+      Learn React
+    </a>
   );
 };
 
-interface TasksListItemProps {
-  task: Task;
-  onDelete: (task: Task) => void;
-}
-
-const TaskListItem: React.FC<TasksListItemProps> = ({
-  task,
-  onDelete,
-}): ReactElement => {
-  const onClick = () => {
-    onDelete(task);
-  };
-
+/**
+ * AppParagraph
+ */
+// function AppParagraph(): ReactElement {
+const AppParagraph: React.FC = (): ReactElement => {
   return (
-    <li>
-      {task.name} <button onClick={onClick}>X</button>
-    </li>
+    <p>
+      Edit <code>src/App.tsx</code> and save to reload.
+    </p>
   );
 };
 
-interface TaskListProps {
-  tasks: Task[];
-  onDelete: (task: Task) => void;
-}
+/**
+ * AppLogo
+ */
+// function AppLogo(): ReactElement {
+const AppLogo: React.FC = (): ReactElement => {
+  return <img src={logo} className="App-logo" alt="logo" />;
+};
 
-const TasksList: React.FC<TaskListProps> = ({
-  tasks,
-  onDelete,
-}): ReactElement => {
+/**
+ * AppHeader
+ */
+// function AppHeader(): ReactElement {
+const AppHeader: React.FC = (): ReactElement => {
   return (
-    <ul>
-      {tasks.map(task => (
-        <TaskListItem task={task} onDelete={onDelete} />
-      ))}
-    </ul>
+    <header className="App-header">
+      <AppLogo />
+    </header>
   );
 };
 
-interface Task {
-  id: number;
-  name: string;
-}
-
-interface State {
-  newTask: Task;
-  tasks: Task[];
-}
-
-const App: React.FC = (): ReactElement => {
-  const [newTask, setNewTask] = useState({ id: 3, name: '' });
-  const [tasks, setTasks] = useState([
-    { id: 1, name: 'clean the house' },
-    { id: 2, name: 'buy milk' },
-  ]);
-
-  const deleteTask = (taskToDelete: Task) => {
-    setTasks(tasks.filter(task => task.id !== taskToDelete.id));
-  };
-
-  const addTask = (event: FormEvent<HTMLFormElement>) => {
-    setTasks([newTask, ...tasks]);
-  };
-  const handleTaskChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setNewTask({ ...newTask, name: event.target.value });
-  };
+/**
+ * AppBody
+ */
+// function AppBody(): ReactElement {
+const AppBody: React.FC = (): ReactElement => {
   return (
-    <div>
-      <h2>Hello React TS!</h2>
-      <NewTaskForm
-        task={newTask}
-        onSubmit={addTask}
-        onChange={handleTaskChange}
+    <div className="App-body">
+      <AppParagraph />
+      <AppLink
+        href="https://reactjs.org"
+        target="_blank"
+        rel="noopener noreferrer"
       />
-      <TasksList tasks={tasks} onDelete={deleteTask} />
+    </div>
+  );
+};
+
+/**
+ * AppFooter
+ */
+// function AppFooter(): ReactElement {
+const AppFooter: React.FC = (): ReactElement => {
+  return <footer></footer>;
+};
+
+/**
+ * App
+ */
+// function App(): ReactElement {
+const App: React.FC = (): ReactElement => {
+  return (
+    <div className="App">
+      <ToDo />
     </div>
   );
 };

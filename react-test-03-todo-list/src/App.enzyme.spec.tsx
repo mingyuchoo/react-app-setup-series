@@ -4,7 +4,7 @@
  *  - npm install --save-dev @types/enzyme @types/enzyme-adpater-react-16
  */
 import React from 'react';
-import App from './App';
+import App from './TaskApp';
 
 import { shallow } from 'enzyme';
 
