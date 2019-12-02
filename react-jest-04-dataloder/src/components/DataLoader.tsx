@@ -1,5 +1,7 @@
 import React, { useState, ReactElement, useEffect } from 'react'
 
+import './DataLoader.css'
+
 interface Movie {
   id: number
   title: string

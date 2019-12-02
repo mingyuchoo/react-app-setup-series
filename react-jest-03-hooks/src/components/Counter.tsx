@@ -1,23 +1,18 @@
-import React, {
-  useState,
-  useEffect,
-  ReactElement,
-  MouseEventHandler,
-} from 'react'
+import React, { useState, useEffect, ReactElement } from 'react'
 
-interface ButtonProps {
-  handleClick: MouseEventHandler
-  text: string
-}
-export const Button: React.FC<ButtonProps> = (props): ReactElement => {
-  return <button onClick={props.handleClick}>{props.text}</button>
-}
+import { Button } from './Button'
 
+/**
+ * Counter
+ */
 interface CounterProps {
   initial: number
 }
 
-export const Counter: React.FC<CounterProps> = (props): ReactElement => {
+// function Counter<CounterProps> (props:CounterProps): RectElement {
+export const Counter: React.FC<CounterProps> = (
+  props: CounterProps
+): ReactElement => {
   const [count, setCount] = useState(props.initial)
 
   useEffect(() => {

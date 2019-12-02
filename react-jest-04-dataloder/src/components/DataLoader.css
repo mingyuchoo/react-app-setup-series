@@ -1,0 +1,14 @@
+ul {
+  list-style-type: none;
+  text-align: left;
+  align-items: left;
+  justify-content: left;
+}
+li {
+  font-size: 15px;
+}
+li:before {
+  content: '-  ';
+  color: red;
+  font-size: 25px;
+}
