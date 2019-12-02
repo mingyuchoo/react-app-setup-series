@@ -27,7 +27,8 @@
     "lint": "eslint --config .eslintrc.yaml --fix './src/**/*.{ts,tsx}'",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --verbose --watchAll=false",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
