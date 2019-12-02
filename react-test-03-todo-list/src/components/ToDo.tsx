@@ -1,4 +1,9 @@
-import React, { useState, ChangeEvent, ReactElement } from 'react';
+import React, {
+  useState,
+  ChangeEvent,
+  ReactElement,
+  KeyboardEvent,
+} from 'react';
 
 interface Item {
   id: number;
@@ -7,12 +12,22 @@ interface Item {
 
 interface ToDoItemProps {
   item: Item;
+  deleteItem: (id: number) => void;
 }
-const ToDoItem: React.FC<ToDoItemProps> = ({ item }): ReactElement => {
+const ToDoItem: React.FC<ToDoItemProps> = ({
+  item,
+  deleteItem,
+}): ReactElement => {
   return (
     <div>
       <p>{item.title}</p>
-      <button>-</button>
+      <button
+        onClick={() => {
+          deleteItem(item.id);
+        }}
+      >
+        -
+      </button>
     </div>
   );
 };
@@ -43,17 +58,18 @@ const ToDo: React.FC = (): ReactElement => {
     setItemTitle('');
   };
 
-  const handleKeyPress = (event: KeyboardEvent) => {
+  const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       createNewToDoItem();
     }
   };
 
   const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
+    console.log('event.occurred');
     setItemTitle(event.target.value);
   };
 
-  const deleteToDoItem = (id: number) => {
+  const deleteToDoItem = (id: number): void => {
     setToDoList(toDoList.filter(toDoItem => toDoItem.id !== id));
   };
 
@@ -62,12 +78,23 @@ const ToDo: React.FC = (): ReactElement => {
       <h1>React To Do</h1>
       <div>
         <div>
-          <input type="text" />
-          <button>+</button>
+          <input
+            type="text"
+            value={itemTitle}
+            onChange={handleInput}
+            onKeyPress={handleKeyPress}
+          />
+          <button onClick={createNewToDoItem}>+</button>
         </div>
         <div>
           {toDoList.map(toDoItem => {
-            return <ToDoItem key={toDoItem.id} item={toDoItem} />;
+            return (
+              <ToDoItem
+                key={toDoItem.id}
+                item={toDoItem}
+                deleteItem={deleteToDoItem}
+              />
+            );
           })}
         </div>
       </div>
