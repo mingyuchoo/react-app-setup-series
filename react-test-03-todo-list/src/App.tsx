@@ -1,6 +1,7 @@
 import React, { useState, FormEvent, ChangeEvent, ReactElement } from 'react';
 
 /**
+ * https://medium.com/javascript-in-plain-english/i-tested-a-react-app-with-jest-testing-library-and-cypress-here-are-the-differences-3192eae03850
  * https://github.com/mingyuchoo/todo-list-react-ts/blob/master/src/App.tsx
  * https://github.com/mingyuchoo/react-todo-2019/blob/master/src/components/ToDo.js
  */
