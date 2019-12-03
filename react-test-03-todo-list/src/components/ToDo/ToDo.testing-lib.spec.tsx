@@ -1,16 +1,16 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import ToDo from './ToDo';
+import { ToDoItem } from './ToDo';
 
 describe('<ToDoItem/>', () => {
-  const item = { text: 'Clean the pot' };
+  const item = { title: 'Clean the pot' };
 
-  it('Renders the text from the prop', () => {
+  it('9. Renders the text from the prop', () => {
     const { getByTestId } = render(<ToDoItem item={item} />);
-    expect(getByTestId('todo-text').textContent).toBe(item.text);
+    expect(getByTestId('todo-text').textContent).toBe(item.title);
   });
 
-  it('Renders a delete button', () => {
+  it('10. Renders a delete button', () => {
     const { getByTestId } = render(<ToDoItem item={item} />);
     expect(getByTestId('delete').textContent).toBe('-');
   });
