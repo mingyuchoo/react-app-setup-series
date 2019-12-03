@@ -5,6 +5,8 @@ import React, {
   KeyboardEvent,
 } from 'react';
 
+import './ToDo.css';
+
 interface Item {
   id: number;
   title: string;
@@ -19,9 +21,10 @@ const ToDoItem: React.FC<ToDoItemProps> = ({
   deleteItem,
 }): ReactElement => {
   return (
-    <div>
-      <p>{item.title}</p>
+    <div className="ToDoItem">
+      <p className="ToDoItem-Text">{item.title}</p>
       <button
+        className="ToDoItem-Delete"
         onClick={() => {
           deleteItem(item.id);
         }}
@@ -74,17 +77,24 @@ const ToDo: React.FC = (): ReactElement => {
   };
 
   return (
-    <div>
-      <h1>React To Do</h1>
-      <div>
-        <div>
+    <div className="ToDo">
+      <h1 className="ToDo-Header">React To Do</h1>
+      <div className="ToDo-Container">
+        <div className="ToDoInput">
           <input
+            data-testid="todo-input"
             type="text"
             value={itemTitle}
             onChange={handleInput}
             onKeyPress={handleKeyPress}
           />
-          <button onClick={createNewToDoItem}>+</button>
+          <button
+            className="ToDo-Add"
+            data-testid="add"
+            onClick={createNewToDoItem}
+          >
+            +
+          </button>
         </div>
         <div>
           {toDoList.map(toDoItem => {
