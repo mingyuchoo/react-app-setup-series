@@ -92,7 +92,7 @@ const TaskApp: React.FC = (): ReactElement => {
   };
 
   const saveTask = (event: FormEvent<HTMLFormElement>) => {
-    let newId = generateId();
+    const newId = generateId();
     setNewTask({ id: newId, ...newTask });
     setTasks([newTask, ...tasks]);
   };

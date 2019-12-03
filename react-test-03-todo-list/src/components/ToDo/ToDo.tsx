@@ -7,24 +7,27 @@ import React, {
 
 import './ToDo.css';
 
-interface Item {
+export interface Item {
   id: number;
   title: string;
 }
 
-interface ToDoItemProps {
+export interface ToDoItemProps {
   item: Item;
   deleteItem: (id: number) => void;
 }
-const ToDoItem: React.FC<ToDoItemProps> = ({
+export const ToDoItem: React.FC<ToDoItemProps> = ({
   item,
   deleteItem,
 }): ReactElement => {
   return (
-    <div className="ToDoItem">
-      <p className="ToDoItem-Text">{item.title}</p>
+    <div className="ToDoItem" data-testid="todo-item">
+      <p className="ToDoItem-Text" data-testid="todo-text">
+        {item.title}
+      </p>
       <button
         className="ToDoItem-Delete"
+        data-testid="delete"
         onClick={() => {
           deleteItem(item.id);
         }}

@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import App from './App';
-import { findAllByAltText } from '@testing-library/dom';
 
 describe('<App /> (Jest + Enzyme)', () => {
   let app: ReactWrapper;
@@ -55,5 +54,30 @@ describe('Adding items (Jest + Enzyme)', () => {
         .at(0)
         .text()
     ).toEqual('Create more tests');
+  });
+});
+
+describe('Deleting items (Jest + Enzyme)', () => {
+  let app: ReactWrapper;
+
+  beforeAll(() => {
+    app = mount(<App />);
+  });
+
+  it('7. When the deleting button is pressed for the first todo item, it removes the entire item', () => {
+    app
+      .find('.ToDoItem-Delete')
+      .first()
+      .simulate('click');
+    expect(app.find('.ToDoItem').length).toBe(1);
+  });
+
+  it('8. means that because the first toDoItem was deleted, the first toDoItem should now be buy milk', () => {
+    expect(
+      app
+        .find('.ToDoItem-Text')
+        .first()
+        .text()
+    ).toEqual('buy milk');
   });
 });

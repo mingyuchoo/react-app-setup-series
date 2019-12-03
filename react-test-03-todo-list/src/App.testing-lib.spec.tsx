@@ -47,3 +47,23 @@ describe('Adding items (Testing-library)', () => {
     expect(getByText('Create more tests')).toBeInTheDocument();
   });
 });
+
+describe('Deleting items. (Testing-library)', () => {
+  it('7. When the delete button is pressed for the first todo item, it removes the entire item', () => {
+    const { queryAllByTestId } = render(<ToDo />);
+    const deleteButtons = queryAllByTestId('delete');
+    expect(queryAllByTestId('todo-item').length).toBe(2);
+
+    fireEvent.click(deleteButtons[0]);
+    expect(queryAllByTestId('todo-item').length).toBe(1);
+  });
+
+  it('8. means that becuase the first toDoItem was deleted, the first toDoItem should now be buy milk', () => {
+    const { queryAllByTestId, queryByTestId } = render(<ToDo />);
+    const deleteButtons = queryAllByTestId('delete');
+
+    fireEvent.click(deleteButtons[0]);
+    const todoText = queryByTestId('todo-text');
+    expect(todoText.textContent).toEqual('buy milk');
+  });
+});
