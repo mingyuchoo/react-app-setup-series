@@ -11,14 +11,12 @@ interface NewTaskFormProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const NewTaskForm: React.FC<NewTaskFormProps> = ({
-  task,
-  onChange,
-  onSubmit,
-}): ReactElement => {
+const NewTaskForm: React.FC<NewTaskFormProps> = (
+  props: NewTaskFormProps
+): ReactElement => {
   return (
-    <form onSubmit={onSubmit}>
-      <input onChange={onChange} value={task.title} />
+    <form onSubmit={props.onSubmit}>
+      <input onChange={props.onChange} value={props.task.title} />
       <button type="submit">Add a task</button>
     </form>
   );
@@ -29,17 +27,16 @@ interface TasksListItemProps {
   onDelete: (task: Task) => void;
 }
 
-const TaskListItem: React.FC<TasksListItemProps> = ({
-  task,
-  onDelete,
-}): ReactElement => {
-  const onClick = () => {
-    onDelete(task);
+const TaskListItem: React.FC<TasksListItemProps> = (
+  props: TasksListItemProps
+): ReactElement => {
+  const onClick = (): void => {
+    props.onDelete(props.task);
   };
 
   return (
     <li>
-      {task.title} <button onClick={onClick}>X</button>
+      {props.task.title} <button onClick={onClick}>X</button>
     </li>
   );
 };
@@ -49,14 +46,13 @@ interface TaskListProps {
   onDelete: (task: Task) => void;
 }
 
-const TasksList: React.FC<TaskListProps> = ({
-  tasks,
-  onDelete,
-}): ReactElement => {
+const TasksList: React.FC<TaskListProps> = (
+  props: TaskListProps
+): ReactElement => {
   return (
     <ul>
-      {tasks.map(task => (
-        <TaskListItem key={task.id} task={task} onDelete={onDelete} />
+      {props.tasks.map(task => (
+        <TaskListItem key={task.id} task={task} onDelete={props.onDelete} />
       ))}
     </ul>
   );
@@ -79,7 +75,7 @@ const TaskApp: React.FC = (): ReactElement => {
     { id: 2, title: 'buy milk' },
   ]);
 
-  const generateId = () => {
+  const generateId = (): number => {
     if (tasks && tasks.length > 1) {
       return Math.max(...tasks.map(task => task.id)) + 1;
     } else {
@@ -87,17 +83,17 @@ const TaskApp: React.FC = (): ReactElement => {
     }
   };
 
-  const modifyTask = (event: ChangeEvent<HTMLInputElement>) => {
+  const modifyTask = (event: ChangeEvent<HTMLInputElement>): void => {
     setNewTask({ ...newTask, title: event.target.value });
   };
 
-  const saveTask = (event: FormEvent<HTMLFormElement>) => {
+  const saveTask = (event: FormEvent<HTMLFormElement>): void => {
     const newId = generateId();
     setNewTask({ id: newId, ...newTask });
     setTasks([newTask, ...tasks]);
   };
 
-  const removeTask = (taskToDelete: Task) => {
+  const removeTask = (taskToDelete: Task): void => {
     setTasks(tasks.filter(task => task.id !== taskToDelete.id));
   };
 

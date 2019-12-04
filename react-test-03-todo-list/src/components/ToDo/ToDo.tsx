@@ -16,20 +16,19 @@ export interface ToDoItemProps {
   item: Item;
   deleteItem: (id: number) => void;
 }
-export const ToDoItem: React.FC<ToDoItemProps> = ({
-  item,
-  deleteItem,
-}): ReactElement => {
+export const ToDoItem: React.FC<ToDoItemProps> = (
+  props: ToDoItemProps
+): ReactElement => {
   return (
     <div className="ToDoItem" data-testid="todo-item">
       <p className="ToDoItem-Text" data-testid="todo-text">
-        {item.title}
+        {props.item.title}
       </p>
       <button
         className="ToDoItem-Delete"
         data-testid="delete"
-        onClick={() => {
-          deleteItem(item.id);
+        onClick={(): void => {
+          props.deleteItem(props.item.id);
         }}
       >
         -
@@ -45,7 +44,7 @@ const ToDo: React.FC = (): ReactElement => {
   ]);
   const [itemTitle, setItemTitle] = useState('');
 
-  const generateId = () => {
+  const generateId = (): number => {
     if (toDoList && toDoList.length > 1) {
       return Math.max(...toDoList.map(toDoItem => toDoItem.id)) + 1;
     } else {
@@ -53,7 +52,7 @@ const ToDo: React.FC = (): ReactElement => {
     }
   };
 
-  const createNewToDoItem = () => {
+  const createNewToDoItem = (): void => {
     if (!itemTitle) {
       alert('Please enter a todo!');
       return;
@@ -64,13 +63,13 @@ const ToDo: React.FC = (): ReactElement => {
     setItemTitle('');
   };
 
-  const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>): void => {
     if (event.key === 'Enter') {
       createNewToDoItem();
     }
   };
 
-  const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleInput = (event: ChangeEvent<HTMLInputElement>): void => {
     console.log('event.occurred');
     setItemTitle(event.target.value);
   };

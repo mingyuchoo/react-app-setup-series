@@ -33,7 +33,7 @@
   },
   "scripts": {
     "eject": "react-scripts eject",
-    "lint": "eslint --config .eslintrc.yaml --fix './src/**/*.{ts,tsx}'",
+    "lint": "eslint --config .eslintrc.yaml --fix './**/*.{ts,tsx}'",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --verbose --watchAll=false",

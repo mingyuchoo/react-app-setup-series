@@ -35,7 +35,7 @@ describe('Adding items (Testing-library)', () => {
     expect(window.alert).toHaveBeenCalled();
   });
 
-  it('6. When the add button is pressed, if the input field has text, it creates a new todo item', async () => {
+  it('6. When the add button is pressed, if the input field has text, it creates a new todo item', () => {
     const { getByTestId, getByText } = render(<ToDo />);
 
     fireEvent.change(getByTestId('todo-input'), {

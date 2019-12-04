@@ -40,6 +40,6 @@ describe('Deleting items. (Cypress)', () => {
   });
 
   it('8. means that because the first toDoItem was deleted, the first toDoItem should now be buy milk', () => {
-    cy.get(':nth-child(1) > .ToDoItem').contains('buy milk');
+    cy.get(':nth-child(1).ToDoItem').contains('buy milk');
   });
 });

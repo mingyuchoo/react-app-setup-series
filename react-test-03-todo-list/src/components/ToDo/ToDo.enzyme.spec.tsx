@@ -4,12 +4,14 @@ import { mount, ReactWrapper } from 'enzyme';
 import { ToDoItem } from './ToDo';
 
 describe('<ToDoItem/> (Enzyme)', () => {
-  let item = { title: 'Clean the pot' };
-  let toDoItem: ReactWrapper;
-  toDoItem = mount(<ToDoItem item={item.title} />);
+  const mockItem = { id: 0, title: 'Clean the pot' };
+  const mockDeleteItem = (id: number): void => {};
+  const toDoItem = mount(
+    <ToDoItem item={mockItem} deleteItem={mockDeleteItem} />
+  );
 
   it('9. Renders the text from the prop', () => {
-    expect(toDoItem.find('p').text()).toEqual(item.title);
+    expect(toDoItem.find('p').text()).toEqual(mockItem.title);
   });
 
   it('10. Renders a delete button', () => {
