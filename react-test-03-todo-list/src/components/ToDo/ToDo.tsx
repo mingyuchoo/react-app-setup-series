@@ -37,6 +37,14 @@ export const ToDoItem: React.FC<ToDoItemProps> = (
   );
 };
 
+export const generateId = (list: Array<Item>): number => {
+  if (list && list.length > 1) {
+    return Math.max(...list.map((item: Item) => item.id)) + 1;
+  } else {
+    return 1;
+  }
+};
+
 const ToDo: React.FC = (): ReactElement => {
   const [toDoList, setToDoList] = useState([
     { id: 1, title: 'clean the house' },
@@ -44,20 +52,12 @@ const ToDo: React.FC = (): ReactElement => {
   ]);
   const [itemTitle, setItemTitle] = useState('');
 
-  const generateId = (): number => {
-    if (toDoList && toDoList.length > 1) {
-      return Math.max(...toDoList.map(toDoItem => toDoItem.id)) + 1;
-    } else {
-      return 1;
-    }
-  };
-
   const createNewToDoItem = (): void => {
     if (!itemTitle) {
       alert('Please enter a todo!');
       return;
     }
-    const newId = generateId();
+    const newId = generateId(toDoList);
     const newToDoItem = { id: newId, title: itemTitle };
     setToDoList([newToDoItem, ...toDoList]);
     setItemTitle('');
@@ -70,12 +70,11 @@ const ToDo: React.FC = (): ReactElement => {
   };
 
   const handleInput = (event: ChangeEvent<HTMLInputElement>): void => {
-    console.log('event.occurred');
     setItemTitle(event.target.value);
   };
 
   const deleteToDoItem = (id: number): void => {
-    setToDoList(toDoList.filter(toDoItem => toDoItem.id !== id));
+    setToDoList(toDoList.filter((toDoItem: Item) => toDoItem.id !== id));
   };
 
   return (
