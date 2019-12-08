@@ -37,9 +37,11 @@ describe('Adding items (Cypress)', () => {
 describe('Deleting items. (Cypress)', () => {
   it('7. When the delete button is pressed for the first todo item, it removes the entire item', () => {
     cy.get(':nth-child(1) > .ToDoItem-Delete').click();
+    cy.get('.ToDoItem').should('have.length', 2);
   });
 
   it('8. means that because the first toDoItem was deleted, the first toDoItem should now be buy milk', () => {
+    cy.get(':nth-child(1) > .ToDoItem-Delete').click();
     cy.get(':nth-child(1).ToDoItem').contains('buy milk');
   });
 });
