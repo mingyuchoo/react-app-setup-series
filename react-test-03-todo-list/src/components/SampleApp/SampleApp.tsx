@@ -1,18 +1,20 @@
 import React, { ReactElement } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from '../../logo.svg';
+import '../../App.css';
 
 /**
  * AppLink
  */
-interface AppLinkProps {
+export interface AppLinkProps {
   href: string;
   target: string;
   rel: string;
 }
 
 // function AppLink<AppLinkProps>(props: AppLinkProps): ReactElement {
-const AppLink: React.FC<AppLinkProps> = (props: AppLinkProps): ReactElement => {
+export const AppLink: React.FC<AppLinkProps> = (
+  props: AppLinkProps
+): ReactElement => {
   return (
     <a
       className="App-link"
@@ -29,7 +31,7 @@ const AppLink: React.FC<AppLinkProps> = (props: AppLinkProps): ReactElement => {
  * AppParagraph
  */
 // function AppParagraph(): ReactElement {
-const AppParagraph: React.FC = (): ReactElement => {
+export const AppParagraph: React.FC = (): ReactElement => {
   return (
     <p>
       Edit <code>src/App.tsx</code> and save to reload.
@@ -41,7 +43,7 @@ const AppParagraph: React.FC = (): ReactElement => {
  * AppLogo
  */
 // function AppLogo(): ReactElement {
-const AppLogo: React.FC = (): ReactElement => {
+export const AppLogo: React.FC = (): ReactElement => {
   return <img src={logo} className="App-logo" alt="logo" />;
 };
 
@@ -49,7 +51,7 @@ const AppLogo: React.FC = (): ReactElement => {
  * AppHeader
  */
 // function AppHeader(): ReactElement {
-const AppHeader: React.FC = (): ReactElement => {
+export const AppHeader: React.FC = (): ReactElement => {
   return (
     <header className="App-header">
       <AppLogo />
@@ -61,7 +63,7 @@ const AppHeader: React.FC = (): ReactElement => {
  * AppBody
  */
 // function AppBody(): ReactElement {
-const AppBody: React.FC = (): ReactElement => {
+export const AppBody: React.FC = (): ReactElement => {
   return (
     <div className="App-body">
       <AppParagraph />
@@ -78,6 +80,6 @@ const AppBody: React.FC = (): ReactElement => {
  * AppFooter
  */
 // function AppFooter(): ReactElement {
-const AppFooter: React.FC = (): ReactElement => {
+export const AppFooter: React.FC = (): ReactElement => {
   return <footer></footer>;
 };

@@ -5,7 +5,7 @@ import { ToDoItem } from './ToDo';
 
 describe('<ToDoItem/> (Enzyme)', () => {
   const mockItem = { id: 0, title: 'Clean the pot' };
-  const mockDeleteItem = (id: number): void => {};
+  const mockDeleteItem = jest.fn();
   const toDoItem = mount(
     <ToDoItem item={mockItem} deleteItem={mockDeleteItem} />
   );

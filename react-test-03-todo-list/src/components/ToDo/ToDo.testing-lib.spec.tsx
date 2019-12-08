@@ -5,7 +5,7 @@ import { ToDoItem } from './ToDo';
 describe('<ToDoItem/>', () => {
   // const item = { title: 'Clean the pot' };
   const mockItem = { id: 0, title: 'Clean the pot' };
-  const mockDeleteItem = (id: number): void => {};
+  const mockDeleteItem = jest.fn();
 
   it('9. Renders the text from the prop', () => {
     const { getByTestId } = render(
