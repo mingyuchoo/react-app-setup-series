@@ -11,6 +11,12 @@ interface Movie {
 const DataLoader: React.FC = (): ReactElement => {
   const [data, setData] = useState([]);
 
+  const getDataFromFile = async (): Promise<void> => {
+    const response = await fetch('/data/data.json');
+    const data = await response.json();
+    setData(data);
+  };
+
   const getDataFromServer = async (): Promise<void> => {
     // response - [{"id": 1, "title": "Load of Rings" },{"id": 2, "title": "Mars" }]
     const response = await fetch('http://localhost:3001/links');
@@ -19,7 +25,8 @@ const DataLoader: React.FC = (): ReactElement => {
   };
 
   useEffect(() => {
-    getDataFromServer();
+    getDataFromFile();
+    // getDataFromServer();
   }, []);
 
   return (
