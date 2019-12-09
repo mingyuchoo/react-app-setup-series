@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import { ToDoItem } from './ToDo';
+import ToDoItem from './ToDoItem';
 
 describe('<ToDoItem/> (Enzyme)', () => {
   const mockItem = { id: 0, title: 'Clean the pot' };

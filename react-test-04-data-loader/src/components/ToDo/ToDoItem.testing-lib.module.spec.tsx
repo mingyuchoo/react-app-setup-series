@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { ToDoItem } from './ToDo';
+import ToDoItem from './ToDoItem';
 
 describe('<ToDoItem/>', () => {
   // const item = { title: 'Clean the pot' };

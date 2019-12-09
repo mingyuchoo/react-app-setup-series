@@ -1,5 +1,5 @@
 import React, { useState, ReactElement, useEffect } from 'react';
-
+import axios from 'axios';
 import './DataLoader.scss';
 
 interface Movie {
@@ -11,15 +11,21 @@ interface Movie {
 const DataLoader: React.FC = (): ReactElement => {
   const [data, setData] = useState([]);
 
-  const getDataFromServer = async (): Promise<void> => {
-    // response - [{"id": 1, "title": "Load of Rings" },{"id": 2, "title": "Mars" }]
-    const response = await fetch('http://localhost:3001/links');
-    const server_data = await response.json();
-    setData(server_data);
-  };
+  // This is same as Below function.
+  /*
+  useEffect((): void => {
+    axios.get('http://localhost:3001/links').then(result => {
+      setData(result.data);
+    });
+  }, []);
+  */
 
-  useEffect(() => {
-    getDataFromServer();
+  useEffect((): void => {
+    const fetchData = async (): Promise<void> => {
+      const result = await axios.get('http://localhost:3001/links');
+      setData(result.data);
+    };
+    fetchData();
   }, []);
 
   return (

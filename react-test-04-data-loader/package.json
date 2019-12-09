@@ -40,7 +40,7 @@
     "lint": "eslint --config .eslintrc.yaml --fix './**/*.{ts,tsx}'",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "test:unit:coverage",
+    "test": "npm run test:unit:coverage",
     "test:unit": "react-scripts test --verbose --watchAll=false",
     "test:unit:coverage": "react-scripts test --coverage --watchAll=false",
     "test:ci": "run-p --race start cypress:run",
