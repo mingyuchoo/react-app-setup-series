@@ -86,3 +86,7 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+# Cypress
+/cypress/screenshots/
+/cypress/videos/

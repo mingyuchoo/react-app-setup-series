@@ -2,6 +2,8 @@ import React, { useState, ReactElement, useEffect } from 'react';
 import axios from 'axios';
 import './DataLoader.scss';
 
+const URL = 'http://localhost:3001/links';
+
 interface Movie {
   id: number;
   title: string;
@@ -22,7 +24,7 @@ const DataLoader: React.FC = (): ReactElement => {
 
   useEffect((): void => {
     const fetchData = async (): Promise<void> => {
-      const result = await axios.get('http://localhost:3001/links');
+      const result = await axios.get(URL);
       setData(result.data);
     };
     fetchData();
