@@ -90,7 +90,7 @@ export const AppFooter: React.FC = (): ReactElement => {
  * App
  */
 // function App(): ReactElement {
-const App: React.FC = (): ReactElement => {
+export const App: React.FC = (): ReactElement => {
   return (
     <div className="App">
       <AppHeader />

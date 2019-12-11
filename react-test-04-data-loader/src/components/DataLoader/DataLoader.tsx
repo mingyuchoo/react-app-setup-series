@@ -1,40 +1,32 @@
-import React, { useState, ReactElement, useEffect } from 'react';
-import axios from 'axios';
-import './DataLoader.scss';
+import React, { useState, ReactElement } from 'react';
+import { useFetch } from './DataLoaderHooks';
 
-const URL = 'http://localhost:3001/links';
+/**
+ * BUTTON
+ */
+export const Button = (): ReactElement => {
+  const [buttonText, setButtonText] = useState('Click me, please');
+  const handleClick = (): void => {
+    setButtonText('Thanks, been clicked');
+  };
+  return <button onClick={handleClick}>{buttonText}</button>;
+};
 
-interface Movie {
+export interface Movie {
   id: number;
   title: string;
 }
 
-// https://www.valentinog.com/blog/hooks/
-const DataLoader: React.FC = (): ReactElement => {
-  const [data, setData] = useState([]);
-
-  // This is same as Below function.
-  /*
-  useEffect((): void => {
-    axios.get('http://localhost:3001/links').then(result => {
-      setData(result.data);
-    });
-  }, []);
-  */
-
-  useEffect((): void => {
-    const fetchData = async (): Promise<void> => {
-      const result = await axios.get(URL);
-      setData(result.data);
-    };
-    fetchData();
-  }, []);
-
+/**
+ * DATA_LOADER
+ */
+export const DataLoader = (): ReactElement => {
+  const data = useFetch();
   return (
     <div>
       <ul>
-        {data.map((item: Movie) => (
-          <li key={item.id}>{item.title}</li>
+        {data.map((el: Movie) => (
+          <li key={el.id}>{el.title}</li>
         ))}
       </ul>
     </div>
