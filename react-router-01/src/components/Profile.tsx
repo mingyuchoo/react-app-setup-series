@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { Member } from './Types';
 
 const Profile: React.FC<Member> = (member: Member): ReactElement => {
   const { email, password, name } = member || {};

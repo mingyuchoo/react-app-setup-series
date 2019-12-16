@@ -5,18 +5,17 @@ export interface User {
   name: string;
 }
 
-export interface match<P> {
+interface Match<P> {
   params: P;
   isExact: boolean;
   path: string;
   url: string;
 }
-// from typings
-export interface RouteComponentProps<P> {
-  match: match<P>;
+
+interface RouteComponentProps<P> {
+  match: Match<P>;
   location: H.Location;
   history: H.History;
-  staticContext?: any;
 }
 
 export type RouterProps = RouteComponentProps<User>;

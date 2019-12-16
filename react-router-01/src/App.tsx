@@ -9,13 +9,30 @@ import {
   withRouter,
 } from 'react-router-dom';
 
-import { users } from './data.json';
+import About from './components/About';
+import Home from './components/Home';
+import LoginForm from './components/LoginForm';
+import LogoutButton from './components/LogoutButton';
+import NotFound from './components/NotFound';
+import Profile from './components/Profile';
+import Users from './components/Users';
+import UserList from './components/UserList';
+import UserDetail from './components/UserDetail';
 
+/**
+ * https://www.daleseo.com/react-router-authentication/
+ */
 const App: React.FC = (): ReactElement => {
   const [user, setUser] = useState(null);
   const authenticated = user != null;
-  const login = ({ email, password }) => setUser(signIn({ email, password }));
-  const logout = () => setUser(null);
+
+  const login = ({ email, password }): void => {
+    setUser(signIn({ email, password }));
+  };
+
+  const logout = (): void => {
+    setUser(null);
+  };
 
   return (
     <div className="App">
@@ -60,43 +77,3 @@ const App: React.FC = (): ReactElement => {
 };
 
 export default App;
-
-const memberList = [
-  { email: 'kim@test.com', password: '123', name: 'Kim' },
-  { email: 'lee@test.com', password: '456', name: 'Lee' },
-  { email: 'park@test.com', password: '789', name: 'Park' },
-];
-
-const signIn = (user: Member) => {
-  const member = memberList.find(
-    member => member.email === user.email && member.password === user.password
-  );
-  if (member === undefined) throw new Error();
-  return user;
-};
-
-const AuthRoute = ({
-  authenticated,
-  component: Component,
-  render,
-  ...rest
-}) => {
-  return (
-    <Route
-      {...rest}
-      render={props =>
-        authenticated ? (
-          render ? (
-            render(props)
-          ) : (
-            <Component {...props} />
-          )
-        ) : (
-          <Redirect
-            to={{ pathname: '/login', state: { from: props.location } }}
-          />
-        )
-      }
-    />
-  );
-};

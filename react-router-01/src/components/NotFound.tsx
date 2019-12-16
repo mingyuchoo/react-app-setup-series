@@ -1,4 +1,4 @@
-import React, { useState, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 const NotFound: React.FC = (): ReactElement => {
   return (
@@ -8,3 +8,5 @@ const NotFound: React.FC = (): ReactElement => {
     </div>
   );
 };
+
+export default NotFound;

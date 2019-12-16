@@ -1,6 +1,11 @@
 import React, { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 
-const UserList: React.FC<RouterProps> = ({ match }): ReactElement => {
+import { RouterProps } from './Types';
+
+import { users } from '../data/users.json';
+
+const UserList: React.FC<RouterProps> = (props: RouterProps): ReactElement => {
   return (
     <div>
       <h1>User List</h1>
@@ -8,7 +13,7 @@ const UserList: React.FC<RouterProps> = ({ match }): ReactElement => {
       <ul>
         {users.map(({ id, name }) => (
           <li key={id}>
-            <Link to={`${match.url}/${id}`}>{name}</Link>
+            <Link to={`${props.match.url}/${id}`}>{name}</Link>
           </li>
         ))}
       </ul>

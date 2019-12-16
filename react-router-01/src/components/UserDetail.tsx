@@ -1,11 +1,12 @@
 import React, { ReactElement } from 'react';
+import { RouterProps } from './Types';
 
-const UserDetail: React.FC<RouterProps> = ({
-  match,
-  history,
-}): ReactElement => {
-  let user: User;
-  user = users.find(user => user.id === match.params.id)!;
+import { users } from '../data/users.json';
+
+const UserDetail: React.FC<RouterProps> = (
+  props: RouterProps
+): ReactElement => {
+  const user = users.find(user => user.id === match.params.id)!;
   return (
     <div>
       <h1>User Detail</h1>
@@ -18,3 +19,5 @@ const UserDetail: React.FC<RouterProps> = ({
     </div>
   );
 };
+
+export default UserDetail;

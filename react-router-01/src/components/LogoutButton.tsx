@@ -1,6 +1,8 @@
-import React, { useState, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
-const LogoutButton = ({ logout, history }) => {
+import { withRouter } from 'react-router-dom';
+
+const LogoutButton = ({ logout, history }): ReactElement => {
   const handleClick = () => {
     logout();
     history.push('/');
@@ -8,4 +10,4 @@ const LogoutButton = ({ logout, history }) => {
   return <button onClick={handleClick}>Logout</button>;
 };
 
-export default LogoutButton;
+export default withRouter(LogoutButton);
