@@ -15,7 +15,7 @@ const UserDetail: React.FC<RouterProps> = (
       <dd>{user.id}</dd>
       <dt>name</dt>
       <dd>{user.name}</dd>
-      <button onClick={() => history.back()}>Back</button>
+      <button onClick={() => props.history.goBack()}>Back</button>
     </div>
   );
 };

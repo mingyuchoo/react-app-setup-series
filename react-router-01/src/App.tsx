@@ -17,8 +17,6 @@ import LogoutButton from './components/LogoutButton';
 import NotFound from './components/NotFound';
 import Profile from './components/Profile';
 import Users from './components/Users';
-import UserList from './components/UserList';
-import UserDetail from './components/UserDetail';
 
 import { Member } from './components/Types';
 import signIn from './utils/auth';
@@ -66,6 +64,7 @@ const App: React.FC = (): ReactElement => {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
+            <Route path="/users" component={Users} />
             <Route
               path="/login"
               render={(props: RouteComponentProps) => (
