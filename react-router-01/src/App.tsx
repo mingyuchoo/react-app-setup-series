@@ -4,10 +4,11 @@ import {
   BrowserRouter as Router,
   Link,
   Route,
-  Redirect,
   Switch,
-  withRouter,
+  RouteComponentProps,
 } from 'react-router-dom';
+
+import AuthRoute from './components/AuthRoute';
 
 import About from './components/About';
 import Home from './components/Home';
@@ -19,15 +20,18 @@ import Users from './components/Users';
 import UserList from './components/UserList';
 import UserDetail from './components/UserDetail';
 
+import { Member } from './components/Types';
+import signIn from './utils/auth';
+
 /**
  * https://www.daleseo.com/react-router-authentication/
  */
 const App: React.FC = (): ReactElement => {
   const [user, setUser] = useState(null);
-  const authenticated = user != null;
+  const authenticated: boolean = user != null;
 
-  const login = ({ email, password }): void => {
-    setUser(signIn({ email, password }));
+  const login = (member: Member): void => {
+    setUser(signIn(member));
   };
 
   const logout = (): void => {
@@ -62,11 +66,22 @@ const App: React.FC = (): ReactElement => {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
-            <Route path="/users" component={Users} />
+            <Route
+              path="/login"
+              render={(props: RouteComponentProps) => (
+                <LoginForm
+                  authenticated={authenticated}
+                  login={login}
+                  {...props}
+                />
+              )}
+            />
             <AuthRoute
               authenticated={authenticated}
               path="/profile"
-              render={props => <Proifle user={user} {...props} />}
+              render={(props: RouteComponentProps) => (
+                <Profile user={user} {...props} />
+              )}
             />
             <Route component={NotFound} />
           </Switch>

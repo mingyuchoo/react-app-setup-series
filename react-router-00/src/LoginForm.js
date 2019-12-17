@@ -1,26 +1,13 @@
-import React, { useState, ReactElement } from 'react';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
-import { Member } from './Types';
-
-interface LoginFormProps {
-  authenticated: boolean;
-  login: (member: Member) => void;
-  location: any;
-}
-const LoginForm = ({
-  authenticated,
-  login,
-  location,
-}: LoginFormProps): ReactElement => {
+function LoginForm({ authenticated, login, location }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [name, setName] = useState('');
-  const name: string = '';
 
   const handleClick = () => {
     try {
-      login({ email, password, name });
+      login({ email, password });
     } catch (e) {
       alert('Failed to login');
       setEmail('');
@@ -28,11 +15,11 @@ const LoginForm = ({
     }
   };
 
-  const { from } = location.state || { from: { pathname: '/' } };
+  const { from } = location.state || { from: { pathname: "/" } };
   if (authenticated) return <Redirect to={from} />;
 
   return (
-    <div>
+    <>
       <h1>Login</h1>
       <input
         value={email}
@@ -47,8 +34,8 @@ const LoginForm = ({
         placeholder="password"
       />
       <button onClick={handleClick}>Login</button>
-    </div>
+    </>
   );
-};
+}
 
 export default LoginForm;

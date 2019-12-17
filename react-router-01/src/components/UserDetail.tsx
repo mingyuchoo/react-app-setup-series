@@ -6,7 +6,7 @@ import { users } from '../data/users.json';
 const UserDetail: React.FC<RouterProps> = (
   props: RouterProps
 ): ReactElement => {
-  const user = users.find(user => user.id === match.params.id)!;
+  const user = users.find(user => user.id === props.match.params.id)!;
   return (
     <div>
       <h1>User Detail</h1>
@@ -15,7 +15,7 @@ const UserDetail: React.FC<RouterProps> = (
       <dd>{user.id}</dd>
       <dt>name</dt>
       <dd>{user.name}</dd>
-      <button onClick={() => history.goBack()}>Back</button>
+      <button onClick={() => history.back()}>Back</button>
     </div>
   );
 };

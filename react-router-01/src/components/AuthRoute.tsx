@@ -1,23 +1,33 @@
 import React, { ReactElement } from 'react';
 
-import { Route, Redirect } from 'react-router-dom';
+import {
+  Route,
+  Redirect,
+  RouteComponentProps,
+  RouteProps,
+} from 'react-router-dom';
+
+interface AuthRouteProps extends RouteProps {
+  // Component: React.FC<RouteComponentProps>;
+  // path: string;
+  // exact?: boolean;
+  authenticated: boolean;
+}
 
 const AuthRoute = ({
+  // Component,
+  path,
+  exact,
   authenticated,
-  component: Component,
-  render,
-  ...rest
-}): ReactElement => {
+  children,
+}: AuthRouteProps): ReactElement => {
   return (
     <Route
-      {...rest}
-      render={props =>
+      exact={exact}
+      path={path}
+      render={(props: RouteComponentProps) =>
         authenticated ? (
-          render ? (
-            render(props)
-          ) : (
-            <Component {...props} />
-          )
+          { children }
         ) : (
           <Redirect
             to={{ pathname: '/login', state: { from: props.location } }}

@@ -1,21 +1,8 @@
-import H from 'history';
+import { RouteComponentProps } from 'react-router-dom';
 
 export interface User {
   id: string;
   name: string;
-}
-
-interface Match<P> {
-  params: P;
-  isExact: boolean;
-  path: string;
-  url: string;
-}
-
-interface RouteComponentProps<P> {
-  match: Match<P>;
-  location: H.Location;
-  history: H.History;
 }
 
 export type RouterProps = RouteComponentProps<User>;

@@ -1,11 +1,15 @@
 import React, { ReactElement } from 'react';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { History } from 'history';
 
-import { withRouter } from 'react-router-dom';
-
-const LogoutButton = ({ logout, history }): ReactElement => {
+interface LogoutButtonProps extends RouteComponentProps {
+  logout: () => void;
+  history: History;
+}
+const LogoutButton = (props: LogoutButtonProps): ReactElement => {
   const handleClick = () => {
-    logout();
-    history.push('/');
+    props.logout();
+    props.history.push('/');
   };
   return <button onClick={handleClick}>Logout</button>;
 };
