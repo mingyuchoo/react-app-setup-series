@@ -15,7 +15,6 @@ const LoginForm = ({
 }: LoginFormProps): ReactElement => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [name, setName] = useState('');
   const name: string = '';
 
   const handleClick = () => {
