@@ -1,0 +1,6 @@
+{
+  "fixturesFolder": false,
+  "pluginsFile": false,
+  "integrationFolder": "cypress/e2e",
+  "testFiles": "**/*.spec.ts"
+}

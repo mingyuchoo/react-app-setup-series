@@ -1,8 +1,8 @@
 import React, { useState, ReactElement, useEffect } from 'react';
 
 const Counter: React.FC = (): ReactElement => {
-  let [clicks, setClicks] = useState(0);
-  let [name, setName] = useState('Stefan');
+  const [clicks, setClicks] = useState(0);
+  const [name, setName] = useState('Stefan');
 
   useEffect(() => {
     document.title = `Hello, ${name}`;
@@ -10,7 +10,7 @@ const Counter: React.FC = (): ReactElement => {
 
   return (
     <>
-      <p>Clicks: {clicks}</p>
+      <p>Stated Counter: {clicks}</p>
       <button onClick={() => setClicks(clicks + 1)}>+</button>
       <button onClick={() => setClicks(clicks - 1)}>-</button>
     </>

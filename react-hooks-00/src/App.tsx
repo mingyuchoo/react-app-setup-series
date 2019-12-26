@@ -1,9 +1,10 @@
 import React, { ReactElement, useCallback } from 'react';
 
-import Counter from './components/Counter';
+import StatedCounter from './components/StatedCounter';
 import Display from './components/Display';
 import TextInputWithFocusButton from './components/TextInputWithFocusButton';
 import ReducedCounter from './components/ReducedCounter';
+import ReducerSample from './components/ReducerSample';
 
 /**
  * https://fettblog.eu/typescript-react/hooks/
@@ -16,10 +17,11 @@ const App: React.FC = (): ReactElement => {
 
   return (
     <div className="App">
-      <Counter />
+      <StatedCounter />
       <Display />
       <TextInputWithFocusButton />
-      <ReducedCounter />
+      <ReducedCounter initialCount={0} />
+      <ReducerSample />
     </div>
   );
 };

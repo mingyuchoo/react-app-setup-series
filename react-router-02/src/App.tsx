@@ -2,10 +2,12 @@ import React, { useState, ReactElement } from 'react';
 
 import {
   BrowserRouter as Router,
-  Link,
-  Route,
   Switch,
-  RouteComponentProps,
+  Route,
+  Link,
+  Redirect,
+  useHistory,
+  useLocation,
 } from 'react-router-dom';
 
 import AuthRoute from './components/AuthRoute';

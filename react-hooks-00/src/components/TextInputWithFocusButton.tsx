@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 
 const TextInputWithFocusButton = () => {
-  let inputEl = useRef<HTMLInputElement>(null);
+  const inputEl = useRef<HTMLInputElement>(null);
 
   const onButtonClick = () => {
     if (inputEl && inputEl.current) {

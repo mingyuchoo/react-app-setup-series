@@ -1,34 +1,46 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, ReactElement } from 'react';
 
-type StateType = {
+interface State {
   count: number;
+}
+
+type Action = {
+  type: 'RESET' | 'DECREMENT' | 'INCREMENT';
 };
-type ActionType = {
-  type: 'reset' | 'decrement' | 'increment';
-};
+
 const initialState = { count: 0 };
 
-const reducer = (state: StateType, action: ActionType) => {
+const reducer = (state: State, action: Action): State => {
   switch (action.type) {
-    case 'reset':
+    case 'RESET':
       return initialState;
-    case 'increment':
+    case 'INCREMENT':
       return { count: state.count + 1 };
-    case 'decrement':
+    case 'DECREMENT':
       return { count: state.count - 1 };
     default:
-      return state;
+      throw new Error('Unhandled action');
   }
 };
 
-const ReducedCounter = ({ initialCount = 0 }) => {
+type ReducedCounterProps = {
+  initialCount: number;
+};
+const ReducedCounter: React.FC<ReducedCounterProps> = ({
+  initialCount = 0,
+}: ReducedCounterProps): ReactElement => {
   const [state, dispatch] = useReducer(reducer, { count: initialCount });
+
+  const onReset = (): void => dispatch({ type: 'RESET' });
+  const onIncrement = (): void => dispatch({ type: 'INCREMENT' });
+  const onDecrement = (): void => dispatch({ type: 'DECREMENT' });
+
   return (
     <div>
       Reduced Counter: {state.count}
-      <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
-      <button onClick={() => dispatch({ type: 'increment' })}>+</button>
-      <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+      <button onClick={onReset}>Reset</button>
+      <button onClick={onIncrement}>+</button>
+      <button onClick={onDecrement}>-</button>
     </div>
   );
 };
