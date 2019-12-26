@@ -1,4 +1,4 @@
-import React, { ReactElement, useReducer } from 'react';
+import React, { ReactElement, useContext, useReducer } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -54,7 +54,7 @@ interface AuthContextProps {
 export const AuthContext = React.createContext({} as AuthContextProps);
 
 const PrivateRoute = ({ children, ...rest }: RouteProps): ReactElement => {
-  const { state } = React.useContext(AuthContext);
+  const { state } = useContext(AuthContext);
   return (
     <Route
       {...rest}
@@ -121,7 +121,7 @@ const ProtectedPage: React.FC = (): ReactElement => {
 };
 
 const LoginPage: React.FC = (): ReactElement => {
-  const { dispatch } = React.useContext(AuthContext);
+  const { dispatch } = useContext(AuthContext);
   const doLogin = (): void => dispatch({ type: 'LOGIN' });
   return (
     <div>
@@ -132,7 +132,7 @@ const LoginPage: React.FC = (): ReactElement => {
 };
 
 const LogoutButton: React.FC = (): ReactElement => {
-  const { dispatch } = React.useContext(AuthContext);
+  const { dispatch } = useContext(AuthContext);
   const doLogout = (): void => dispatch({ type: 'LOGOUT' });
   return <button onClick={doLogout}>Logout</button>;
 };
