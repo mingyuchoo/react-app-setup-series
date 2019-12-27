@@ -25,5 +25,3 @@ const Layout: React.FC<Props> = ({ titleKey, children }): ReactElement => {
     </>
   );
 };
-
-export default Layout;
