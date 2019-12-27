@@ -1,14 +1,11 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 import { LanguageProvider } from './containers/Language';
 
 import LanguageSelector from './components/LanguageSelector';
 import Explore from './components/Explore';
 
-/**
- * https://github.com/hcoz/react-context-multilang
- */
-const App: React.FC = (): ReactElement => {
+function App() {
   return (
     <LanguageProvider>
       <div className="App">
@@ -20,6 +17,6 @@ const App: React.FC = (): ReactElement => {
       </div>
     </LanguageProvider>
   );
-};
+}
 
 export default App;

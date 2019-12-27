@@ -1,21 +1,18 @@
-import React, { useState, ReactElement } from 'react';
+import React, { useState } from 'react';
 
 import { Text } from '../containers/Language';
 
-const Explore: React.FC = (): ReactElement => {
+export default function Explore() {
   const [clickText, setClickText] = useState();
 
-  const handleClick = (): void => {
+  const handleClick = () => {
     setClickText(<Text tid="buttonClicked" />);
-  };
+  }
+
   return (
     <div>
-      <h1>
-        <Text tid="exploreHeader" />
-      </h1>
-      <p>
-        <Text tid="welcomeDescription" />
-      </p>
+      <h1><Text tid="exploreHeader" /></h1>
+      <p><Text tid="welcomeDescription" /></p>
 
       <div>
         <button onClick={handleClick}>
@@ -29,6 +26,4 @@ const Explore: React.FC = (): ReactElement => {
       </a>
     </div>
   );
-};
-
-export default Explore;
+}
