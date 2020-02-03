@@ -5,6 +5,7 @@
   "scripts": {
     "prettier": "prettier --write \"**/*.{js,json,md,scss,yaml,yml}\"",
     "lint": "eslint --config .eslintrc.yml --fix .",
+    "sonar": "node sonar-project.js",
     "start": "node ./bin/www",
     "server": "babel-node ./src/bin/www",
     "dev": "NODE_ENV=development npm-run-all server",
@@ -15,21 +16,22 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
+    "debug": "~4.1.1",
+    "express": "~4.17.1",
     "morgan": "~1.9.1",
     "npm-run-all": "^4.1.5"
   },
   "devDependencies": {
-    "@babel/cli": "^7.6.2",
-    "@babel/core": "^7.6.2",
-    "@babel/node": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "eslint": "^6.5.1",
-    "eslint-config-prettier": "^6.4.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "nodemon": "^1.19.3",
-    "prettier": "^1.18.2",
-    "rimraf": "^3.0.0"
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.1",
+    "sonarqube-scanner": "^2.5.0"
   }
 }
