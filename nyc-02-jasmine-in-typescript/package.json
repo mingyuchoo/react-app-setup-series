@@ -20,7 +20,7 @@
     "jasmine-ts": "^0.3.0",
     "nyc": "^15.0.1",
     "source-map-support": "^0.5.19",
-    "ts-node": "^8.10.1"
+    "ts-node": "^8.10.2"
   },
   "dependencies": {
     "@types/node": "^14.0.5",
