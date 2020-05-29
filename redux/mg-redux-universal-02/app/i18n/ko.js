@@ -1,0 +1,23 @@
+/*eslint-disable max-len,quotes*/
+export default {
+  "about.librariesIntro": "이 사이트는 다음의 다른 기술과 라이브러리로 만들어진 쇼케이스입니다:",
+  "about.specialThanks": "{redux}로 만들 수 있게 도와준 {link}에 감사드립니다.",
+  "account.home.intro": "축하합니다. 당신은 로그인을 통해 안전한 영역에 들어왔습니다!",
+  "account.home.link.superSecretArea": "최고 비밀 영역",
+  "account.home.steps": "당신은 필요한 권한 없이도 {logoutLink} 또는 {secretAreaLink}에 접근할 수 있습니다.",
+  "explore.legend": "사용자명 또는 레포지토리 전체이름을 입력하고 \'Go\'를 누르세요.:",
+  "footer.builtWith": "이 사이트는 {link}로 ❤️ 과 함께 만들었습니다.",
+  "footer.legal": "약관",
+  "footer.partner": "파트너",
+  "footer.explore": "알아보기",
+  "forbidden": "금지되었습니다.",
+  "forbiddenReason": "당신은 XXX 페이지를 보기위한 인증을 받지 않았습니다.",
+  "home.intro": "이 웹사이트는 {linkRedux}와 {linkRouter}에 대해 모범 사례를 보여주고 사용할수 있는 참고 예제입니다.",
+  "home.intro2": "많은 다른 사용 사례를 구현하는 방법에 대한 영감과 아이디어를 위해 소스 코드를 살펴보기를 추천합니다. {br} 또한 지속적으로 웹 애플리케이션에서 공통된 다른 종류의 주요기능을 추가하고 데모할 계획입니다.",
+  "home.intro3": "계속 바꾸시고 즐기세요! {linkIssues}로 자유롭게 어떤 것이든 질문하세요. 가능할 때마다 도움을 드리고 싶습니다. 그리고 전체 풀 리퀘스트는 아주 환영합니다! ;)",
+  "home.intro3.dropAnIssue": "이슈를 넣으세요.",
+  "home.welcome": "안녕하세요?",
+  "stargazers.subtitle": "당신의 GitHub 계정과 레포지토리의 별점을 확인하세요.",
+  "superSecretArea.info": "여기는 제한된 영역입니다.",
+  "hello.greeting": "안녕?",
+}
