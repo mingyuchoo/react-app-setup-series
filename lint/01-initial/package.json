@@ -1,0 +1,37 @@
+{
+  "name": "lint-01-initial",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "prettier": "prettier --write \"**/*.{js,json,md,scss,yaml,yml}\"",
+    "lint": "eslint --config .eslintrc.yml --fix .",
+    "sonar": "node sonar-project.js",
+    "start": "node ./bin/www",
+    "server": "babel-node ./src/bin/www",
+    "dev": "NODE_ENV=development npm-run-all server",
+    "clean": "rimraf dist",
+    "build": "babel ./src --out-dir dist",
+    "prod": "NODE_ENV=production npm-run-all clean build server:prod",
+    "watch": "nodemon"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.5",
+    "debug": "~4.1.1",
+    "express": "~4.17.1",
+    "morgan": "~1.10.0",
+    "npm-run-all": "^4.1.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/node": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "sonarqube-scanner": "^2.6.0"
+  }
+}
