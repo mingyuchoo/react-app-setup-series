@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "tslint --config tslint.yaml 'src/**/*.ts' --fix",
+    "lint": "tslint --config tslint.yml 'src/**/*.ts' --fix",
     "start": "tsc && node dist/app.js"
   },
   "keywords": [],
