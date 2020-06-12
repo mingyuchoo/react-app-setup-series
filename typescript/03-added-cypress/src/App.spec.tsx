@@ -1,5 +1,8 @@
 import React from 'react';
 
+// ReatTestUtils give you the bare minimum to test a React component. not recommanded.
+// import ReactTestUtils from 'react-dom/test-utils';
+
 // for testing-library
 import { cleanup, render as testingRender } from '@testing-library/react';
 
