@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 let browser;
 let page;
 
-beforeAll(async () => {
+before(async () => {
   browser = await puppeteer.launch();
   page = await browser.newPage();
 });
@@ -16,6 +16,6 @@ describe('The Home Page', async () => {
   });
 });
 
-afterAll(async () => {
+after(async () => {
   await browser.close();
 });
