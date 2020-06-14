@@ -22,7 +22,7 @@
     "cypress:verify": "cypress verify",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "puppeteer:run": "mocha ./puppeteer/**/*.js"
+    "puppeteer:run": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' mocha --config=.mocharc.yml --require ts-node/register ./puppeteer/specs/*.ts"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -62,6 +62,7 @@
     "eslint-plugin-react-hooks": "^4.0.4",
     "mocha": "^8.0.1",
     "prettier": "^2.0.5",
-    "puppeteer": "^3.3.0"
+    "puppeteer": "^3.3.0",
+    "ts-node": "^8.10.2"
   }
 }
