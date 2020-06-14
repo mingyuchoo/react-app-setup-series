@@ -1,4 +1,6 @@
-import { Browser } from 'puppeteer';
+import { should } from 'chai';
+should();
+
 import launchPuppeteer from '../helpers/launchPuppeteer';
 import PageNavigator from '../helpers/PageNavigator';
 

@@ -7,7 +7,10 @@ export default class PageNavigator {
   constructor(page) {
     this.page = page;
   }
+  private async gotoPage(path: string) {
+    await this.page.goto(`${baseURL}${path}`);
+  }
   public async loadMainPage(): Promise<void> {
-    await this.page.goto(`${baseURL}`);
+    return this.gotoPage(config.mainPage).then(() => new this.loadMainPage(this.psage));
   }
 }
