@@ -1,11 +1,9 @@
 {
   "compilerOptions": {
     "types": [
-      "cypress",
       "jest",
       "mocha",
       "node",
-      "puppeteer"
     ],
     "target": "es6",
     "lib": [
@@ -30,7 +28,5 @@
   },
   "include": [
     "src/**/*",
-    "cypress/**/*",
-    "puppeteer/**/*"
   ]
 }
