@@ -1,5 +1,5 @@
 {
-  "name": "04-added-puppeteer-with-mocha",
+  "name": "10-added-redux",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

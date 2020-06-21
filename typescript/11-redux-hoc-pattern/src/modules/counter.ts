@@ -1,9 +1,13 @@
-// types
+/**
+ * types for dedux
+ */
 const INCREASE = 'counter/INCREASE' as const;
 const DECREASE = 'counter/DECREASE' as const;
 const INCREASE_BY = 'counter/INCREASE_BY' as const;
 
-// action creators
+/**
+ * action creators
+ */
 export const increase = () => ({ type: INCREASE });
 export const decrease = () => ({ type: DECREASE });
 export const increaseBy = (diff: number) => ({
@@ -11,8 +15,17 @@ export const increaseBy = (diff: number) => ({
   payload: diff,
 });
 
-type CounterAction = ReturnType<typeof increase> | ReturnType<typeof decrease> | ReturnType<typeof increaseBy>;
+/**
+ * return types
+ */
+type CounterAction =
+  | ReturnType<typeof increase>
+  | ReturnType<typeof decrease>
+  | ReturnType<typeof increaseBy>;
 
+/**
+ * reducers
+ */
 type CounterState = {
   count: number;
 };
@@ -21,7 +34,10 @@ const initialState: CounterState = {
   count: 0,
 };
 
-function counter(state: CounterState = initialState, action: CounterAction) {
+function counter(
+  state: CounterState = initialState,
+  action: CounterAction
+): CounterState {
   switch (action.type) {
     case INCREASE:
       return { count: state.count + 1 };
