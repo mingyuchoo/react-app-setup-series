@@ -5,8 +5,10 @@ export interface HelloProps {
   framework: string;
 }
 
-export const Hello1: React.FC<HelloProps> = (props: HelloProps): React.ReactElement => (
-  <h1>
+export const Hello1: React.FC<HelloProps> = (
+  props: HelloProps
+): React.ReactElement => (
+  <h1 data-testid="hello1-h1">
     Hello from {props.compiler} and {props.framework}
   </h1>
 );
@@ -14,7 +16,7 @@ export const Hello1: React.FC<HelloProps> = (props: HelloProps): React.ReactElem
 export class Hello2 extends React.Component<HelloProps> {
   render(): React.ReactElement {
     return (
-      <h1>
+      <h1 data-testid="hello2-h1">
         Hello from {this.props.compiler} and {this.props.framework}
       </h1>
     );

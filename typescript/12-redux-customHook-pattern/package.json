@@ -20,6 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --verbose --watchAll=false",
+    "coverage": "react-scripts test --verbose --watchAll=false --coverage",
     "eject": "react-scripts eject",
     "cypress:version": "cypress version",
     "cypress:verify": "cypress verify",
