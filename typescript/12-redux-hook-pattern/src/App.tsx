@@ -3,6 +3,9 @@ import './App.scss';
 import { Hello1, Hello2 } from './components/Hello';
 import Counter from './components/Counter';
 
+import TodoInsert from './components/TodoInsert';
+import TodoList from './components/TodoList';
+
 const App: React.FC = () => {
   return (
     <div data-testid="App" className="App">
@@ -12,6 +15,10 @@ const App: React.FC = () => {
       <hr />
       <Counter />
       <hr />
+      <div>
+        <TodoInsert />
+        <TodoList />
+      </div>
     </div>
   );
 };

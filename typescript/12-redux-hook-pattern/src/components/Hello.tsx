@@ -5,7 +5,9 @@ export interface HelloProps {
   framework: string;
 }
 
-export const Hello1: React.FC<HelloProps> = (props: HelloProps): React.ReactElement => (
+export const Hello1: React.FC<HelloProps> = (
+  props: HelloProps
+): React.ReactElement => (
   <h1>
     Hello from {props.compiler} and {props.framework}
   </h1>

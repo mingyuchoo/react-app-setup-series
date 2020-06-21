@@ -1,5 +1,5 @@
 /**
- * types for dedux
+ * action types
  */
 const INCREASE = 'counter/INCREASE' as const;
 const DECREASE = 'counter/DECREASE' as const;
@@ -16,7 +16,7 @@ export const increaseBy = (diff: number) => ({
 });
 
 /**
- * return types
+ * types
  */
 type CounterAction =
   | ReturnType<typeof increase>
