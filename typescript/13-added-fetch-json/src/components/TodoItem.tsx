@@ -7,7 +7,7 @@ export type TodoItemProps = {
   todo: Todo;
 };
 
-function TodoItem({ todo }: TodoItemProps): React.ReactElement {
+export function TodoItem({ todo }: TodoItemProps): React.ReactElement {
   const { onToggle, onRemove } = useTodoActions(todo.id);
 
   return (
@@ -21,5 +21,3 @@ function TodoItem({ todo }: TodoItemProps): React.ReactElement {
     </li>
   );
 }
-
-export default TodoItem;

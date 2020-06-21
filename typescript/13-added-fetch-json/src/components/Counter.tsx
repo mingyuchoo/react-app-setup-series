@@ -7,7 +7,7 @@ type CounterProps = {
   onIncreaseBy: (diff: number) => void;
 };
 
-function Counter() {
+export function Counter(): React.ReactElement {
   const { count, onIncrease, onDecrease, onIncreaseBy } = useCounter();
   return (
     <div>
@@ -19,4 +19,4 @@ function Counter() {
   );
 }
 
-export default Counter;
+// export default Counter;
