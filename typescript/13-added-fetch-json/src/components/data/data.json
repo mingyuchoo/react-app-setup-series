@@ -1,21 +1,20 @@
 [
   {
     "id": 1,
-    "name": "book name here 1",
-    "desc": "about the book",
-    "url": "book path"
+    "name": "Getting Real",
+    "desc": "The smarter, faster, easier ...",
+    "url": "by 37signals"
   },
   {
     "id": 2,
-    "name": "book name here 2",
-    "desc": "about the book",
-    "url": "book path"
+    "name": "Programming TypeScript",
+    "desc": "Making Your JavaScript Application Scale",
+    "url": "Boris Cherny"
   },
   {
     "id": 3,
-    "name": "book name here 3",
-    "desc": "about the book",
-    "url": "book path"
+    "name": "Scrum 101.",
+    "desc": "The Most Frequently asked Questions...",
+    "url": "David Lowe and 2"
   }
-
 ]

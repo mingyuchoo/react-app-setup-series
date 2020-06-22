@@ -4,7 +4,11 @@ import data from './data/data.json';
 export function Card(): React.ReactElement {
   return (
     <ul>
-      {data.map(element => (<li>{element.id} / {element.name} / {element.desc} / {element.url}</li>))}
+      {data.map((book) => (
+        <li key={book.id}>
+          {book.name} / {book.desc} / {book.url}
+        </li>
+      ))}
     </ul>
-  )
+  );
 }
