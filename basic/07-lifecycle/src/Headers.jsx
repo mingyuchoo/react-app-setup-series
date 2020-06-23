@@ -1,20 +1,36 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
-// base class
-class Header01 extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {favoritecolor: "red"};
-  }
-  render() {
-    return(
-      <h1>My Favorite Color is {this.state.favoritecolor}</h1>
-    );
-  }
+/**
+ * Class Component
+ */
+
+// bass class
+// export class Header01 extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {favoritecolor: "red"};
+//   }
+//   render() {
+//     return(
+//       <h1>My Favorite Color is {this.state.favoritecolor}</h1>
+//     );
+//   }
+// }
+
+/**
+ * Function Component
+ */
+export function Header01() {
+  const [color, setColor ] = useState({favoritecolor: "red"})
+  return (
+    <div>
+      <h1>My Favorite Color is {color.favoritecolor}</h1>
+    </div>
+  )
 }
 
 // use getDerivedStateFromProps()
-class Header02 extends Component {
+export class Header02 extends Component {
   constructor(props) {
     super(props);
     this.state = {favoritecolor: "red"};
@@ -38,7 +54,7 @@ class Header02 extends Component {
 }
 
 // use componentDidMount()
-class Header03 extends Component {
+export class Header03 extends Component {
   constructor(props) {
     super(props);
     this.state = {favoritecolor: "red"};
@@ -56,7 +72,7 @@ class Header03 extends Component {
 }
 
 // souldComponentUpdate
-class Header04 extends Component {
+export class Header04 extends Component {
   constructor(props) {
     super(props);
     this.state = {favoritecolor: "red"};
@@ -80,7 +96,7 @@ class Header04 extends Component {
 }
 
 // use getSnapshotBeforeUpdate()
-class Header05 extends Component {
+export class Header05 extends Component {
   constructor(props) {
     super(props);
     this.state = {favoritecolor: "red"};
@@ -110,7 +126,7 @@ class Header05 extends Component {
 }
 
 // use componentDidUpdate
-class Header06 extends Component {
+export class Header06 extends Component {
   constructor(props) {
     super(props);
     this.state = {favoritecolor: "red"};
@@ -135,7 +151,7 @@ class Header06 extends Component {
 }
 
 // use componentWillUnmount
-class Container extends Component {
+export class Container extends Component {
   constructor(props) {
     super(props);
     this.state = {show: true};
@@ -158,7 +174,9 @@ class Container extends Component {
     this.setState({show: false});
   }
 }
-class Child extends Component {
+
+// use componentWillUnmount
+export class Child extends Component {
   componentWillUnmount() {
     alert("The component nameed Header is about to be unmounted.");
   }
@@ -167,16 +185,4 @@ class Child extends Component {
       <h1>Hello World!</h1>
     );
   }
-}
-
-
-
-export {
-  Header01,
-  Header02,
-  Header03,
-  Header04,
-  Header05,
-  Header06,
-  Container
 }
