@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Getting Real",
+    "desc": "The smarter, faster, easier ...",
+    "url": "by 37signals"
+  },
+  {
+    "id": 2,
+    "name": "Programming TypeScript",
+    "desc": "Making Your JavaScript Application Scale",
+    "url": "Boris Cherny"
+  },
+  {
+    "id": 3,
+    "name": "Scrum 101.",
+    "desc": "The Most Frequently asked Questions...",
+    "url": "David Lowe and 2"
+  }
+]
