@@ -18,5 +18,3 @@ export function Counter(): React.ReactElement {
     </div>
   );
 }
-
-// export default Counter;
