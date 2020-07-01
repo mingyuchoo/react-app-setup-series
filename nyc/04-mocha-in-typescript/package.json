@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^14.0.13",
-    "typescript": "^3.9.5"
+    "@types/node": "^14.0.14",
+    "typescript": "^3.9.6"
   },
   "devDependencies": {
     "@types/chai": "^4.2.11",
