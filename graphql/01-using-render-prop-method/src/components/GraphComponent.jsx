@@ -4,7 +4,10 @@ import { useQuery } from 'react-apollo';
 
 const SAY_HELLO = gql`
   query {
-    // 여기에 쿼리 입력
+    books {
+      title
+      author
+    }
   }
 `;
 
@@ -22,12 +25,17 @@ function GraphComponent() {
     );
   }
   if (data) {
-    {
-      /* 데이터가 존재할 때 처리 */
-    }
-  } else {
-    {
-      /* 데이터가 없을 때 처리 */
+    if (data.books.length > 0) {
+      return (
+        <div>
+          {data.books.map((book) => (
+            <div key={book.title}>
+              <p>{book.title}</p>
+              <p>{book.author}</p>
+            </div>
+          ))}
+        </div>
+      );
     }
   }
 }

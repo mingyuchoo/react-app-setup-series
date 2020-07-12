@@ -8,7 +8,7 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
 const client = new ApolloClient({
-  uri: '여기에_graphql_서버_URL_입력',
+  uri: 'https://safe-journey-01425.herokuapp.com/',
 });
 
 ReactDOM.render(
