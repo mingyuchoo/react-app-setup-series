@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import ApolloClient from "apollo-boost";
+import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
 const client = new ApolloClient({
-    uri: 'https://rickandmortyapi.com/graphql/', //URL of the GraphQL server
-  });
+  uri: 'https://rickandmortyapi.com/graphql/', //URL of the GraphQL server
+});
 
 ReactDOM.render(
   <ApolloProvider client={client}>
