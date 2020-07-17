@@ -4,7 +4,6 @@ import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-
 // 1
 import { ApolloClient } from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';

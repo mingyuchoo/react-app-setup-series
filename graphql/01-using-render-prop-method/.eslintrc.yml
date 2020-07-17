@@ -13,6 +13,12 @@ plugins:
   - react
   - react-hooks
   - prettier
+settings:
+  react:
+    createClass: createReactClass
+    pragma: React
+    version: latest
+    flowVersion: 0.53
 extends:
   - eslint:recommended
   - plugin:react/recommended
