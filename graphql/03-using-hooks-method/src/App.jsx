@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.scss';
 
-import GraphComponent from './components/GraphComponent';
+import UserList from './components/UserList';
 
 function App() {
   return (
     <div className="App">
       <h1>Books</h1>
-      <GraphComponent />
+      <UserList />
     </div>
   );
 }
