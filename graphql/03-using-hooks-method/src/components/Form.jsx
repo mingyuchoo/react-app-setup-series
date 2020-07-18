@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { gql } from 'apollo-boost';
 import { useMutation } from 'react-apollo';
 
-import './UserInput.scss';
+import './Form.scss';
 
 // https://www.apollographql.com/docs/react/data/mutations/
 
@@ -16,13 +16,22 @@ const CREATE_USER_BY_EMAIL = gql`
   }
 `;
 
-const UserInput = () => {
+const Form = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+
+  const onSubmitForm = (event) => {
+    event.preventDefault(); // 원래 event 기본 동작을 못 하도록 막는다.
+    alert('You are submitting ' + name + ', ' + email);
+  };
   const onChangeName = (event) => {
     console.log(event.target.name + ': ' + event.target.value);
+    setName(event.target.value);
   };
 
   const onChangeEmail = (event) => {
     console.log(event.target.name + ': ' + event.target.value);
+    setEmail(event.target.value);
   };
 
   const onKeyPressEmail = (event) => {
@@ -31,18 +40,19 @@ const UserInput = () => {
     }
   };
 
-  const onClickConfirm = () => {
-    console.log('Confirm button clicked');
+  const onClickReset = (event) => {
+    event.preventDefault(); // 원래 event 기본 동작을 못 하도록 막는다.
+    setName('');
+    setEmail('');
   };
-
   return (
-    <div>
+    <form onSubmit={onSubmitForm}>
       <input
         className="input"
         type="text"
         name="name"
         placeholder="Input your name"
-        value=""
+        value={name}
         onChange={onChangeName}
       />
       <input
@@ -50,16 +60,18 @@ const UserInput = () => {
         type="text"
         name="email"
         placeholder="Input your email address"
-        value=""
+        value={email}
         onChange={onChangeEmail}
         onKeyPress={onKeyPressEmail}
       />
-      <button className="button" onClick={onClickConfirm}>
-        Confirm
+      <button className="button" type="submit">
+        Submit
       </button>
-      <button className="button">Reset</button>
-    </div>
+      <button className="button" onClick={onClickReset}>
+        Reset
+      </button>
+    </form>
   );
 };
 
-export default UserInput;
+export default Form;

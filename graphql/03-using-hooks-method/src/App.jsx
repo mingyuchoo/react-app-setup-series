@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 
 import Title from './components/Title';
-import UserInput from './components/UserInput';
+import Form from './components/Form';
 import UserList from './components/UserList';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Title title={title} />
-      <UserInput />
+      <Form />
       <UserList />
     </div>
   );
