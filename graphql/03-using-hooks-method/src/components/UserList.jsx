@@ -14,7 +14,7 @@ const GET_ALL_USERS = gql`
   }
 `;
 
-function UserList() {
+const UserList = () => {
   const { loading, error, data } = useQuery(GET_ALL_USERS);
   const onClickHandler = () => {
     alert('Hello');
@@ -47,6 +47,6 @@ function UserList() {
       );
     }
   }
-}
+};
 
 export default UserList;
