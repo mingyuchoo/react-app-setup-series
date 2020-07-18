@@ -5,11 +5,11 @@ import './App.scss'
 import MyComponent from './components/MyComponent';
 
 function App() {
-  const name = 'MyComponent';
+  const name = 'React';
   return (
     <div className="App">
-      <h1> React App</h1>
-      <MyComponent name={name} />
+      <h1>{name || 'React'} App</h1>
+      <MyComponent />
     </div>
   )};
 

@@ -1,15 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import Garage from './Garage';
+import './App.scss'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Garage />
-      </div>
-  );
-  }
-}
+import MyComponent from './components/MyComponent';
+
+function App() {
+  const name = 'React';
+  return (
+    <div className="App">
+      <h1>{name || 'React'} App</h1>
+      <MyComponent name={name} favoriteNumber={3}>
+        리액트
+      </MyComponent>
+    </div>
+  )};
 
 export default App;

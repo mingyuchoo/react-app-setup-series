@@ -1,5 +1,5 @@
 {
-  "name": "react-06",
+  "name": "react-04",
   "version": "1.0.0",
   "description": "",
   "license": "MIT",
@@ -10,6 +10,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
