@@ -4,6 +4,7 @@
   "description": "",
   "license": "MIT",
   "scripts": {
+    "lint": "eslint --config .eslintrc.yml --fix ./**/*.{js,jsx}",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

@@ -21,12 +21,18 @@ const MyComponent = ({name}) => {
   const onClickAddItem = () => {
     setItems(items.concat(items.length+1));
   }
+
+  const onClickResetItem = ()=> {
+    setItems([]);
+  }
+
   return (
     <div>
       <button className="button" onClick={onClickCheckIn}>Check In</button>
       <button className="button" onClick={onClickCheckOut}>Check Out</button>
       <h2 style={{ color: color}}>{message}</h2>
       <button className="button" onClick={onClickAddItem}>Add Item</button>
+      <button className="button" onClick={onClickResetItem}>Reset Item</button>
       <div>
         <ul>
         {
