@@ -26,6 +26,10 @@ const MyComponent = ({name}) => {
     setItems([]);
   }
 
+  const onClickListItem = (key) => {
+    setItems(items.filter((item) => item !== key));
+  }
+
   return (
     <div>
       <button className="button" onClick={onClickCheckIn}>Check In</button>
@@ -37,7 +41,7 @@ const MyComponent = ({name}) => {
         <ul>
         {
           items.map((item) => (
-            <li key={item}>{item}</li>
+            <li key={item} onClick={() => onClickListItem(item)}>{item}</li>
           ))
         }
         </ul>
