@@ -7,8 +7,8 @@ import './Form.scss';
 // https://www.apollographql.com/docs/react/data/mutations/
 
 const CREATE_USER_BY_EMAIL = gql`
-  mutation {
-    createUserByEmail(email: "patrick@email.com", name: "Patrick") {
+  mutation createUserByEmail($email: String!, $name: String!) {
+    createUserByEmail(email: $email, name: $name) {
       id
       name
       email
@@ -19,10 +19,32 @@ const CREATE_USER_BY_EMAIL = gql`
 const Form = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [addNewUser, { data, error, loading }] = useMutation(
+    CREATE_USER_BY_EMAIL
+  );
+
+  // loading
+  if (loading) {
+    return (
+      <div className="App">
+        <h2>Loading...</h2>
+      </div>
+    );
+  }
+
+  // error
+  if (error) {
+    return <div>Error</div>;
+  }
+
+  // data
+  if (data) {
+    return <div>Successfully added.</div>;
+  }
 
   const onSubmitForm = (event) => {
     event.preventDefault(); // 원래 event 기본 동작을 못 하도록 막는다.
-    alert('You are submitting ' + name + ', ' + email);
+    addNewUser({ variables: { email, name } });
   };
   const onChangeName = (event) => {
     console.log(event.target.name + ': ' + event.target.value);
