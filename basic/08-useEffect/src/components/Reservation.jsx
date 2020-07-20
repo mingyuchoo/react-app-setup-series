@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import './Reservation.scss';
@@ -9,12 +9,20 @@ import List from './List';
 
 const Reservation = ({ name }) => {
   const [accessCode, setAccessCode] = useState('');
+  useEffect(() => {
+    document.title = `${accessCode}`;
+  }, [accessCode]);
+
   const [message, setMessage] = useState(name);
+  useEffect(() => {
+    console.log(message);
+  }, [message]);
+
   const [color, setColor] = useState('#61dafb');
+
   const [items, setItems] = useState([]);
 
   const onChangeInput = (event) => {
-    console.log(event.target.value);
     setAccessCode(event.target.value);
   };
   const onClickCheckIn = () => {
