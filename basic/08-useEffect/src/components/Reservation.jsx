@@ -13,7 +13,7 @@ const Reservation = ({ name }) => {
   const [color, setColor] = useState('#61dafb');
   const [items, setItems] = useState([]);
 
-  const onChangeInputBox = (event) => {
+  const onChangeInput = (event) => {
     console.log(event.target.value);
     setAccessCode(event.target.value);
   };
@@ -47,7 +47,7 @@ const Reservation = ({ name }) => {
 
   return (
     <div>
-      <Input value={accessCode} handler={onChangeInputBox} />
+      <Input value={accessCode} handler={onChangeInput} />
       <br />
       <Button name={'Check In'} handler={onClickCheckIn} />
       <Button name={'Check Out'} handler={onClickCheckOut} />

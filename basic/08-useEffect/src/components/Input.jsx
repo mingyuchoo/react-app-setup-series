@@ -1,21 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './Input.scss';
+
 const Input = ({ value, handler }) => {
   return (
-    <input
-      className="input"
-      type="text"
-      name="accessCode"
-      placeholder="Type in you access code."
-      value={value}
-      onChange={handler}
-    />
+    <div>
+      <input
+        className="input"
+        type="text"
+        name="accessCode"
+        placeholder="Type in you access code."
+        value={value}
+        onChange={handler}
+      />
+    </div>
   );
 };
 
-Input.prototype = {
-  currValue: PropTypes.string.isRequired,
+Input.propTypes = {
+  value: PropTypes.string.isRequired,
   handler: PropTypes.func.isRequired,
 };
 export default Input;
