@@ -17,26 +17,12 @@ const Reservation = ({ name }) => {
   useEffect(() => {}, [message]);
 
   const [color, setColor] = useState('#61dafb');
-
   const [items, setItems] = useState([]);
-
-  /* 최적화 전 */
-  // const onChangeInput = (event) => {
-  //   setAccessCode(event.target.value);
-  // };
 
   /* useCallback을 이용하여 리렌더링 방지로 최적화 후 */
   const onChangeInput = useCallback((event) => {
     setAccessCode(event.target.value);
   }, []);
-
-  /* 최적화 전 */
-  // const onClickCheckIn = () => {
-  //   if (accessCode) {
-  //     setMessage("You're checked In. Access Code is " + accessCode);
-  //     setColor('white');
-  //   }
-  // };
 
   /* useCallback을 이용하여 리렌더링 방지로 최적화 후 */
   const onClickCheckIn = useCallback(() => {
@@ -46,14 +32,6 @@ const Reservation = ({ name }) => {
     }
   }, [accessCode]);
 
-  /* 최적화 전 */
-  // const onClickCheckOut = () => {
-  //   if (accessCode) {
-  //     setMessage("You're checked Out. Access Code was " + accessCode);
-  //     setColor('gray');
-  //   }
-  // };
-
   /* useCallback을 이용하여 리렌더링 방지로 최적화 후 */
   const onClickCheckOut = useCallback(() => {
     if (accessCode) {
@@ -62,13 +40,6 @@ const Reservation = ({ name }) => {
     }
   }, [accessCode]);
 
-  /* 최적화 전 */
-  // const onClickClearInput = () => {
-  //   setAccessCode('');
-  //   setMessage(name);
-  //   setColor('#61dafb');
-  // };
-
   /* useCallback을 이용하여 리렌더링 방지로 최적화 후 */
   const onClickClearInput = useCallback(() => {
     setAccessCode('');
@@ -76,20 +47,10 @@ const Reservation = ({ name }) => {
     setColor('#61dafb');
   }, [name]);
 
-  /* 최적화 전 */
-  // const onClickAddItem = () => {
-  //   setItems(items.concat(items.length + 1));
-  // };
-
   /* useCallback을 이용하여 리렌더링 방지로 최적화 후 */
   const onClickAddItem = useCallback(() => {
     setItems(items.concat(items.length + 1));
   }, [items]);
-
-  /* 최적화 전 */
-  // const onClickResetItem = () => {
-  //   setItems([]);
-  // };
 
   /* useCallback을 이용하여 리렌더링 방지로 최적화 후 */
   const onClickResetItem = useCallback(() => {
