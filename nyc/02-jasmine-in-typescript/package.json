@@ -23,7 +23,7 @@
     "ts-node": "^8.10.2"
   },
   "dependencies": {
-    "@types/node": "^14.0.14",
-    "typescript": "^3.9.6"
+    "@types/node": "^14.0.24",
+    "typescript": "^3.9.7"
   }
 }
