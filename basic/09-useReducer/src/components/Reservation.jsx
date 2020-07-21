@@ -45,6 +45,8 @@ const Reservation = () => {
   const toggleToBeAdmin = () => dispatchUser({type: 'TOGGLE_TO_BE_ADMIN'});
   const updateNickname  = (event) => dispatchUser({type: 'UPDATE_NICKNAME', nickname: event.target.value});
   const updateEmail     = (event) => dispatchUser({type: 'UPDATE_EMAIL', email: event.target.value})
+
+
   return (
     <div>
       <label>{label}</label>

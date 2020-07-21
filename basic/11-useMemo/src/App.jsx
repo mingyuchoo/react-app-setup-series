@@ -5,10 +5,11 @@ import './App.scss';
 import Reservation from './components/Reservation';
 
 function App() {
+  const name = "I'm waiting for your access code.";
   return (
     <div className="App">
-      <h1> React Reservation App</h1>
-      <Reservation />
+      <h1> React Reservatio App</h1>
+      <Reservation name={name} />
     </div>
   );
 }
