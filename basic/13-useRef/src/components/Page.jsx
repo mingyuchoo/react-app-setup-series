@@ -5,6 +5,7 @@ import './Page.scss';
 const Page = () => {
   // input-message 를 참조한다.
   const inputMessasge = useRef(null);
+  const buttonReset = useRef(null);
 
   // 렌더링 안하고 바로 사용하는 변수
   const refCounter = useRef(0);
@@ -20,7 +21,8 @@ const Page = () => {
   }, [refCounter]);
 
   // useCallback 을 사용해서 렌더링될 때 함수 재생성을 방지함
-  const onClickButton = useCallback((e) => {
+  const onClickButtonOK = useCallback((e) => {
+    buttonReset.current.focus();
     refCounter.current += 1;
     setStateCounter(stateCounter + 1);
     console.log('ok-button is clicked: event.target.name =', e.target.name);
@@ -31,8 +33,13 @@ const Page = () => {
     console.log('ok-button is clicked: stateCounter =', stateCounter);
   });
 
+  // useCallback 을 사용해서 렌더링될 때 함수 재생성을 방지함
+  const onClickButtonReset = useCallback((e) => {
+    inputMessasge.current.focus();
+  });
+
   // useCallback 을 사용 안하면 렌더링 될 때마다  함수를 재생성함
-  const onChangeInput = (e) => {
+  const onChangeInputMessage = (e) => {
     console.log(
       'input-message is changed: event.target.value = ',
       e.target.value
@@ -49,12 +56,17 @@ const Page = () => {
             type="text"
             name="input-message"
             placeholder="Say any thing"
-            onChange={onChangeInput}
+            onChange={onChangeInputMessage}
           />
-          <button className="button" name="button-ok" onClick={onClickButton}>
+          <button className="button" name="button-ok" onClick={onClickButtonOK}>
             OK
           </button>
-          <button className="button" name="button-reset">
+          <button
+            className="button"
+            ref={buttonReset}
+            name="button-reset"
+            onClick={onClickButtonReset}
+          >
             Reset
           </button>
           <p></p>

@@ -1,27 +1,61 @@
-import React, { useContext } from 'react';
+import React, { useContext, useCallback, useRef, useState, useEffect } from 'react';
 
 import AppContext from '../contexts/AppContext';
 import PostsContext from '../contexts/PostsContext';
 
+import './Posts.scss';
+
 /* Posts */
 const Posts = () => {
-  const user = useContext(AppContext);
-  const posts = useContext(PostsContext);
+  const refInput = useRef(null);
+  const [user, setUser] = useContext(AppContext);
+  const [posts, setPosts] = useContext(PostsContext);
 
-  let label = 'user';
-  if (user.isAdmin) {
-    label = 'admin';
-  }
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    setMessage(`Your current nickname is ${user.nickname} and have an ${user.isAdmin ? 'admin': 'user'} role.`);
+  }, [user]);
+
+  const onClickButtonChangeNickname = useCallback(() => {
+    if (refInput.current.value) {
+      setUser({...user, nickname: refInput.current.value});
+      refInput.current.value = '';
+    } else {
+       refInput.current.placeholder = 'Please insert your new nickname';
+    }
+  });
+
+  const onClickButtonToggleRole = useCallback(() => {
+    setUser({...user, isAdmin: !user.isAdmin})
+  })
 
   return (
-    <div className="App">
-      <h3>{label}</h3>
-      <h3>{user.nickname}</h3>
-      <div>
+    <div>
+      <h1>{message}</h1>
+      <input
+        className="input"
+        ref={refInput}
+        type="text"
+        name="input-nickname"
+        placeholder="Input your new nickname here."
+      />
+      <button
+        className="button"
+        name="button-change-nickname"
+        onClick={onClickButtonChangeNickname}
+      >
+        Change Nickname
+      </button>
+      <button className="button" name="button-toggle-role" onClick={onClickButtonToggleRole}>
+        Change to {user.isAdmin ? 'User' : 'Admin'}
+      </button>
+
+      <div className="post">
         {posts.map((post, index) => (
           <div key={index}>
-            <h1>{post.title}</h1>
-            <h2 className="post">{post.content}</h2>
+            <h3>{post.title}</h3>
+            <p>{post.content}</p>
           </div>
         ))}
       </div>
