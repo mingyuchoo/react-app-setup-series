@@ -11,8 +11,10 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "global": "^4.4.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "serve": "^11.3.2"
   },
   "devDependencies": {
     "enzyme": "^3.11.0",
