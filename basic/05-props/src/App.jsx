@@ -1,18 +1,17 @@
 import React from 'react';
 
-import './App.scss'
+import './App.scss';
 
-import MyComponent from './components/MyComponent';
+import List from './components/List';
 
 function App() {
-  const name = 'React';
+  const items = [1, 2, 3, 4];
   return (
     <div className="App">
-      <h1>{name || 'React'} App</h1>
-      <MyComponent name={name} favoriteNumber={3}>
-        리액트
-      </MyComponent>
+      <h1>React App</h1>
+      <List items={items} />
     </div>
-  )};
+  );
+}
 
 export default App;
