@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TodoTemplate = (props) => {
+const TodoContainer = (props) => {
   return (
     <div className="todo-template">
       <div className="todo-title">일정 관리</div>
@@ -9,4 +9,4 @@ const TodoTemplate = (props) => {
   );
 };
 
-export default TodoTemplate;
+export default TodoContainer;

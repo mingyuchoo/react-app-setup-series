@@ -1,17 +1,17 @@
 import React from 'react';
 import './App.scss';
 
-import TodoTemplate from './components/TodoTemplate';
+import TodoContainer from './components/TodoContainer';
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 
 function App() {
   return (
     <div className="App">
-      <TodoTemplate>
+      <TodoContainer>
         <TodoInsert />
         <TodoList />
-      </TodoTemplate>
+      </TodoContainer>
     </div>
   );
 }
