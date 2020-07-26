@@ -85,7 +85,7 @@
   display: flex;
   align-items: center;
   &:nth-child(even) {
-    background-color: #f8f9fa;
+    background-color: #adb5bd;
   }
   .checkbox {
     cursor: pointer;
@@ -97,9 +97,9 @@
     margin-left: 0.5rem;
     flex: 1;
   }
-  &.checked {
+  .checked {
     .text {
-      color: #adb5bd;
+      color: #737373;
       text-decoration: line-through;
     }
   }
