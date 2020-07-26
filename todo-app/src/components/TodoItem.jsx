@@ -1,10 +1,12 @@
 import React from 'react';
 
-const TodoItem = () => {
+const TodoItem = (props) => {
+  const { items } = props;
   return (
     <div className="todo-item">
       <div className="checkbox">
-        <div className="text">할 일</div>
+        <input type="checkbox" name="input-checkbox" />
+        <div className="text">"text"</div>
       </div>
       <div className="remove">Remove</div>
     </div>
