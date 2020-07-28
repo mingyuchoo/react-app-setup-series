@@ -1,28 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 import './App.scss';
 
 function App() {
-  const [contents, setContents ] = useState(null);
+  let [data, setData] = useState(null);
 
-  const onClickButton = async () => {
+  const fetchData = useCallback(async () => {
     try {
-      const news = await axios.get("http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=3b1f065bc28b44ee8ad1be9e71e02092")
-      console.log(news.data.articles)
-      setContents(news.data)
-
+      const response = await axios.get(
+        'http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=3b1f065bc28b44ee8ad1be9e71e02092'
+      );
+      setData(response.data);
+      console.log(response.data);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+    console.log('useEffect() is called');
+    return () => {
+      console.log('useEffect() return is called');
+    };
+  }, [fetchData]);
 
   return (
     <div className="App">
-      <button className="button" onClick={onClickButton}>
-        Click Me
-      </button>
-      <p>{JSON.stringify(contents)}</p>  
+      <h1>News</h1>
+      <h2>{data && data.totalResults} articles</h2>
+      <h3>Articles</h3>
+      <div>
+        {data &&
+          data.articles.map((article, index) => (
+            <div key={index}>
+              <h4>
+                {article.author} - {article.title}
+              </h4>
+              <p>{article.description}</p>
+            </div>
+          ))}
+      </div>
     </div>
   );
 }
