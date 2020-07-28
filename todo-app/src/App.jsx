@@ -26,6 +26,8 @@ const App = () => {
   ]);
 
   const nextId = useRef(4);
+
+  // 추가하기
   const onInsert = useCallback(
     (text) => {
       const todo = {
@@ -39,13 +41,15 @@ const App = () => {
     [todos]
   );
 
+  // 삭제하기
   const onRemove = useCallback(
     (id) => {
       setTodos(todos.filter((todo) => todo.id !== id));
     },
-    [todos] // 사용하는 props나 state 를 넣음
+    [todos]
   );
 
+  // 토글하기
   const onToggle = useCallback(
     (id) => {
       setTodos(
@@ -54,7 +58,7 @@ const App = () => {
         )
       );
     },
-    [todos] // 사용하는 props나 state를 넣음
+    [todos]
   );
   return (
     <div className="App">

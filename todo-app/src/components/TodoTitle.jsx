@@ -1,7 +1,9 @@
 import React from 'react';
 
-const TodoTitle = () => {
-  return <div className="todo-title">할 일</div>;
-};
+function TodoTitle() {
+  const TITLE = 'TODO LIST';
+
+  return <div className="todo-title">{TITLE}</div>;
+}
 
 export default TodoTitle;
