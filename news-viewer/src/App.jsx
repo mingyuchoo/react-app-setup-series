@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
-import './App.scss';
+import Container from './components/Container';
 
 function App() {
   let [data, setData] = useState(null);
@@ -26,24 +26,7 @@ function App() {
     };
   }, [fetchData]);
 
-  return (
-    <div className="App">
-      <h1>News</h1>
-      <h2>{data && data.totalResults} articles</h2>
-      <h3>Articles</h3>
-      <div>
-        {data &&
-          data.articles.map((article, index) => (
-            <div key={index}>
-              <h4>
-                {article.author} - {article.title}
-              </h4>
-              <p>{article.description}</p>
-            </div>
-          ))}
-      </div>
-    </div>
-  );
+  return <Container data={data} />;
 }
 
 export default App;
