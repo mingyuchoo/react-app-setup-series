@@ -5,6 +5,7 @@ import './App.scss';
 import LifecycleComponent from './components/LifecycleComponent';
 import LifecycleFunction1 from './components/LifecycleFunction1';
 import LifecycleFunction2 from './components/LifecycleFunction2';
+import LifecycleFunction3 from './components/LifecycleFunction3';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
       <LifecycleFunction1 />
       <hr />
       <LifecycleFunction2 />
+      <hr />
+      <LifecycleFunction3 />
     </div>
   );
 }
