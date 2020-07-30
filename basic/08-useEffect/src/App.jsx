@@ -2,14 +2,19 @@ import React from 'react';
 
 import './App.scss';
 
-import Reservation from './components/Reservation';
+import LifecycleComponent from './components/LifecycleComponent';
+import LifecycleFunction1 from './components/LifecycleFunction1';
+import LifecycleFunction2 from './components/LifecycleFunction2';
 
 function App() {
-  const name = "I'm waiting for your access code.";
   return (
     <div className="App">
-      <h1> React Reservatio App</h1>
-      <Reservation name={name} />
+      <h1>React Lifecycle</h1>
+      <LifecycleComponent />
+      <hr />
+      <LifecycleFunction1 />
+      <hr />
+      <LifecycleFunction2 />
     </div>
   );
 }
