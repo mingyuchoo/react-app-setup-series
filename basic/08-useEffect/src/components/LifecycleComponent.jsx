@@ -5,15 +5,15 @@ class LifecycleComponent extends React.Component {
     super();
     console.log('LifecycleComponent - constructor()');
   }
-  componentWillMount() {
-    console.log('LifecycleComponent - will mount()');
-  }
+  // componentWillMount() {
+  //   console.log('LifecycleComponent - will mount()');
+  // }
   componentDidMount() {
     console.log('LifecycleComponent - did mount()');
   }
-  componentWillUpdate() {
-    console.log('LifecycleComponent - will update()');
-  }
+  // componentWillUpdate() {
+  //   console.log('LifecycleComponent - will update()');
+  // }
 
   componentDidUpdate() {
     console.log('LifecycleComponent - did update()');

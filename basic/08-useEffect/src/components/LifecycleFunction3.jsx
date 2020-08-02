@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const LifecycleFunction2 = () => {
+const LifecycleFunction3 = () => {
   const [number, setNumber] = useState(0);
   const [name, setName] = useState('');
 
@@ -30,15 +30,15 @@ const LifecycleFunction2 = () => {
    * 2) [deps] 배열에 지정한 값이 바뀌기 직전에도 호출한다.
    */
   useEffect(() => {
-    console.log('LifecycleFunction2 - did mount with useEffect!');
+    console.log('LifecycleFunction3 - did mount with useEffect!');
     return () => {
       console.log("I'm cleanup function.");
     };
-  }); // [deps] 배열 자체를 생략함
+  }, [number]); // deps 배열에 state 를 넣음
 
   return (
     <div>
-      <h2>LifecycleFunction2 - number is {number}</h2>
+      <h2>LifecycleFunction3 - number is {number}</h2>
       <button
         onClick={() => {
           setNumber(number + 1);
@@ -52,4 +52,4 @@ const LifecycleFunction2 = () => {
   );
 };
 
-export default LifecycleFunction2;
+export default LifecycleFunction3;
