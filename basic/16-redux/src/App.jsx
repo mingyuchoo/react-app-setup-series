@@ -1,16 +1,14 @@
 import React from 'react';
-import CounterContainer from './components/CounterContainer';
+import CounterContainer from './containers/CounterContainer';
 import TodoList from './components/TodoList';
+
+import './App.scss';
 
 function App() {
   return (
     <div className="container">
-      <div>
-        <CounterContainer />
-      </div>
-      <div>
-        <TodoList />
-      </div>
+      <CounterContainer />
+      <TodoList />
     </div>
   );
 }

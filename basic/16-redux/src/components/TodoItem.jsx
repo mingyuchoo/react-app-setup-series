@@ -1,19 +1,13 @@
 import React from 'react';
 
-const TodoItem = () => {
+const TodoItem = ({ todo, onToggle, onRemove }) => {
   return (
-    <div>
-      <div>
-        <div>
-          <input type="checkbox" />
-        </div>
-      </div>
-      <input type="text" />
-      <div>
-        <button className="btn btn-dark" type="button">
-          Delete
-        </button>
-      </div>
+    <div className="input-group item">
+      <input type="checkbox" />
+      <input className="form-control" type="text" />
+      <button className="btn btn-dark" type="button">
+        Delete
+      </button>
     </div>
   );
 };
