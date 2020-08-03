@@ -15,7 +15,7 @@ function confirmedReucer(state = initialState, action) {
       throw Error('Unknown action');
   }
 }
-function Example() {
+function Confirmation() {
   const [confirmed, dispatchConfirmed] = useReducer(
     confirmedReucer,
     initialState
@@ -39,4 +39,4 @@ function Example() {
     </div>
   );
 }
-export default Example;
+export default Confirmation;

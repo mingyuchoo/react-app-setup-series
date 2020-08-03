@@ -2,7 +2,7 @@ import React, { useReducer, useEffect } from 'react';
 
 import './Reservation.scss';
 
-const userReducer = (state, action) => {
+const guestReducer = (state, action) => {
   switch (action.type) {
     case 'RESET': {
       return {
@@ -27,32 +27,32 @@ const userReducer = (state, action) => {
 };
 
 const Reservation = () => {
-  const [user, dispatchUser] = useReducer(userReducer, {
+  const [guest, dispatchGuest] = useReducer(guestReducer, {
     nickname: '',
     email: '',
     isAdmin: false,
   });
   useEffect(() => {
-    console.log('user is changed');
-  }, [user]);
+    console.log('guest is changed');
+  }, [guest]);
 
-  let label = 'user';
-  if (user.isAdmin) {
+  let label = 'guest';
+  if (guest.isAdmin) {
     label = 'admin';
   }
 
-  const reset = () => dispatchUser({ type: 'RESET' });
-  const toggleToBeAdmin = () => dispatchUser({ type: 'TOGGLE_TO_BE_ADMIN' });
+  const reset = () => dispatchGuest({ type: 'RESET' });
+  const toggleToBeAdmin = () => dispatchGuest({ type: 'TOGGLE_TO_BE_ADMIN' });
   const updateNickname = (event) =>
-    dispatchUser({ type: 'UPDATE_NICKNAME', nickname: event.target.value });
+    dispatchGuest({ type: 'UPDATE_NICKNAME', nickname: event.target.value });
   const updateEmail = (event) =>
-    dispatchUser({ type: 'UPDATE_EMAIL', email: event.target.value });
+    dispatchGuest({ type: 'UPDATE_EMAIL', email: event.target.value });
 
   return (
     <div>
       <label>{label}</label>
-      <h1>{user.nickname}</h1>
-      <h3>{user.email}</h3>
+      <h1>{guest.nickname}</h1>
+      <h3>{guest.email}</h3>
       <button className="button" onClick={reset}>
         RESET
       </button>

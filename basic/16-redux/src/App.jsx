@@ -1,6 +1,6 @@
 import React from 'react';
 import CounterContainer from './containers/CounterContainer';
-import TodoList from './components/TodoList';
+import TodoContainer from './containers/TodosContainer';
 
 import './App.scss';
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="container">
       <CounterContainer />
-      <TodoList />
+      <TodoContainer />
     </div>
   );
 }

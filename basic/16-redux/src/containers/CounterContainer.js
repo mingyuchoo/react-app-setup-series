@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Counter from '../components/Counter';
-import { increase, decrease } from '../modules/counter';
+import { increase, decrease } from '../modules/redux-counter';
 
 const CounterContainer = ({ number, increase, decrease }) => {
   return (
@@ -12,7 +12,7 @@ const CounterContainer = ({ number, increase, decrease }) => {
 
 export default connect(
   (state) => ({
-    number: state.counter.number,
+    number: state.counterReducer.number,
   }),
   {
     // 액션 생성함수로 이루어진 객체 형태로 넘겨주면

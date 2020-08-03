@@ -17,7 +17,7 @@ const initialState = {
 };
 
 /* reducer */
-function counter(state = initialState, action) {
+function counterReducer(state = initialState, action) {
   switch (action.type) {
     case INCREASE:
       return {
@@ -31,4 +31,4 @@ function counter(state = initialState, action) {
       return state;
   }
 }
-export default counter;
+export default counterReducer;

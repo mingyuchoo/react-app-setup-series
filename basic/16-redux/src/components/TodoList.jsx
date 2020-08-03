@@ -11,7 +11,13 @@ const TodoList = ({
 }) => {
   const onSubmit = (event) => {
     event.preventDefault();
+    onInsert(input);
+    onChangeInput('');
   };
+  const onChange = (event) => {
+    onChangeInput(event.target.value);
+  };
+
   return (
     <div className="row">
       <form className="input-group-prepend" onSubmit={onSubmit}>
@@ -19,17 +25,21 @@ const TodoList = ({
           className="form-control"
           type="text"
           placeholder="Recipient's username"
+          value={input}
+          onChange={onChange}
         />
         <button className="btn btn-dark" type="submit">
           Submit
         </button>
       </form>
-
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
+      {todos.map((todo) => (
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          onToggle={onToggle}
+          onRemove={onRemove}
+        />
+      ))}
     </div>
   );
 };

@@ -53,7 +53,7 @@ const initialState = {
 };
 
 /* reducer */
-function todos(state = initialState, action) {
+function todosReduceer(state = initialState, action) {
   switch (action.type) {
     case CHANGE_INPUT:
       return {
@@ -68,7 +68,7 @@ function todos(state = initialState, action) {
     case TOGGLE:
       return {
         ...state,
-        todos: state.todo.map((todo) =>
+        todos: state.todos.map((todo) =>
           todo.id === action.id ? { ...todo, done: !todo.done } : todo
         ),
       };
@@ -82,4 +82,4 @@ function todos(state = initialState, action) {
   }
 }
 
-export default todos;
+export default todosReduceer;
