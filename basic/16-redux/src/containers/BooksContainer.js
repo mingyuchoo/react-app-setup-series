@@ -21,7 +21,7 @@ const BooksContainer = ({
         onInsert={insert}
         onChange={change}
       />
-      <BookList books={books} onInsert={insert} onRemove={remove} />
+      <BookList books={books} onChangeForm={changeForm} onRemove={remove} />
     </>
   );
 };

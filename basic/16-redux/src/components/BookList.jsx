@@ -1,7 +1,7 @@
 import React from 'react';
 import BookItem from './BookItem';
 
-const BookList = ({ books, onRemove }) => {
+const BookList = ({ books, onChangeForm, onRemove }) => {
   return (
     <div className="row">
       <table className="table">
@@ -18,7 +18,7 @@ const BookList = ({ books, onRemove }) => {
         </thead>
         <tbody>
           {books.map((book) => (
-            <BookItem key={book.id} book={book} onRemove={onRemove} />
+            <BookItem key={book.id} book={book} onChangeForm={onChangeForm} onRemove={onRemove} />
           ))}
         </tbody>
       </table>

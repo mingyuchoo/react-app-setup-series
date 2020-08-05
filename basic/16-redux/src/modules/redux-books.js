@@ -1,6 +1,7 @@
 /* initial state */
 const initialState = {
   form: {
+    id: 0,
     title: '',
     content: '',
     writer: '',
@@ -51,9 +52,10 @@ const CHANGE = 'books/CHANGE';
 const REMOVE = 'books/REMOVE';
 
 /* action creators */
-export const changeForm = ({ title, content, writer, date }) => ({
+export const changeForm = ({ id, title, content, writer, date }) => ({
   type: CHANGE_FORM,
   form: {
+    id,
     title,
     content,
     writer,

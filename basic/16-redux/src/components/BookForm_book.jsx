@@ -1,38 +1,43 @@
 import React, { useState, useCallback } from 'react';
 
-const FormForm = ({ form, onChangeForm, onInsert, onChange }) => {
+const BookForm = ({ form, onChangeForm, onInsert, onChange }) => {
+  const [book, setBook] = useState({
+    title: '',
+    content: '',
+    writer: '',
+    date: '',
+  });
+
   const onChangeTitle = useCallback((event) => {
-    onChangeForm({ ...form, title: event.target.value });
-    console.log(form);
-  }, [form]);
+    setBook({ ...book, title: event.target.value });
+    console.log(book);
+  }, [book]);
 
   const onChangeContent = useCallback((event) => {
-    onChangeForm({ ...form, content: event.target.value });
-    console.log(form);
-  }, [form]);
+    setBook({ ...book, content: event.target.value });
+    console.log(book);
+  }, [book]);
 
   const onChangeWriter = useCallback((event) => {
-    onChangeForm({ ...form, writer: event.target.value });
-    console.log(form);
-  }, [form]);
+    setBook({ ...book, writer: event.target.value });
+    console.log(book);
+  }, [book]);
 
   const onChangeDate = useCallback((event) => {
-    onChangeForm({ ...form, date: event.target.value });
-    console.log(form);
-  }, [form]);
+    setBook({ ...book, date: event.target.value });
+    console.log(book);
+  }, [book]);
 
   const onSubmit = useCallback((event) => {
     event.preventDefault();
-    
-    onInsert({ ...form });
-    onChangeForm({
-      id: 0,
+    onInsert({ ...book });
+    setBook({
       title: '',
       content: '',
       writer: '',
       date: '',
     })
-  }, [form]);;
+  }, [book]);;
 
   return (
     <form onSubmit={onSubmit}>
@@ -43,7 +48,7 @@ const FormForm = ({ form, onChangeForm, onInsert, onChange }) => {
           id="title"
           type="text"
           placeholder="Title"
-          value={form.title}
+          value={book.title}
           onChange={onChangeTitle}
         />
       </div>
@@ -54,7 +59,7 @@ const FormForm = ({ form, onChangeForm, onInsert, onChange }) => {
           id="content"
           type="text"
           placeholder="Content"
-          value={form.content}
+          value={book.content}
           onChange={onChangeContent}
         />
       </div>
@@ -65,7 +70,7 @@ const FormForm = ({ form, onChangeForm, onInsert, onChange }) => {
           id="name"
           type="text"
           placeholder="Name"
-          value={form.writer}
+          value={book.writer}
           onChange={onChangeWriter}
         />
       </div>
@@ -76,7 +81,7 @@ const FormForm = ({ form, onChangeForm, onInsert, onChange }) => {
           id="date"
           type="text"
           placeholder="Date"
-          value={form.date}
+          value={book.date}
           onChange={onChangeDate}
         />
       </div>
@@ -87,4 +92,4 @@ const FormForm = ({ form, onChangeForm, onInsert, onChange }) => {
   );
 };
 
-export default FormForm;
+export default BookForm;

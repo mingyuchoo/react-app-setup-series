@@ -1,14 +1,25 @@
 import React from 'react';
 
-const BookItem = ({ book, onRemove }) => {
+const BookItem = ({ book, onChangeForm, onRemove }) => {
   const onClickRemove = () => {
     onRemove(book.id);
   };
+  const onClickContent = () => {
+    onChangeForm({
+      id: book.id, 
+      title: book.title, 
+      content: book.content, 
+      writer: book.writer, 
+      date: book.date
+    })
+    console.log('BookItem - onClickContent - onChangeForm')
+  }
+
   return (
-    <tr>
+    <tr className="item">
       <th scope="row">{book.id}</th>
       <td>{book.title}</td>
-      <td>{book.content}</td>
+      <td className="content" onClick={onClickContent}>{book.content}</td>
       <td>{book.writer}</td>
       <td>{book.date}</td>
       <td>
