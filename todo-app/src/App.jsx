@@ -1,7 +1,6 @@
 import React, { useState, useRef, useCallback } from 'react';
-import './App.scss';
 
-import TodoContainer from './components/TodoContainer';
+import TodoContainer from './containers/TodoContainer';
 import TodoTitle from './components/TodoTitle';
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
@@ -61,7 +60,7 @@ const App = () => {
     [todos]
   );
   return (
-    <div className="App">
+    <div className="container">
       <TodoContainer>
         <TodoTitle />
         <TodoInsert onInsert={onInsert} />
