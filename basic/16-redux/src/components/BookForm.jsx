@@ -25,6 +25,7 @@ const FormForm = ({ form, onChangeForm, onInsert, onChange }) => {
     event.preventDefault();
     
     onInsert({ ...form });
+    // onChange({ ...form });
     onChangeForm({
       id: 0,
       title: '',

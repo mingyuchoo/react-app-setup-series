@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeForm, insert, change, remove } from '../modules/redux-books';
+import { insert, change, remove } from '../modules/redux-books';
+import { changeForm } from '../modules/redux-book-form';
 
 import BookForm from '../components/BookForm';
 import BookList from '../components/BookList';
@@ -27,8 +28,8 @@ const BooksContainer = ({
 };
 
 export default connect(
-  ({ booksReducer }) => ({
-    form: booksReducer.form,
+  ({ bookFormReducer, booksReducer }) => ({
+    form: bookFormReducer.form,
     books: booksReducer.books,
   }),
   { changeForm, insert, change, remove }

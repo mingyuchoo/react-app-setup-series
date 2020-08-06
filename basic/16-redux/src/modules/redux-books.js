@@ -1,12 +1,5 @@
 /* initial state */
 const initialState = {
-  form: {
-    id: 0,
-    title: '',
-    content: '',
-    writer: '',
-    date: '',
-  },
   books: [
     {
       id: 1,
@@ -46,23 +39,11 @@ const initialState = {
   ],
 };
 /* actions */
-const CHANGE_FORM = 'books/CHANGE_FORM';
 const INSERT = 'books/INSERT';
 const CHANGE = 'books/CHANGE';
 const REMOVE = 'books/REMOVE';
 
 /* action creators */
-export const changeForm = ({ id, title, content, writer, date }) => ({
-  type: CHANGE_FORM,
-  form: {
-    id,
-    title,
-    content,
-    writer,
-    date,
-  },
-});
-
 let id = 6;
 export const insert = ({ title, content, writer, date }) => ({
   type: INSERT,
@@ -89,11 +70,6 @@ export const remove = (id) => ({
 /* reducer */
 function booksReducer(state = initialState, action) {
   switch (action.type) {
-    case CHANGE_FORM:
-      return {
-        ...state,
-        form: action.form,
-      };
     case INSERT:
       return {
         ...state,
@@ -103,7 +79,7 @@ function booksReducer(state = initialState, action) {
       return {
         ...state,
         books: state.books.map((book) =>
-          book.id === action.id ? { ...book, content: book.content } : book
+          book.id === action.id ? { ...book, content: action.content } : book
         ),
       };
     case REMOVE:
