@@ -4,7 +4,7 @@ function TodoTitle() {
   const TITLE = 'TODO LIST';
 
   return (
-    <div className="row border">
+    <div className="row">
       <h1>{TITLE}</h1>
     </div>
   );

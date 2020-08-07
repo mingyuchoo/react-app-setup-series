@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { MdAdd } from 'react-icons/md';
+import { FiPlusCircle } from 'react-icons/fi';
 
 const TodoInsert = ({ onInsert }) => {
   const [text, setText] = useState('');
@@ -19,19 +19,21 @@ const TodoInsert = ({ onInsert }) => {
   );
 
   return (
-    <div className="row border">
-      <form onSubmit={onSubmitTodoInsert}>
+    <form onSubmit={onSubmitTodoInsert}>
+      <div className="row border">
         <input
+          className="col-10 p-3"
           type="text"
           placeholder="할 일을 입력하세요."
-          text={text}
+          value={text}
           onChange={onChangeTodoInsert}
-        />
-        <button type="submit">
-          <MdAdd />
+          required={true}
+          />
+        <button className="btn col-2 p-3" type="submit">
+          <FiPlusCircle />
         </button>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };
 
