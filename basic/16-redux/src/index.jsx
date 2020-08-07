@@ -1,18 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-
-import { debugContextDevtool } from 'react-context-devtool';
+// import { debugContextDevtool } from 'react-context-devtool';  // for edge browser
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import App from './App';
 import rootReducer from './modules';
 
-const store = createStore(
-  rootReducer
-);
+const store = createStore(rootReducer, composeWithDevTools());
 
-const container = document.getElementById("root");
+const container = document.getElementById('root');
 
 ReactDOM.render(
   <Provider store={store}>
@@ -21,7 +20,7 @@ ReactDOM.render(
   container
 );
 
-
-debugContextDevtool(container, {
-  disable: process.env.NODE_ENV === "production"
-});
+/* for edge browser */
+// debugContextDevtool(container, {
+//   disable: process.env.NODE_ENV === 'production',
+// });

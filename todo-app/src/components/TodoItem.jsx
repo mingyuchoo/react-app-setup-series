@@ -1,21 +1,21 @@
 import React from 'react';
-import {
-  MdCheckBoxOutlineBlank,
-  MdCheckBox,
-  MdRemoveCircleOutline,
-} from 'react-icons/md';
+
+import { FiCircle, FiCheckCircle, FiTrash2 } from 'react-icons/fi';
+
 import cn from 'classnames';
 
 const TodoItem = ({ todo, onRemove, onToggle }) => {
   const { id, text, checked } = todo;
   return (
-    <div className="todo-item">
-      <div className={cn('checkbox', { checked })} onClick={() => onToggle(id)}>
-        {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
-        <div className="text">{text}</div>
+    <div className="row m-3 border">
+      <div
+        className={cn('col', 'checkbox', { checked })}
+        onClick={() => onToggle(id)}>
+        {checked ? <FiCheckCircle /> : <FiCircle />}
       </div>
-      <div className="remove" onClick={() => onRemove(id)}>
-        <MdRemoveCircleOutline />
+      <div className="col">{text}</div>
+      <div className="col" onClick={() => onRemove(id)}>
+        <FiTrash2 />
       </div>
     </div>
   );

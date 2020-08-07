@@ -1,14 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { insert, remove, toggle } from '../modules/redux-todos';
-import TodoList from 'src/components/TodoList';
+import TodoInsert from '../components/TodoInsert';
+import TodoList from '../components/TodoList';
+import TodoTitle from 'src/components/TodoTitle';
 
 const TodoContainer = ({ todos, insert, remove, toggle }) => {
-  return <TodoList onInsert={insert} onRemove={remove} onToggle={toggle} />;
+  console.log(todos);
+  return (
+    <div className="container p-3">
+      <TodoTitle />
+      <TodoInsert onInsert={insert} />
+      <TodoList todos={todos} onRemove={remove} onToggle={toggle} />
+    </div>
+  );
 };
 
 export default connect(
-  (todosReducer) => ({
+  ({ todosReducer }) => ({
     todos: todosReducer.todos,
   }),
   {

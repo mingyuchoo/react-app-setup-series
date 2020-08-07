@@ -25,12 +25,12 @@ const TOGGLE = 'todos/TOGGLE';
 
 /* action creators */
 let id = 4;
-export const insert = ({ text, checked }) => ({
+export const insert = ({ text }) => ({
   type: INSERT,
   todo: {
     id: id++,
-    text,
-    checked,
+    text: text,
+    checked: false,
   },
 });
 
@@ -61,7 +61,7 @@ const todosReducer = (state = initialState, action) => {
       return {
         ...state,
         todos: state.todos.map((todo) =>
-          todo.id === action.id ? { ...todo, checked: !checked } : todo
+          todo.id === action.id ? { ...todo, checked: !todo.checked } : todo
         ),
       };
     default:
