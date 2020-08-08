@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
-import Container from './components/Container';
+import NewsContainer from './containers/NewsContainer';
 
 function App() {
   let [data, setData] = useState(null);
@@ -26,7 +26,7 @@ function App() {
     };
   }, [fetchData]);
 
-  return <Container data={data} />;
+  return <NewsContainer data={data} />;
 }
 
 export default App;

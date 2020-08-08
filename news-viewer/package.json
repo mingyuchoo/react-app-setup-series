@@ -6,9 +6,13 @@
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "react": "^16.13.1",
+    "react-context-devtool": "^2.0.0",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
-    "react-scripts": "3.4.1"
+    "react-redux": "^7.2.1",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8"
   },
   "scripts": {
     "lint": "eslint --config .eslintrc.yml --fix src/**/*.js",
@@ -18,16 +22,16 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.11.1",
-    "@testing-library/react": "^10.4.7",
-    "@testing-library/user-event": "^12.0.15",
+    "@testing-library/jest-dom": "^5.11.2",
+    "@testing-library/react": "^10.4.8",
+    "@testing-library/user-event": "^12.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-react": "^1.1.7",
     "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.20.4",
+    "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.8",
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
