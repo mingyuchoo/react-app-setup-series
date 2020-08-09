@@ -32,5 +32,13 @@ export default connect(
     form: bookFormReducer.form,
     books: booksReducer.books,
   }),
-  { changeForm, insert, change, remove }
+
+  {
+    // 액션 생성함수로 이루어진 객체 형태로 넘겨주면
+    // connect 함수가 내부적으로 bindActionCreators 작업을 대신 해준다.
+    changeForm,
+    insert,
+    change,
+    remove,
+  }
 )(BooksContainer);

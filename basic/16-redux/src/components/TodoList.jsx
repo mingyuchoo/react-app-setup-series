@@ -20,26 +20,33 @@ const TodoList = ({
 
   return (
     <div className="row">
-      <form className="input-group-prepend" onSubmit={onSubmit}>
-        <input
-          className="form-control"
-          type="text"
-          placeholder="Recipient's username"
-          value={input}
-          onChange={onChange}
-        />
-        <button className="btn btn-dark" type="submit">
-          Submit
-        </button>
-      </form>
-      {todos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          onToggle={onToggle}
-          onRemove={onRemove}
-        />
-      ))}
+      <div className="col">
+        <form className="row p-3 input-group-prepend" onSubmit={onSubmit}>
+          <div className="col-10">
+            <input
+              className="form-control"
+              type="text"
+              placeholder="Recipient's username"
+              value={input}
+              onChange={onChange}
+            />
+          </div>
+          <div className="col-2">
+            <button className="btn btn-dark" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+
+        {todos.map((todo) => (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            onToggle={onToggle}
+            onRemove={onRemove}
+          />
+        ))}
+      </div>
     </div>
   );
 };

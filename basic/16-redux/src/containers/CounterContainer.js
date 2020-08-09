@@ -1,23 +1,24 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { memo, useCallback } from 'react';
+import { connect, useSelector, useDispatch } from 'react-redux';
 
 import Counter from '../components/Counter';
 import { increase, decrease } from '../modules/redux-counter';
 
-const CounterContainer = ({ number, increase, decrease }) => {
+const CounterContainer = () => {
+  const number = useSelector((state) => state.counterReducer.number);
+  const dispatch = useDispatch();
+
+  const onIncrease = useCallback(() => {
+    dispatch(increase());
+  }, [dispatch]);
+
+  const onDecrease = useCallback(() => {
+    dispatch(decrease());
+  }, [dispatch]);
+
   return (
-    <Counter number={number} onIncrease={increase} onDecrease={decrease} />
+    <Counter number={number} onIncrease={onIncrease} onDecrease={onDecrease} />
   );
 };
 
-export default connect(
-  (state) => ({
-    number: state.counterReducer.number,
-  }),
-  {
-    // 액션 생성함수로 이루어진 객체 형태로 넘겨주면
-    // connect 함수가 내부적으로 bindActionCreators 작업을 대신 해준다.
-    increase,
-    decrease,
-  }
-)(CounterContainer);
+export default memo(CounterContainer);

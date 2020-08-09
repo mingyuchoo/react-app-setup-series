@@ -29,6 +29,8 @@ export default connect(
     todos: todosReduceer.todos,
   }),
   {
+    // 액션 생성함수로 이루어진 객체 형태로 넘겨주면
+    // connect 함수가 내부적으로 bindActionCreators 작업을 대신 해준다.
     changeInput,
     insert,
     toggle,
