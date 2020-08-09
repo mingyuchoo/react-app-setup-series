@@ -18,7 +18,12 @@ const BookList = ({ books, onChangeForm, onRemove }) => {
         </thead>
         <tbody>
           {books.map((book) => (
-            <BookItem key={book.id} book={book} onChangeForm={onChangeForm} onRemove={onRemove} />
+            <BookItem
+              key={book.id}
+              book={book}
+              onChangeForm={onChangeForm}
+              onRemove={onRemove}
+            />
           ))}
         </tbody>
       </table>

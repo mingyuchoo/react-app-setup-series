@@ -9,8 +9,10 @@ import './App.scss';
 function App() {
   return (
     <div className="container">
-      {/* <CounterContainer />
-      <TodoContainer /> */}
+      <CounterContainer />
+      <hr />
+      <TodoContainer />
+      <hr />
       <BooksContainer />
     </div>
   );

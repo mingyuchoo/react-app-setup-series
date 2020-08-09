@@ -1,3 +1,5 @@
+import { createAction, handleActions } from 'redux-actions';
+
 /* initial state */
 const initialState = {
   books: [
@@ -45,51 +47,31 @@ const REMOVE = 'books/REMOVE';
 
 /* action creators */
 let id = 6;
-export const insert = ({ title, content, writer, date }) => ({
-  type: INSERT,
-  book: {
-    id: id++,
-    title,
-    content,
-    writer,
-    date,
-  },
-});
-
-export const change = (id, content) => ({
-  type: CHANGE,
-  id,
-  content,
-});
-
-export const remove = (id) => ({
-  type: REMOVE,
-  id,
-});
+export const insert = createAction(INSERT);
+export const change = createAction(CHANGE);
+export const remove = createAction(REMOVE);
 
 /* reducer */
-function booksReducer(state = initialState, action) {
-  switch (action.type) {
-    case INSERT:
-      return {
-        ...state,
-        books: state.books.concat(action.book),
-      };
-    case CHANGE:
-      return {
-        ...state,
-        books: state.books.map((book) =>
-          book.id === action.id ? { ...book, content: action.content } : book
-        ),
-      };
-    case REMOVE:
-      return {
-        ...state,
-        books: state.books.filter((book) => book.id !== action.id),
-      };
-    default:
-      return state;
-  }
-}
 
+const booksReducer = handleActions(
+  {
+    [INSERT]: (state, action) => ({
+      ...state,
+      books: state.books.concat({ ...action.payload, id: id++ }),
+    }),
+    [CHANGE]: (state, action) => ({
+      ...state,
+      books: state.books.map((book) =>
+        book.id === action.payload.id
+          ? { ...book, content: action.payload.content }
+          : book
+      ),
+    }),
+    [REMOVE]: (state, action) => ({
+      ...state,
+      books: state.books.filter((book) => book.id !== action.payload),
+    }),
+  },
+  initialState
+);
 export default booksReducer;

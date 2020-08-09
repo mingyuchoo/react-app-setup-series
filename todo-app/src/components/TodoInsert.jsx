@@ -12,7 +12,7 @@ const TodoInsert = ({ onInsert }) => {
     (event) => {
       event.preventDefault();
       console.log(text);
-      onInsert({ text });
+      onInsert(text);
       setText('');
     },
     [onInsert, text] // 사용하는 props, state 넣음
@@ -28,7 +28,7 @@ const TodoInsert = ({ onInsert }) => {
           value={text}
           onChange={onChangeTodoInsert}
           required={true}
-          />
+        />
         <button className="btn col-2 p-3" type="submit">
           <FiPlusCircle />
         </button>

@@ -2,16 +2,15 @@ import React from 'react';
 import cn from 'classnames';
 import { FiCircle, FiCheckCircle, FiTrash2 } from 'react-icons/fi';
 
-
 const TodoItem = ({ todo, onRemove, onToggle }) => {
   const { id, text, checked } = todo;
 
   const onClickToggle = () => {
-    onToggle({id})
-  }
+    onToggle(id);
+  };
   const onClickRemove = () => {
-    onRemove({id});
-  }
+    onRemove(id);
+  };
   return (
     <div className="row p-3 border">
       <div

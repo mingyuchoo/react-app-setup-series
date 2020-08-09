@@ -1,39 +1,52 @@
 import React, { useState, useCallback } from 'react';
 
 const FormForm = ({ form, onChangeForm, onInsert, onChange }) => {
-  const onChangeTitle = useCallback((event) => {
-    onChangeForm({ ...form, title: event.target.value });
-    console.log(form);
-  }, [form]);
+  const onChangeTitle = useCallback(
+    (event) => {
+      onChangeForm({ ...form, title: event.target.value });
+      console.log(form);
+    },
+    [form]
+  );
 
-  const onChangeContent = useCallback((event) => {
-    onChangeForm({ ...form, content: event.target.value });
-    console.log(form);
-  }, [form]);
+  const onChangeContent = useCallback(
+    (event) => {
+      onChangeForm({ ...form, content: event.target.value });
+      console.log(form);
+    },
+    [form]
+  );
 
-  const onChangeWriter = useCallback((event) => {
-    onChangeForm({ ...form, writer: event.target.value });
-    console.log(form);
-  }, [form]);
+  const onChangeWriter = useCallback(
+    (event) => {
+      onChangeForm({ ...form, writer: event.target.value });
+      console.log(form);
+    },
+    [form]
+  );
 
-  const onChangeDate = useCallback((event) => {
-    onChangeForm({ ...form, date: event.target.value });
-    console.log(form);
-  }, [form]);
+  const onChangeDate = useCallback(
+    (event) => {
+      onChangeForm({ ...form, date: event.target.value });
+      console.log(form);
+    },
+    [form]
+  );
 
-  const onSubmit = useCallback((event) => {
-    event.preventDefault();
-    
-    onInsert({ ...form });
-    // onChange({ ...form });
-    onChangeForm({
-      id: 0,
-      title: '',
-      content: '',
-      writer: '',
-      date: '',
-    })
-  }, [form]);;
+  const onSubmit = useCallback(
+    (event) => {
+      event.preventDefault();
+      form.id === 0 ? onInsert({ ...form }) : onChange({ ...form });
+      onChangeForm({
+        id: 0,
+        title: '',
+        content: '',
+        writer: '',
+        date: '',
+      });
+    },
+    [form]
+  );
 
   return (
     <form onSubmit={onSubmit}>
