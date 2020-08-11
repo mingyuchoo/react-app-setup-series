@@ -13,7 +13,7 @@ import App from './App';
 const logger = createLogger();
 const store = createStore(
   rootReducer,
-  applyMiddleware(logger, ReduxThunk)
+  applyMiddleware( ReduxThunk),
   // composeWithDevTools()
 );
 

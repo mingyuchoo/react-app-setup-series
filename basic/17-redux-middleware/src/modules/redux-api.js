@@ -1,4 +1,4 @@
-import { createAction, handleActions } from 'redux-actions';
+import { handleActions } from 'redux-actions';
 import * as api from '../lib/api';
 
 const initialState = {
@@ -62,6 +62,7 @@ const apiReducer = handleActions(
         ...state.loading,
         GET_POST: true,
       },
+     
     }),
     [GET_POST_SUCCESS]: (state, aciton) => ({
       ...state,
@@ -69,6 +70,7 @@ const apiReducer = handleActions(
         ...state.loading,
         GET_POST: false,
       },
+      post: aciton.payload
     }),
     [GET_POST_FAILURE]: (state, aciton) => ({
       ...state,
@@ -90,6 +92,7 @@ const apiReducer = handleActions(
         ...state.loading,
         GET_USERS: false,
       },
+      users: aciton.payload
     }),
     [GET_USERS_FAILURE]: (state, aciton) => ({
       ...state,

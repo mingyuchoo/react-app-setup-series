@@ -26,11 +26,11 @@ const PostUsersContainer = ({
 };
 
 export default connect(
-  ({ apiReducer }) => ({
-    post: apiReducer.post,
-    users: apiReducer.users,
-    loadingPost: apiReducer.loading.GET_POST,
-    loadingUsers: apiReducer.loading.GET_USERS,
+  (state) => ({
+    post: state.apiReducer.post,
+    users: state.apiReducer.users,
+    loadingPost: state.apiReducer.loading.GET_POST,
+    loadingUsers: state.apiReducer.loading.GET_USERS,
   }),
   {
     getPost,
