@@ -5,7 +5,7 @@ import {
   decrease,
   increaseAsync,
   decreaseAsync,
-} from '../modules/redux-counter';
+} from '../redux/counter';
 import Counter from '../components/Counter';
 
 // const CounterContainer = ({ number, increase, decrease }) => {

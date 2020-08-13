@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PostUsers from '../components/PostUsers';
-import { getPost, getUsers } from '../modules/redux-api';
+import { getPost, getUsers } from '../redux/api';
 
 const PostUsersContainer = ({
   getPost,
