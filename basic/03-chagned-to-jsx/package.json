@@ -16,8 +16,8 @@
   },
   "devDependencies": {
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "react-scripts": "^3.4.1",
+    "enzyme-adapter-react-16": "^1.15.3",
+    "react-scripts": "^3.4.3",
     "react-test-renderer": "^16.13.1"
   },
   "browserslist": {
