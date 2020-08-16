@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
-
-import './App.scss'
+import React, { Component } from "react";
+import { Button } from "@material-ui/core";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>React App</h1>
-        <h2>Is this working well?</h2>
-        <input />
+        <Button variant="contained" color="primary">
+          Hello World
+        </Button>
       </div>
-
     );
   }
 }
