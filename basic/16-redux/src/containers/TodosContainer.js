@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeInput, insert, toggle, remove } from '../modules/redux-todos';
+import { changeInput, insert, toggle, remove } from '../redux/redux-todos';
 import TodoList from '../components/TodoList';
 
 const TodoContainer = ({

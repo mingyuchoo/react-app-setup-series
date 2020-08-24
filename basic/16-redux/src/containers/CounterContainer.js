@@ -2,7 +2,7 @@ import React, { memo, useCallback } from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux';
 
 import Counter from '../components/Counter';
-import { increase, decrease } from '../modules/redux-counter';
+import { increase, decrease } from '../redux/redux-counter';
 
 const CounterContainer = () => {
   const number = useSelector((state) => state.counterReducer.number);

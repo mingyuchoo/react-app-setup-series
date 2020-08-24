@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { insert, change, remove } from '../modules/redux-books';
-import { changeForm } from '../modules/redux-book-form';
+import { insert, change, remove } from '../redux/redux-books';
+import { changeForm } from '../redux/redux-book-form';
 
 import BookForm from '../components/BookForm';
 import BookList from '../components/BookList';
