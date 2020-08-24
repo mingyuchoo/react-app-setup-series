@@ -19,8 +19,8 @@
   "devDependencies": {
     "@types/chai": "^4.2.12",
     "@types/mocha": "^8.0.3",
-    "@wdio/cli": "^6.4.0",
-    "@wdio/local-runner": "^6.4.0",
+    "@wdio/cli": "^6.4.1",
+    "@wdio/local-runner": "^6.4.1",
     "@wdio/mocha-framework": "^6.4.0",
     "@wdio/selenium-standalone-service": "^6.4.0",
     "@wdio/spec-reporter": "^6.4.0",
@@ -29,8 +29,8 @@
     "mocha": "^8.1.1",
     "nyc": "^15.1.0",
     "source-map-support": "^0.5.19",
-    "ts-node": "^8.10.2",
+    "ts-node": "^9.0.0",
     "tsconfig-paths": "^3.9.0",
-    "webdriverio": "^6.4.0"
+    "webdriverio": "^6.4.1"
   }
 }
