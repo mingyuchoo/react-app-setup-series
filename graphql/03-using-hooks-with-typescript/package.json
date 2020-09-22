@@ -35,6 +35,7 @@
   },
   "scripts": {
     "lint": "eslint --config .eslintrc.yml --fix './src/**/*.{ts,tsx}'",
+    "codegen": "apollo client:codegen --queries 'src/**/*.{graphql,ts,tsx}' --target typescript",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
