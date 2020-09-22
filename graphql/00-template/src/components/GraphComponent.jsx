@@ -1,8 +1,7 @@
 import React from 'react';
-import { gql } from 'apollo-boost';
-import { useQuery } from 'react-apollo';
+import { gql, useQuery } from '@apollo/client';
 
-const SAY_HELLO = gql`
+const GET_ALL_USERS = gql`
   query {
     getAllUsers {
       id
@@ -13,7 +12,7 @@ const SAY_HELLO = gql`
 `;
 
 function GraphComponent() {
-  const { loading, error, data } = useQuery(SAY_HELLO);
+  const { loading, error, data } = useQuery(GET_ALL_USERS);
 
   if (loading) {
     // 데이터 로딩 상태
