@@ -4,11 +4,12 @@ import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import ApolloClient from 'apollo-boost';
+import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
 const client = new ApolloClient({
-  uri: '여기에_graphql_서버_URL_입력',
+  uri: 'https://sleepy-plains-38954.herokuapp.com/graphql',
+  cache: new InMemoryCache(),
 });
 
 ReactDOM.render(

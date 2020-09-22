@@ -16,23 +16,31 @@ function CharacterWithRender() {
   return (
     <Query query={GET_ALL_USERS}>
       {({ loading, error, data }) => {
-        // loading
+        // 데이터 로딩 상황
         if (loading) return 'Loading...';
 
-        // error
+        // 에러 상황
         if (error) return `Error! ${error.message}`;
 
-        // data
-        return (
-          <div>
-            {data.getAllUsers.map((user) => (
-              <div key={user.id}>
-                <p>{user.name}</p>
-                <p>{user.email}</p>
-              </div>
-            ))}
-          </div>
-        );
+        if (data) {
+          return (
+            <div>
+              {data.getAllUsers.map((user) => (
+                <div key={user.id}>
+                  <p>
+                    {user.name}: {user.email}
+                  </p>
+                </div>
+              ))}
+            </div>
+          );
+        } else {
+          return (
+            <div>
+              <h2>데이터 없음</h2>
+            </div>
+          );
+        }
       }}
     </Query>
   );
