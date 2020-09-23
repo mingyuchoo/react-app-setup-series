@@ -1,8 +1,8 @@
 import React from 'react';
-import { gql, useQuery, useMutation } from '@apollo/client';
+import { gql, useQuery, useLazyQuery, useMutation } from '@apollo/client';
 import './UserList.scss';
 
-const GET_ALL_USERS = gql`
+export const GET_ALL_USERS = gql`
   query {
     getAllUsers {
       id
@@ -12,7 +12,7 @@ const GET_ALL_USERS = gql`
   }
 `;
 
-const DELETE_USER_BY_ID = gql`
+export const DELETE_USER_BY_ID = gql`
   mutation deleteUserById($id: ID!) {
     deleteUserById(id: $id) {
       id
@@ -23,13 +23,7 @@ const DELETE_USER_BY_ID = gql`
 `;
 
 const UserList = () => {
-  const { loading, error, data } = useQuery(GET_ALL_USERS);
-  // const [deleteUser, { data2, error2, loading2 }] = useMutation(DELETE_USER_BY_ID);
-
-  const onDoubleClickRow = (id, event) => {
-    event.preventDefault();
-    // deleteUser({ variables: { id } });
-  };
+  const { loading, data, refetch } = useQuery(GET_ALL_USERS);
 
   // loading
   if (loading) {
@@ -39,27 +33,27 @@ const UserList = () => {
       </div>
     );
   }
-  // error
-  if (error) {
-    return <div>Error</div>;
-  }
+  return data.getAllUsers.map((user) => <User key={user.id} user={user} refetch={refetch} />);
+};
 
-  // data
-  if (data) {
-    if (data.getAllUsers.length > 0) {
-      return (
-        <div className="list">
-          {data.getAllUsers.map((user) => (
-            <div className="row" key={user.id} onDoubleClick={(event) => onDoubleClickRow(user.id, event)}>
-              <p className="column">{user.name}</p>
-              <p className="column">{user.email}</p>
-            </div>
-          ))}
-        </div>
-      );
-    }
-  }
-  return <div></div>;
+const User = ({ user, refetch }) => {
+  const [deleteUser] = useMutation(DELETE_USER_BY_ID, {
+    onCompleted: () => refetch(),
+  });
+
+  const onDoubleClickRow = (id, event) => {
+    event.preventDefault();
+    deleteUser({ variables: { id } });
+  };
+
+  return (
+    <div className="list">
+      <div className="row" key={user.id} onDoubleClick={(event) => onDoubleClickRow(user.id, event)}>
+        <p className="column">{user.name}</p>
+        <p className="column">{user.email}</p>
+      </div>
+    </div>
+  );
 };
 
 export default UserList;

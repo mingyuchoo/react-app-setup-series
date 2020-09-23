@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
+import { GET_ALL_USERS } from './UserList';
 import './Form.scss';
 
 // https://www.apollographql.com/docs/react/data/mutations/
 
-const CREATE_USER_BY_EMAIL = gql`
+export const CREATE_USER_BY_EMAIL = gql`
   mutation createUserByEmail($email: String!, $name: String!) {
     createUserByEmail(email: $email, name: $name) {
       id
@@ -17,7 +18,14 @@ const CREATE_USER_BY_EMAIL = gql`
 const Form = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [addNewUser, { loading, error, data }] = useMutation(CREATE_USER_BY_EMAIL);
+  const [addNewUser, { loading, error, data }] = useMutation(CREATE_USER_BY_EMAIL, {
+    refetchQueries: [
+      {
+        query: GET_ALL_USERS,
+        variables: {},
+      },
+    ],
+  });
 
   // loading
   if (loading) {
@@ -33,14 +41,11 @@ const Form = () => {
     return <div>Error</div>;
   }
 
-  // data
-  if (data) {
-    return <div>Successfully added.</div>;
-  }
-
   const onSubmitForm = (event) => {
     event.preventDefault(); // 원래 event 기본 동작을 못 하도록 막는다.
     addNewUser({ variables: { email, name } });
+    setName('');
+    setEmail('');
   };
   const onChangeName = (event) => {
     console.log(`${event.target.name} : ${event.target.value}`);
