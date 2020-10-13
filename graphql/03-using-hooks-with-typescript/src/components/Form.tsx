@@ -15,7 +15,8 @@ export const CREATE_USER_BY_EMAIL = gql`
   }
 `;
 
-const Form = () => {
+// const Form: React.FC = ():React.ReactElement => {
+function Form(): React.ReactElement {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [addNewUser, { loading, error, data }] = useMutation(CREATE_USER_BY_EMAIL, {
@@ -95,6 +96,6 @@ const Form = () => {
       </button>
     </form>
   );
-};
+}
 
 export default Form;

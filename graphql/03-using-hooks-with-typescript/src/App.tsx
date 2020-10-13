@@ -5,7 +5,8 @@ import Title from './components/Title';
 import Form from './components/Form';
 import UserList from './components/UserList';
 
-function App() {
+// const App: React.FC = ():React.ReactElement => {
+function App(): React.ReactElement {
   const title = 'User Information';
   return (
     <div className="App">
