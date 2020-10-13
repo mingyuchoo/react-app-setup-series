@@ -26,15 +26,35 @@ User.propTypes = {
 // const User:React.FC<UserProps> = ({ user, refetch }: UserProps): React.ReactElement => {
 // function User({ user, refetch }: UserProps): React.ReactElement {
 function User({ user, refetch }): React.ReactElement {
-  const [deleteUser] = useMutation(DELETE_USER_BY_ID, {
-    onCompleted: () => refetch(),
-  });
+
+  const [deleteUser, {loading: mutationLoading, error: mutationError}] = useMutation(DELETE_USER_BY_ID,
+    {
+      onCompleted: () => refetch(),
+    }
+  );
 
   const onDoubleClickRow = (id, event) => {
     event.preventDefault();
     deleteUser({ variables: { id } });
   };
 
+  // loading
+  if (mutationLoading) {
+    return (
+      <div className="App">
+        <h2>Loading...</h2>
+      </div>
+    );
+  }
+
+  // error
+  if (mutationError) {
+    return (
+      <div className="App">
+        <h2>Error</h2>
+      </div>
+    );
+  }
   return (
     <div className="list">
       <div className="row" key={user.id} onDoubleClick={(event) => onDoubleClickRow(user.id, event)}>
