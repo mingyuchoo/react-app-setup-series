@@ -14,23 +14,28 @@ export const GET_ALL_USERS = gql`
   }
 `;
 
-// const UserList = (): React.ReactElement => {
+/**
+ * // Other way (1)
+ *
+ * const UserList = (): React.ReactElement => {
+ */
+
+// Other way (2)
 function UserList(): React.ReactElement {
+  /**
+   * // Other way (1)
+   *
+   * const { loading: queryLoading, error: queryError, data } = useQuery(GET_ALL_USERS,
+   *   {
+   *     pollInterval: 500,
+   *   }
+   *   );
+   */
 
-
-  // -- Updating chached query results [1]
-  // const { loading: queryLoading, error: queryError, data } = useQuery(GET_ALL_USERS,
-  //   {
-  //     pollInterval: 500,
-  //   }
-  //   );
-
-  // -- Updating chached query results [2]
-  const { loading: queryLoading, error: queryError, data, refetch, networkStatus } = useQuery(GET_ALL_USERS,
-    {
-      notifyOnNetworkStatusChange: true,
-    }
-  );
+  // Other way (2)
+  const { loading: queryLoading, error: queryError, data, refetch, networkStatus } = useQuery(GET_ALL_USERS, {
+    notifyOnNetworkStatusChange: true,
+  });
 
   // refetching
   if (networkStatus === NetworkStatus.refetch) {
@@ -49,7 +54,7 @@ function UserList(): React.ReactElement {
       </div>
     );
   }
-  
+
   // error
   if (queryError) {
     return (
@@ -59,6 +64,6 @@ function UserList(): React.ReactElement {
     );
   }
   return data.getAllUsers.map((user) => <User key={user.id} user={user} refetch={refetch} />);
-};
+}
 
 export default UserList;

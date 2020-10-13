@@ -5,7 +5,13 @@ import Title from './components/Title';
 import Form from './components/Form';
 import UserList from './components/UserList';
 
-// const App: React.FC = ():React.ReactElement => {
+/**
+ * // Other way (1)
+ *
+ * const App: React.FC = ():React.ReactElement => {
+ */
+
+// Other way (2)
 function App(): React.ReactElement {
   const title = 'User Information';
   return (

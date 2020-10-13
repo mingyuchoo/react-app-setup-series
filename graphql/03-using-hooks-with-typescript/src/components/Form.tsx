@@ -15,11 +15,17 @@ export const CREATE_USER_BY_EMAIL = gql`
   }
 `;
 
-// const Form: React.FC = ():React.ReactElement => {
+/**
+ * // Other way (1)
+ *
+ * const Form: React.FC = ():React.ReactElement => {
+ */
+
+// Other way (2)
 function Form(): React.ReactElement {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [addNewUser, { loading, error, data }] = useMutation(CREATE_USER_BY_EMAIL, {
+  const [addNewUser, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_USER_BY_EMAIL, {
     refetchQueries: [
       {
         query: GET_ALL_USERS,
@@ -28,18 +34,22 @@ function Form(): React.ReactElement {
     ],
   });
 
-  // loading
-  if (loading) {
-    return (
-      <div className="App">
-        <h2>Loading...</h2>
-      </div>
-    );
-  }
+  // // loading
+  // if (loading) {
+  //   return (
+  //     <div className="App">
+  //       <h2>Loading...</h2>
+  //     </div>
+  //   );
+  // }
 
   // error
-  if (error) {
-    return <div>Error</div>;
+  if (mutationError) {
+    return (
+      <div className="App">
+        <h2>Error</h2>
+      </div>
+    );
   }
 
   const onSubmitForm = (event) => {
