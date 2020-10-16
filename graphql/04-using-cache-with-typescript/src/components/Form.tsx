@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { GET_ALL_USERS } from './UserList';
+import { GET_ALL_USERS } from '../graphql/queries';
 import './Form.scss';
 
 // https://www.apollographql.com/docs/react/data/mutations/
 
-import { CREATE_USER_BY_EMAIL } from '../graphql/queries'
+import { CREATE_USER_BY_EMAIL } from '../graphql/queries';
 
 /**
  * // Other way (1)
@@ -51,12 +51,12 @@ function Form(): React.ReactElement {
     setEmail('');
   };
   const onChangeName = (event) => {
-    console.log(`${event.target.name} : ${event.target.value}`);
+    // console.log(`${event.target.name} : ${event.target.value}`);
     setName(event.target.value);
   };
 
   const onChangeEmail = (event) => {
-    console.log(`${event.target.name} : ${event.target.value}`);
+    // console.log(`${event.target.name} : ${event.target.value}`);
     setEmail(event.target.value);
   };
 

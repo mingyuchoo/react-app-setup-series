@@ -5,7 +5,6 @@ import User from './User';
 
 import { GET_ALL_USERS } from '../graphql/queries';
 
-
 import './UserList.scss';
 
 /**
@@ -28,6 +27,7 @@ function UserList(): React.ReactElement {
 
   // Other way (2)
   const { loading: queryLoading, error: queryError, data, refetch, networkStatus } = useQuery(GET_ALL_USERS, {
+    fetchPolicy: 'cache-first', // [cache-first, cache-only, cache-and-network, network-only, no-cache]
     notifyOnNetworkStatusChange: true,
   });
 
@@ -57,6 +57,7 @@ function UserList(): React.ReactElement {
       </div>
     );
   }
+
   return data.getAllUsers.map((user) => <User key={user.id} user={user} refetch={refetch} />);
 }
 

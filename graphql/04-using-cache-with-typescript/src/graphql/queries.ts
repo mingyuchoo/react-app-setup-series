@@ -10,7 +10,6 @@ export const CREATE_USER_BY_EMAIL = gql`
   }
 `;
 
-
 export const GET_ALL_USERS = gql`
   query {
     getAllUsers {
