@@ -6,8 +6,8 @@
     "axios": "^0.20.0",
     "classnames": "^2.2.6",
     "immer": "^7.0.9",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-icons": "^3.11.0",
     "react-redux": "^7.2.1",
     "react-scripts": "3.4.1",
@@ -25,8 +25,8 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.0.4",
-    "@testing-library/user-event": "^12.1.7",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.8",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^6.6.0",
@@ -38,7 +38,7 @@
     "node-sass": "^4.14.1",
     "prettier": "^2.1.2",
     "react-scripts": "^3.4.3",
-    "react-test-renderer": "^16.13.1",
+    "react-test-renderer": "^16.14.0",
     "redux-devtools-extension": "^2.13.8"
   },
   "eslintConfig": {

@@ -60,14 +60,14 @@ function User({ user, refetch }): React.ReactElement {
     deleteUser({ variables: { id } });
   };
 
-  //  // loading
-  //  if (mutationLoading) {
-  //   return (
-  //     <div className="App">
-  //       <h2>Loading...</h2>
-  //     </div>
-  //   );
-  // }
+   // loading
+   if (mutationLoading) {
+    return (
+      <div className="App">
+        <h2>Loading...</h2>
+      </div>
+    );
+  }
 
   // error
   if (mutationError) {
