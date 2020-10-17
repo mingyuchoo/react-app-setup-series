@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 
 // types
-import { Query } from '../types/profileTypes';
+import { Query, User } from '../types/profileTypes';
 
 // graphql queries, mutations
-import { GET_ALL_USERS } from '../graphql/queries';
-import { CREATE_USER_BY_EMAIL } from '../graphql/queries';
+import { GET_ALL_USERS } from '../operations/remote/queries';
+import { CREATE_USER_BY_EMAIL } from '../operations/remote/queries';
 
 // components
 import Loading from './Loading';
@@ -68,6 +68,8 @@ function UserForm(): React.ReactElement {
   const onSubmitForm = (event) => {
     event.preventDefault(); // 원래 event 기본 동작을 못 하도록 막는다.
     addNewUser({ variables: { email, name } });
+
+    // input 지움
     setName('');
     setEmail('');
   };

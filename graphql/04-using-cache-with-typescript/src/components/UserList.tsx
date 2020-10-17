@@ -2,7 +2,7 @@ import React from 'react';
 import { NetworkStatus, useQuery } from '@apollo/client';
 
 // graphql queries, mutations
-import { GET_ALL_USERS } from '../graphql/queries';
+import { GET_ALL_USERS } from '../operations/remote/queries';
 
 // containers
 import UserItem from './UserItem';

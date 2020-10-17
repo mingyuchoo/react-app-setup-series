@@ -1,18 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-// 1
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import { persistCacheSync } from 'apollo3-cache-persist'; // Cache 때문에 사용한다.
+import App from './App';
+import { cache } from './cache';
 
-const cache = new InMemoryCache({
-  addTypename: true,
-  resultCaching: true,
-  typePolicies: {},
-});
+import './index.scss';
+
+// 1
+import { ApolloClient, ApolloProvider } from '@apollo/client';
+import { persistCacheSync } from 'apollo3-cache-persist'; // Cache 때문에 사용한다.
 
 // TODO storage 타입을 제대로 선언해야 함.
 // 참고: https://github.com/apollographql/apollo-cache-persist/issues/55

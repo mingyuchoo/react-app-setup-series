@@ -5,8 +5,11 @@ import { useMutation } from '@apollo/client';
 import { Query, User } from '../types/profileTypes';
 
 // graphql queries, mutations
-import { GET_ALL_USERS } from '../graphql/queries';
-import { DELETE_USER_BY_ID } from '../graphql/mutations';
+import { GET_ALL_USERS } from '../operations/remote/queries';
+import { DELETE_USER_BY_ID } from '../operations/remote/mutations';
+
+// cache
+import { nameVar } from '../cache';
 
 // components
 import Deleting from './Deleting';
@@ -62,6 +65,14 @@ function UserItem({ user, refetch }: UserProps): React.ReactElement {
     // onCompleted: () => refetch(),
   });
 
+  const onClickRow = (event) => {
+    event.preventDefault();
+    // Local Cache에 저장하는 Reactive variable인 nameVar 에 이름을 저장
+    nameVar('Hello');
+    console.log('----------------');
+    console.log(nameVar());
+  };
+
   const onDoubleClickRow = (id, event) => {
     event.preventDefault();
     deleteUser({ variables: { id } });
@@ -78,7 +89,12 @@ function UserItem({ user, refetch }: UserProps): React.ReactElement {
   }
   return (
     <div className="list">
-      <div className="row" key={user.id} onDoubleClick={(event) => onDoubleClickRow(user.id, event)}>
+      <div
+        className="row"
+        key={user.id}
+        onClick={(event) => onClickRow(event)}
+        onDoubleClick={(event) => onDoubleClickRow(user.id, event)}
+      >
         <p className="column">{user.name}</p>
         <p className="column">{user.email}</p>
       </div>
