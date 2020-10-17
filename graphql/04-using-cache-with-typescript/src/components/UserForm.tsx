@@ -1,47 +1,68 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
+
+// types
+import { Query } from '../types/profileTypes';
+
+// graphql queries, mutations
 import { GET_ALL_USERS } from '../graphql/queries';
-import './Form.scss';
+import { CREATE_USER_BY_EMAIL } from '../graphql/queries';
+
+// components
+import Loading from './Loading';
+import Error from './Error';
+
+import './UserForm.scss';
 
 // https://www.apollographql.com/docs/react/data/mutations/
 
-import { CREATE_USER_BY_EMAIL } from '../graphql/queries';
-
-/**
- * // Other way (1)
- *
- * const Form: React.FC = ():React.ReactElement => {
- */
+// // Other way (1)
+// const Form: React.FC = ():React.ReactElement => {
 
 // Other way (2)
-function Form(): React.ReactElement {
+function UserForm(): React.ReactElement {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+
+  // // Other way (1) - 데이터 추가한 뒤 쿼리를 다시 실행해서 변경된 데이터를 화면에 렌더링 하는 방법
+  // const [addNewUser, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_USER_BY_EMAIL, {
+  //   refetchQueries: [
+  //     {
+  //       query: GET_ALL_USERS,
+  //       variables: {},
+  //     },
+  //   ],
+  // });
+
+  // Other way (2) - 데이터 추가한 뒤 cache 동기화로 자동으로 화면을 렌더링하는 방법
   const [addNewUser, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_USER_BY_EMAIL, {
-    refetchQueries: [
-      {
-        query: GET_ALL_USERS,
-        variables: {},
-      },
-    ],
+    // cache 동기화 작업 실시
+    update: (cache, { data }) => {
+      // cache에서 쿼리 데이터를 가져옴
+      const query: Query | null = cache.readQuery({ query: GET_ALL_USERS });
+
+      // cache에 있는 graphql 쿼리 중 변경하고자 하는 쿼리만 추출
+      const getAllUsers = query !== null ? query.getAllUsers : [];
+
+      // 추가한 데이터 정보를 가져옴
+      const addedUser = data.createUserByEmail;
+
+      // getAllUsers 쿼리 정보가 null 이거나 빈 Array 일 수 있으니, 데이터가 있을 경우만 처리하도록 함
+      if (getAllUsers) {
+        // 추가한 데이터 정보를 기존에 있는 사용자 정보 cache에 추가하여 쓰기
+        cache.writeQuery({ query: GET_ALL_USERS, data: { getAllUsers: [...getAllUsers, addedUser] } });
+      }
+    },
   });
 
-  // loading
+  // loading;
   if (mutationLoading) {
-    return (
-      <div className="App">
-        <h2>Loading...</h2>
-      </div>
-    );
+    return <Loading />;
   }
 
   // error
   if (mutationError) {
-    return (
-      <div className="App">
-        <h2>Error</h2>
-      </div>
-    );
+    return <Error />;
   }
 
   const onSubmitForm = (event) => {
@@ -71,6 +92,7 @@ function Form(): React.ReactElement {
     setName('');
     setEmail('');
   };
+
   return (
     <form onSubmit={onSubmitForm}>
       <input
@@ -100,4 +122,4 @@ function Form(): React.ReactElement {
   );
 }
 
-export default Form;
+export default UserForm;

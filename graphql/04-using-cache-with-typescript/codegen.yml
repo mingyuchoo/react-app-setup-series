@@ -1,9 +1,6 @@
 overwrite: true
-schema: http://localhost:4000/graphql
+schema: https://sleepy-plains-38954.herokuapp.com/graphql
 generates:
-  src/types/typeDefs/profileTypes.ts:
-    schema: src/graphql/typeDefs/profile/*.graphql
+  src/types/profileTypes.ts:
     plugins:
       - 'typescript'
-      - 'typescript-resolvers'
-      - 'typescript-operations'
