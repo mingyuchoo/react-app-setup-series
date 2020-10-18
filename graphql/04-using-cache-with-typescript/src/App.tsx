@@ -5,10 +5,10 @@ import UserTitle from './components/UserTitle';
 import UserForm from './components/UserForm';
 import UserList from './components/UserList';
 
-// // Other way (1)
+// // 구현 방법 (1)
 // const App: React.FC = ():React.ReactElement => {
 
-// Other way (2)
+// 구현 방법 (2)
 function App(): React.ReactElement {
   const title = 'User Information';
   return (

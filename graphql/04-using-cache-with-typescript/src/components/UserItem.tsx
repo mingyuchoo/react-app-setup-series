@@ -23,7 +23,7 @@ export interface UserProps {
 }
 
 function UserItem({ user, refetch }: UserProps): React.ReactElement {
-  // // Other way (1) - 데이터 삭제한 뒤 쿼리를 다시 실행해서 변경된 데이터를 화면에 렌더링 하는 방법
+  // // 구현 방법 (1) - 데이터 삭제한 뒤 쿼리를 다시 실행해서 변경된 데이터를 화면에 렌더링 하는 방법
   // const [deleteUser, { loading: mutationLoading, error: mutationError, data }] = useMutation(DELETE_USER_BY_ID, {
   //   refetchQueries: [
   //     {
@@ -32,14 +32,14 @@ function UserItem({ user, refetch }: UserProps): React.ReactElement {
   //   ],
   // });
 
-  // // Other way (2) - 데이터를 삭제한 뒤 삭제가 완료될 때 부모에서 받아 온 refetch() 함수를 이용해서 데이터를 다시 가져와 화면을 렌더링 하는 방법
+  // // 구현 방법 (2) - 데이터를 삭제한 뒤 삭제가 완료될 때 부모에서 받아 온 refetch() 함수를 이용해서 데이터를 다시 가져와 화면을 렌더링 하는 방법
   // const [deleteUser, {loading: mutationLoading, error: mutationError}] = useMutation(DELETE_USER_BY_ID,
   //   {
   //     onCompleted: () => refetch(),
   //   }
   // );
 
-  // Other way (3) - 데이터를 삭제한 뒤 cache 동기화로 자동으로 화면을 렌더링하는 방법
+  // 구현 방법 (3) - 데이터를 삭제한 뒤 cache 동기화로 자동으로 화면을 렌더링하는 방법
   const [deleteUser, { loading: mutationLoading, error: mutationError }] = useMutation(DELETE_USER_BY_ID, {
     // cache  동기화 작업 실시
     update: (cache, { data }) => {
@@ -65,12 +65,11 @@ function UserItem({ user, refetch }: UserProps): React.ReactElement {
     // onCompleted: () => refetch(),
   });
 
-  const onClickRow = (event) => {
+  const onClickRow = (name, event) => {
     event.preventDefault();
-    // Local Cache에 저장하는 Reactive variable인 nameVar 에 이름을 저장
-    nameVar('Hello');
-    console.log('----------------');
-    console.log(nameVar());
+
+    // Apollo Client의 Reactive Variable 인 nameVar 에 이름을 저장
+    nameVar(name);
   };
 
   const onDoubleClickRow = (id, event) => {
@@ -92,7 +91,7 @@ function UserItem({ user, refetch }: UserProps): React.ReactElement {
       <div
         className="row"
         key={user.id}
-        onClick={(event) => onClickRow(event)}
+        onClick={(event) => onClickRow(user.name, event)}
         onDoubleClick={(event) => onDoubleClickRow(user.id, event)}
       >
         <p className="column">{user.name}</p>

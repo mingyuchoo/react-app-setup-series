@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useMutation, useQuery } from '@apollo/client';
+import React, { useEffect, useState } from 'react';
+import { useMutation, useQuery, useReactiveVar } from '@apollo/client';
 
 // types
 import { Query, User } from '../types/profileTypes';
@@ -7,6 +7,9 @@ import { Query, User } from '../types/profileTypes';
 // graphql queries, mutations
 import { GET_ALL_USERS } from '../operations/remote/queries';
 import { CREATE_USER_BY_EMAIL } from '../operations/remote/queries';
+
+// cache
+import { nameVar, emailVar } from '../cache';
 
 // components
 import Loading from './Loading';
@@ -16,15 +19,20 @@ import './UserForm.scss';
 
 // https://www.apollographql.com/docs/react/data/mutations/
 
-// // Other way (1)
+// // 구현 방법 (1) - 콤포넌트를 arrow function으로 표현하는 방법
 // const Form: React.FC = ():React.ReactElement => {
 
-// Other way (2)
+// 구현 방법 (2) - 콤포넌트를 일반 function으로 표현하는 방법
 function UserForm(): React.ReactElement {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  // // 구현 방법 (1) - 콤포넌트 state를 useState Hook으로 구현하는 방법
+  // const [name, setName] = useState('');
+  // const [email, setEmail] = useState('');
 
-  // // Other way (1) - 데이터 추가한 뒤 쿼리를 다시 실행해서 변경된 데이터를 화면에 렌더링 하는 방법
+  // 구현 방법 (2) - 콤포넌트 state를 Apollo Client의 Reactive Variable로 구현하는 방법
+  const name = useReactiveVar(nameVar);
+  const email = useReactiveVar(emailVar);
+
+  // // 구현 방법 (1) - 데이터 추가한 뒤 쿼리를 다시 실행해서 변경된 데이터를 화면에 렌더링 하는 방법
   // const [addNewUser, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_USER_BY_EMAIL, {
   //   refetchQueries: [
   //     {
@@ -34,7 +42,7 @@ function UserForm(): React.ReactElement {
   //   ],
   // });
 
-  // Other way (2) - 데이터 추가한 뒤 cache 동기화로 자동으로 화면을 렌더링하는 방법
+  // 구현 방법 (2) - 데이터 추가한 뒤 cache 동기화로 자동으로 화면을 렌더링하는 방법
   const [addNewUser, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_USER_BY_EMAIL, {
     // cache 동기화 작업 실시
     update: (cache, { data }) => {
@@ -65,22 +73,20 @@ function UserForm(): React.ReactElement {
     return <Error />;
   }
 
-  const onSubmitForm = (event) => {
-    event.preventDefault(); // 원래 event 기본 동작을 못 하도록 막는다.
-    addNewUser({ variables: { email, name } });
-
-    // input 지움
-    setName('');
-    setEmail('');
-  };
   const onChangeName = (event) => {
-    // console.log(`${event.target.name} : ${event.target.value}`);
-    setName(event.target.value);
+    // // 구현 방법 (1) - 콤포넌트 state를 useState Hook으로 구현하는 방법
+    // setName(event.target.value);
+
+    // 구현 방법 (2) - 콤포넌트 state를 Apollo Client의 Reactive Variable로 구현하는 방법
+    nameVar(event.target.value);
   };
 
   const onChangeEmail = (event) => {
-    // console.log(`${event.target.name} : ${event.target.value}`);
-    setEmail(event.target.value);
+    // // 구현 방법 (1) - 콤포넌트 state를 useState Hook으로 구현하는 방법
+    // setEmail(event.target.value);
+
+    // 구현 방법 (2) - 콤포넌트 state를 Apollo Client의 Reactive Variable로 구현하는 방법
+    emailVar(event.target.value);
   };
 
   const onKeyPressEmail = (event) => {
@@ -89,10 +95,30 @@ function UserForm(): React.ReactElement {
     }
   };
 
+  const onSubmitForm = (event) => {
+    event.preventDefault(); // 원래 event 기본 동작을 못 하도록 막는다.
+
+    addNewUser({ variables: { email, name } });
+
+    // // 구현 방법 (1) - 콤포넌트 state를 useState Hook으로 구현하는 방법
+    // setName('');
+    // setEmail('');
+
+    // 구현 방법 (2) - 콤포넌트 state를 Apollo Client의 Reactive Variable로 구현하는 방법
+    nameVar('');
+    emailVar('');
+  };
+
   const onClickReset = (event) => {
     event.preventDefault(); // 원래 event 기본 동작을 못 하도록 막는다.
-    setName('');
-    setEmail('');
+
+    // // 구현 방법 (1) - 콤포넌트 state를 useState Hook으로 구현하는 방법
+    // setName('');
+    // setEmail('');
+
+    // 구현 방법 (2) - 콤포넌트 state를 Apollo Client의 Reactive Variable로 구현하는 방법
+    nameVar('');
+    emailVar('');
   };
 
   return (

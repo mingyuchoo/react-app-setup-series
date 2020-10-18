@@ -12,19 +12,19 @@ import Refetching from './Refetching';
 import Loading from './Loading';
 import Error from './Error';
 
-// // Other way (1)
+// // 구현 방법 (1)
 // const UserList = (): React.ReactElement => {
 
-// Other way (2)
+// 구현 방법 (2)
 function UserList(): React.ReactElement {
-  // // Other way (1)
+  // // 구현 방법 (1)
   // const { loading: queryLoading, error: queryError, data } = useQuery(GET_ALL_USERS,
   //   {
   //     pollInterval: 500,
   //   }
   //  );
 
-  // Other way (2)
+  // 구현 방법 (2)
   const { loading: queryLoading, error: queryError, data, refetch, networkStatus } = useQuery(GET_ALL_USERS, {
     fetchPolicy: 'cache-first', // [cache-first, cache-only, cache-and-network, network-only, no-cache]
     notifyOnNetworkStatusChange: true,

@@ -1,25 +1,22 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
+import { useQuery, useReactiveVar } from '@apollo/client';
 
 // cache
-import { cache, nameVar } from '../cache';
+import { nameVar } from '../cache';
 
 import './UserTitle.scss';
 
-// Other way (1)
 export interface TitleProps {
   title: string;
 }
 
-// // Other way (1)
+// // 구현 방법 (1)  - 콤포넌트를 arrow function으로 표현하는 방법
 // const Title: React.FC<TitleProps> = ({ title }: TitleProps): React.ReactElement => {
 
-// // Other way (2)
+// // 구현 방법 (2) - 콤포넌트를 일반 function으로 표현하는 방법
 function UserTitle({ title }: TitleProps): React.ReactElement {
-  // TODO 동작하지 않아 수정해야함
-  const name = nameVar();
-  console.log('>>>>>>>>>>>');
-  console.log(name);
+  // Reactive Variable 의 값을 가져와서 사용함
+  const name = useReactiveVar(nameVar);
 
   return (
     <div className="title">
