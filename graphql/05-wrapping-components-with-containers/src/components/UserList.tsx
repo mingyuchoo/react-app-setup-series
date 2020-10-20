@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // components
-import UserItem from './UserItem';
+import UserItemContainer from '../containers/UserItemContainer';
 
 export interface UserListProps {
   data: any;
@@ -10,7 +10,7 @@ export interface UserListProps {
 }
 
 const UserList = ({ data, refetch }): React.ReactElement => {
-  return data.getAllUsers.map((user) => <UserItem key={user.id} user={user} refetch={refetch} />);
+  return data.getAllUsers.map((user) => <UserItemContainer key={user.id} user={user} refetch={refetch} />);
 };
 
 UserList.propType = {
