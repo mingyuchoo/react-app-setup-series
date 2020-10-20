@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-// types
-import { Query, User } from '../types/profileTypes';
-
 import './UserForm.scss';
-import { convertTypeAcquisitionFromJson } from 'typescript';
 
 type UserFormProps = {
   vars: any;

@@ -5,8 +5,8 @@ import { useMutation } from '@apollo/client';
 import { Query, User } from '../types/profileTypes';
 
 // graphql queries, mutations
-import { GET_ALL_USERS } from '../operations/remote/queries';
-import { DELETE_USER_BY_ID } from '../operations/remote/mutations';
+import { GET_ALL_USERS } from '../graphql/queries';
+import { DELETE_USER_BY_ID } from '../graphql/mutations';
 
 // components
 import Deleting from '../components/Deleting';

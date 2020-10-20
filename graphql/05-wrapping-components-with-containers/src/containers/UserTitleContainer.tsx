@@ -1,6 +1,6 @@
 import React from 'react';
-import { useQuery, gql } from '@apollo/client';
-import { GET_NAME, GET_EMAIL } from '../operations/local/queries';
+import { useQuery } from '@apollo/client';
+import { GET_NAME, GET_EMAIL } from '../graphql/client';
 
 import UserTitle from '../components/UserTitle';
 

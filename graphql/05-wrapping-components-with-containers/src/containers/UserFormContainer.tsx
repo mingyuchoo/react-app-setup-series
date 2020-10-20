@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { useMutation, useQuery, useReactiveVar } from '@apollo/client';
 
 // types
 import { Query, User } from '../types/profileTypes';
 
 // graphql queries, mutations
-import { GET_ALL_USERS } from '../operations/remote/queries';
-import { CREATE_USER_BY_EMAIL } from '../operations/remote/queries';
+import { GET_ALL_USERS } from '../graphql/queries';
+import { CREATE_USER_BY_EMAIL } from '../graphql/queries';
 
 // cache
 import { nameVar, emailVar } from '../cache';
-import localMutations from '../operations/local/mutations';
+import localMutations from '../operations/cache/mutations';
 
 // components
 import Loading from '../components/Loading';
