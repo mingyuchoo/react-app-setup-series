@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useMutation } from '@apollo/client';
 
 // types
@@ -8,9 +7,6 @@ import { Query, User } from '../types/profileTypes';
 // graphql queries, mutations
 import { GET_ALL_USERS } from '../operations/remote/queries';
 import { DELETE_USER_BY_ID } from '../operations/remote/mutations';
-
-// cache
-import { nameVar } from '../cache';
 
 // components
 import Deleting from '../components/Deleting';
@@ -23,7 +19,7 @@ export interface UserItemContainer {
 }
 export default function UserItemContainer({ user, refetch }: UserItemContainer): React.ReactElement {
   // 데이터를 삭제한 뒤 cache 동기화로 자동으로 화면을 렌더링하는 방법
-  const [deleteUser, { loading: mutationLoading, error: mutationError }] = useMutation(DELETE_USER_BY_ID, {
+  const [deleteUser, { loading, error }] = useMutation(DELETE_USER_BY_ID, {
     // cache  동기화 작업 실시
     update: (cache, { data }) => {
       // cache에서 쿼리 데이터를 가져옴
@@ -49,12 +45,12 @@ export default function UserItemContainer({ user, refetch }: UserItemContainer):
   });
 
   // loading
-  if (mutationLoading) {
+  if (loading) {
     return <Deleting />;
   }
 
   // error
-  if (mutationError) {
+  if (error) {
     return <Error />;
   }
 

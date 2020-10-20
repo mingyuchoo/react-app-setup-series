@@ -5,16 +5,16 @@ import PropTypes from 'prop-types';
 import UserItemContainer from '../containers/UserItemContainer';
 
 export interface UserListProps {
-  data: any;
+  allUsers: any;
   refetch: () => void;
 }
 
-const UserList = ({ data, refetch }): React.ReactElement => {
-  return data.getAllUsers.map((user) => <UserItemContainer key={user.id} user={user} refetch={refetch} />);
+const UserList = ({ allUsers, refetch }): React.ReactElement => {
+  return allUsers.map((user) => <UserItemContainer key={user.id} user={user} refetch={refetch} />);
 };
 
 UserList.propType = {
-  data: PropTypes.any.isRequired,
+  allUsers: PropTypes.any.isRequired,
   refetch: PropTypes.func.isRequired,
 };
 

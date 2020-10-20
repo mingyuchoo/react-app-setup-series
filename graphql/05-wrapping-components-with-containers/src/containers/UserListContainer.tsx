@@ -11,7 +11,7 @@ import NoData from '../components/NoData';
 import UserList from '../components/UserList';
 
 export default function UserListContainer(): React.ReactElement {
-  const { loading: queryLoading, error: queryError, data, refetch, networkStatus } = useQuery(GET_ALL_USERS, {
+  const { networkStatus, loading, error, data, refetch } = useQuery(GET_ALL_USERS, {
     fetchPolicy: 'cache-first', // [cache-first, cache-only, cache-and-network, network-only, no-cache]
     notifyOnNetworkStatusChange: true,
   });
@@ -22,12 +22,12 @@ export default function UserListContainer(): React.ReactElement {
   }
 
   // loading
-  if (queryLoading) {
+  if (loading) {
     return <Loading />;
   }
 
   // error
-  if (queryError) {
+  if (error) {
     return <Error />;
   }
 
@@ -35,6 +35,6 @@ export default function UserListContainer(): React.ReactElement {
     return <NoData />;
   }
 
-  // return data.getAllUsers.map((user) => <UserItem key={user.id} user={user} refetch={refetch} />);
-  return <UserList data={data} refetch={refetch} />;
+  const allUsers = data.getAllUsers;
+  return <UserList allUsers={allUsers} refetch={refetch} />;
 }

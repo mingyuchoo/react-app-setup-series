@@ -1,16 +1,17 @@
 import React from 'react';
-import { useReactiveVar } from '@apollo/client';
-
-// cache
-import { nameVar } from '../cache';
+import { useQuery, gql } from '@apollo/client';
+import { GET_NAME, GET_EMAIL } from '../operations/local/queries';
 
 import UserTitle from '../components/UserTitle';
 
 export default function UserTitleContainer(): React.ReactElement {
-  const title = 'Title';
+  const title = 'Apollo Client Reactive Variable Example';
 
-  // Reactive Variable 의 값을 가져와서 사용함
-  const name = useReactiveVar(nameVar);
+  const nameQueryResult = useQuery(GET_NAME);
+  const emailQueryResult = useQuery(GET_EMAIL);
 
-  return <UserTitle title={title} name={name} />;
+  const name: string = nameQueryResult.data.name;
+  const email: string = emailQueryResult.data.email;
+
+  return <UserTitle title={title} name={name} email={email} />;
 }

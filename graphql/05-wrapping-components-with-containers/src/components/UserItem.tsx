@@ -1,13 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useMutation } from '@apollo/client';
 
 // types
-import { Query, User } from '../types/profileTypes';
-
-// components
-import Deleting from './Deleting';
-import Error from './Error';
+import { User } from '../types/profileTypes';
 
 import './UserItem.scss';
 
