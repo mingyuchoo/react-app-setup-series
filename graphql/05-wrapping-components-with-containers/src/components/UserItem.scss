@@ -1,0 +1,21 @@
+.list {
+  align-items: center;
+  transition: all 0.15s;
+}
+.row {
+  font-size: 1.2rem;
+  font-weight: 300;
+  display: flex;
+  cursor: pointer;
+}
+.row:hover {
+  background-color: #20232a;
+}
+.row + .row {
+  border-top: 1px solid #20232a;
+}
+.column {
+  // color: white;
+  color: #61dafb;
+  padding-right: 2rem;
+}
