@@ -20,13 +20,13 @@ export default class UserForm extends React.Component<UserFormProps, UserFormSta
     name: this.props.vars.nameVar(),
     email: this.props.vars.emailVar(),
   };
-
   onChangeName = (event) => {
-    this.props.actions.updateName(event.target.value);
+    console.log(event.target.value);
+    this.setState({ name: event.target.value });
   };
 
   onChangeEmail = (event) => {
-    this.props.actions.updateEmail(event.target.value);
+    this.setState({ email: event.target.value });
   };
 
   onKeyPressEmail = (event) => {
@@ -36,14 +36,19 @@ export default class UserForm extends React.Component<UserFormProps, UserFormSta
   };
 
   onSubmitForm = (event) => {
+    // state의 항목을 펼쳐서 가져오면 이 후 코드가 깔끔해진다.
+    const { name, email } = this.state;
+
     event.preventDefault(); // 원래 event 기본 동작을 못 하도록 막는다.
-    this.props.actions.addNewUser();
+    this.props.actions.updateName(this.state.name);
+    this.props.actions.updateEmail(this.state.email);
+    this.props.actions.addNewUser({ variables: { name, email } }); // TypeScript에서는 key, value 명이 같으면 key를 생략할 수 있다.
   };
 
   onClickReset = (event) => {
     event.preventDefault(); // 원래 event 기본 동작을 못 하도록 막는다.
-    this.props.actions.updateName('');
-    this.props.actions.updateEmail('');
+    this.setState('');
+    this.setState('');
   };
 
   render() {

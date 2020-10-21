@@ -10,7 +10,7 @@ import { CREATE_USER_BY_EMAIL } from '../graphql/queries';
 
 // cache
 import { nameVar, emailVar } from '../cache';
-import localMutations from '../operations/cache/mutations';
+import localMutations from '../operations/client/mutations';
 
 // components
 import Loading from '../components/Loading';
