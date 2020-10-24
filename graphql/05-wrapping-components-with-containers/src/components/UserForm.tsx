@@ -21,7 +21,6 @@ export default class UserForm extends React.Component<UserFormProps, UserFormSta
     email: this.props.vars.emailVar(),
   };
   onChangeName = (event) => {
-    console.log(event.target.value);
     this.setState({ name: event.target.value });
   };
 
@@ -39,16 +38,26 @@ export default class UserForm extends React.Component<UserFormProps, UserFormSta
     // state의 항목을 펼쳐서 가져오면 이 후 코드가 깔끔해진다.
     const { name, email } = this.state;
 
-    event.preventDefault(); // 원래 event 기본 동작을 못 하도록 막는다.
+    // 원래 event 기본 동작을 못 하도록 막는다.
+    event.preventDefault();
+
+    // reactive variable 에 state를 저장한다.
     this.props.actions.updateName(this.state.name);
     this.props.actions.updateEmail(this.state.email);
-    this.props.actions.addNewUser({ variables: { name, email } }); // TypeScript에서는 key, value 명이 같으면 key를 생략할 수 있다.
+
+    // TypeScript에서는 key, value 명이 같으면 key를 생략할 수 있다.
+    this.props.actions.addNewUser({ variables: { name, email } });
+
+    // state를 초기화한다.
+    this.setState({ name: '', email: '' });
   };
 
   onClickReset = (event) => {
-    event.preventDefault(); // 원래 event 기본 동작을 못 하도록 막는다.
-    this.setState('');
-    this.setState('');
+    // 원래 event 기본 동작을 못 하도록 막는다.
+    event.preventDefault();
+
+    // state를 초기화 한다.
+    this.setState({ name: '', email: '' });
   };
 
   render() {

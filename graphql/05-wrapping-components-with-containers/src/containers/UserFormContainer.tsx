@@ -43,9 +43,10 @@ export default function UserFormContainer(): React.ReactElement {
   const { updateName, updateEmail } = localMutations;
 
   // loading
-  if (loading) {
-    return <Loading />;
-  }
+  // UserForm 자체가 변경되어 주석처리했다.
+  // if (loading) {
+  //   return <Loading />;
+  // }
 
   // error
   if (error) {
