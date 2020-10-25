@@ -10,9 +10,9 @@ export const CREATE_USER_BY_EMAIL = gql`
   }
 `;
 
-export const GET_ALL_USERS = gql`
-  query {
-    getAllUsers {
+export const DELETE_USER_BY_ID = gql`
+  mutation deleteUserById($id: ID!) {
+    deleteUserById(id: $id) {
       id
       name
       email
