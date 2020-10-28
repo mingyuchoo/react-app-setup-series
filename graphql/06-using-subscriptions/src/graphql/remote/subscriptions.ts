@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const NEW_USER_JOINED = gql`
-  subscription OnNewUserJoined {
+  subscription {
     newUserJoined {
       id
       name

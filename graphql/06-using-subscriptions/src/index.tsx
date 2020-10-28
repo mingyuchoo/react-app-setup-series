@@ -45,7 +45,7 @@ const wsLink = new WebSocketLink({
 });
 
 // 4
-const link = split(
+const splitLink = split(
   ({ query }) => {
     const definition = getMainDefinition(query);
     return definition.kind === 'OperationDefinition' && definition.operation === 'subscription';
@@ -56,7 +56,7 @@ const link = split(
 
 // 5
 const client = new ApolloClient({
-  link,
+  link: splitLink,
   cache: cache,
 });
 
