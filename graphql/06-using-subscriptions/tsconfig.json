@@ -1,20 +1,14 @@
 {
   "compilerOptions": {
-    "types": [
-      "jest",
-      "node"
-    ],
+    "types": ["jest", "node"],
     "target": "es6",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true, // addby because of react-scripts 4.0.0 bug
     "outDir": "dist",
     "module": "esnext",
     "moduleResolution": "node",
@@ -24,13 +18,9 @@
     "sourceMap": true,
     "strict": true,
     "jsx": "react",
-    "noEmit": true
+    "noEmit": true,
+    "typeRoots": ["./node_modules/@types", "./@types"]
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "public"
-  ]
+  "include": ["src/**/*", "@types/*"],
+  "exclude": ["node_modules", "public"]
 }

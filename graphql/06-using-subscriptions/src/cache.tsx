@@ -1,8 +1,8 @@
 import { InMemoryCache, ReactiveVar, makeVar } from '@apollo/client';
 
 // reactive variable 초기값
-const nameInitialValue: string = '';
-const emailInitialValue: string = '';
+const nameInitialValue = '';
+const emailInitialValue = '';
 
 // reactive variable 선언
 export const nameVar: ReactiveVar<string> = makeVar<string>(nameInitialValue);

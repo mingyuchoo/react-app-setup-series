@@ -9,10 +9,10 @@ import './UserItem.scss';
 type UserItemProps = {
   user: User;
   refetch: () => void;
-  deleteUser: (variables: {}) => void;
+  deleteUser: (variables: OmitObjectType) => void;
 };
 
-type UserItemState = {};
+type UserItemState = OmitObjectType;
 
 export default class UserItem extends React.Component<UserItemProps, UserItemState> {
   static propTypes = {

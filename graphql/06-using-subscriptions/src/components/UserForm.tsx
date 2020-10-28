@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import PropTypes from 'prop-types';
 
 import './UserForm.scss';
@@ -8,7 +8,7 @@ type UserFormProps = {
   actions: any;
 };
 
-type UserFormState = {};
+type UserFormState = OmitObjectType;
 
 export default class UserForm extends React.Component<UserFormProps, UserFormState> {
   static propTypes = {
@@ -20,21 +20,22 @@ export default class UserForm extends React.Component<UserFormProps, UserFormSta
     name: this.props.vars.nameVar(),
     email: this.props.vars.emailVar(),
   };
-  onChangeName = (event) => {
+  onChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ name: event.target.value });
   };
 
-  onChangeEmail = (event) => {
+  onChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ email: event.target.value });
   };
 
+  // TODO event 의 type을 정의하지 못했다.
   onKeyPressEmail = (event) => {
     if (event.key === 'Enter') {
-      console.log(`${event.target.name} : ${event.target.value}`);
+      console.log(`${String(event.target.name)} : ${String(event.target.value)}`);
     }
   };
 
-  onSubmitForm = (event) => {
+  onSubmitForm = (event: React.FormEvent<HTMLFormElement>) => {
     // state의 항목을 펼쳐서 가져오면 이 후 코드가 깔끔해진다.
     const { name, email } = this.state;
 
