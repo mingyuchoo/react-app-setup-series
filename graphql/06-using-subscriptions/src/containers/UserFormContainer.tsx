@@ -25,9 +25,7 @@ export default function UserFormContainer(): React.ReactElement {
   // }
 
   // error
-  if (error) {
-    return <Error />;
-  }
+  if (error) return <Error />;
 
   return (
     <UserForm

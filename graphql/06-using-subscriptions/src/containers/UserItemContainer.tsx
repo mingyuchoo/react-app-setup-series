@@ -18,14 +18,10 @@ export default function UserItemContainer({ user, refetch }: UserItemContainer):
   const [deleteUser, { loading, error }] = useDeleteUserById();
 
   // loading
-  if (loading) {
-    return <Deleting />;
-  }
+  if (loading) return <Deleting />;
 
   // error
-  if (error) {
-    return <Error />;
-  }
+  if (error) return <Error />;
 
   return <UserItem user={user} refetch={refetch} deleteUser={deleteUser} />;
 }

@@ -33,7 +33,7 @@ if (localStorage['apoll-cache-persist']) {
 
 // 2 - query, and mutation using HTTP Protocol
 const httpLink = new HttpLink({
-  uri: `https://${SERVER_URI}`,
+  uri: REACT_APP_SERVER_URI ? `https://${SERVER_URI}` : `http://${SERVER_URI}`,
 });
 
 // 3 - subscription using WebSocket Protocol

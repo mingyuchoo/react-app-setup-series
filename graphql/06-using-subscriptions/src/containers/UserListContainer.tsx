@@ -18,18 +18,13 @@ export default function UserListContainer(): React.ReactElement {
   }
 
   // loading
-  if (loading) {
-    return <Loading />;
-  }
+  if (loading) return <Loading />;
 
   // error
-  if (error) {
-    return <Error />;
-  }
+  if (error) return <Error />;
 
-  if (!data) {
-    return <NoData />;
-  }
+  // no data
+  if (!data) return <NoData />;
 
   const allUsers = data.getAllUsers;
   return <UserList allUsers={allUsers} refetch={refetch} />;
