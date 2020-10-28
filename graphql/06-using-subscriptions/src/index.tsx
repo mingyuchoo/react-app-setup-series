@@ -9,12 +9,12 @@ import './index.scss';
 
 // 1
 import { ApolloClient, ApolloProvider, split, HttpLink } from '@apollo/client';
-import { WebSocketLink, WebSocketLint } from '@apollo/client/link/ws'; // for subscription
+import { WebSocketLink } from '@apollo/client/link/ws'; // for subscription
 import { persistCacheSync } from 'apollo3-cache-persist'; // Cache 때문에 사용한다.
 import { getMainDefinition } from '@apollo/client/utilities';
 
 // graphql server uri
-const SERVER_URI = 'https://sleepy-plains-38954.herokuapp.com/graphql';
+const SERVER_URI = 'sleepy-plains-38954.herokuapp.com/graphql';
 
 // TODO storage 타입을 제대로 선언해야 함.
 // 참고: https://github.com/apollographql/apollo-cache-persist/issues/55
@@ -32,12 +32,12 @@ if (localStorage['apoll-cache-persist']) {
 
 // 2 - query, and mutation using HTTP Protocol
 const httpLink = new HttpLink({
-  uri: SERVER_URI,
+  uri: `https://${SERVER_URI}`,
 });
 
 // 3 - subscription using WebSocket Protocol
 const wsLink = new WebSocketLink({
-  uri: SERVER_URI,
+  uri: `ws://${SERVER_URI}`,
   options: {
     reconnect: true,
   },
