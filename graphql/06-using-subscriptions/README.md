@@ -23,6 +23,10 @@ apollo/client v3과 기존 버전에 사용방법이 다르니 조심해야 합�
 
 1. `yarn add apollo3-cache-persist`
 
+## Note
+
+- In React App, if you want to use dotenv, you dont need to install dotenv module and variables of .env file start with `REACT_APP_`
+
 ## Bug Fix
 
 ### TypeError: Cannot add property noFallthroughCasesInSwitch, object is not extensible

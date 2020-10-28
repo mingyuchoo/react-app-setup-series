@@ -14,7 +14,8 @@ import { persistCacheSync } from 'apollo3-cache-persist'; // Cache 때문에 사
 import { getMainDefinition } from '@apollo/client/utilities';
 
 // graphql server uri
-const SERVER_URI = 'sleepy-plains-38954.herokuapp.com/graphql';
+const { REACT_APP_SERVER_URI } = process.env;
+const SERVER_URI = REACT_APP_SERVER_URI || 'localhost:4000/graphql';
 
 // TODO storage 타입을 제대로 선언해야 함.
 // 참고: https://github.com/apollographql/apollo-cache-persist/issues/55
