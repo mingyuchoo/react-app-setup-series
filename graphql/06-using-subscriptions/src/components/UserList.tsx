@@ -9,7 +9,7 @@ export interface UserListProps {
   refetch: () => void;
 }
 
-const UserList = ({ allUsers, refetch }): React.ReactElement => {
+const UserList = ({ allUsers, refetch }: UserListProps): React.ReactElement => {
   return allUsers.map((user) => (
     <UserItemContainer key={user.id} user={user} refetch={refetch} />
   )) as React.ReactElement; //   Unsafe return of an any typed value 에러 때문에 as React.ReactElement 추가함
