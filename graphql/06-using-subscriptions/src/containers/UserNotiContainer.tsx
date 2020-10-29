@@ -7,6 +7,7 @@ import Loading from '../components/Loading';
 import Error from '../components/Error';
 import NoData from '../components/NoData';
 import UserNoti from '../components/UserNoti';
+import { User } from '../types/profileTypes';
 
 export default function UserNotiContainer(): React.ReactElement {
   const { data, loading, error } = useNewUserJoined();
@@ -15,18 +16,13 @@ export default function UserNotiContainer(): React.ReactElement {
   if (loading) return <Loading />;
 
   // error
-  if (error)
-    return (
-      <p>
-        {error.name}:{error.message}
-      </p>
-    );
+  if (error) return <Error />;
 
   // no data
   if (!data) return <NoData />;
 
   // TODO  data.newUserJoined is Null
   console.log(data);
-  const newUser = data.newUserJoined;
+  const newUser: User = data.newUserJoined;
   return <UserNoti newUser={newUser} />;
 }

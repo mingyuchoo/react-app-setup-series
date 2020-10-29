@@ -50,8 +50,8 @@ const splitLink = split(
     const definition = getMainDefinition(query);
     return definition.kind === 'OperationDefinition' && definition.operation === 'subscription';
   },
-  httpLink,
-  wsLink
+  wsLink,
+  httpLink
 );
 
 // 5
