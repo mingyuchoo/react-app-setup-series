@@ -1,5 +1,5 @@
 {
-  "name": "06-using-subscriptions",
+  "name": "07-testing-and-mocking",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

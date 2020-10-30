@@ -1,4 +1,4 @@
-# 06-using-subscriptions
+# 07-testing-and-mocking
 
 ## References
 
