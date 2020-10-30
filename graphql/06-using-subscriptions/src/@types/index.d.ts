@@ -1,7 +1,10 @@
-export type Maybe<T> = T | null;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+type OmitObjectType = Omit<Record<string, any>, keyof string>;
+
+type Maybe<T> = T | null;
+
+type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 /** All built-in and custom scalars, mapped to their actual values */
-export type Scalars = {
+type Scalars = {
   ID: string;
   String: string;
   Boolean: boolean;
@@ -9,7 +12,7 @@ export type Scalars = {
   Float: number;
 };
 
-export type User = {
+type User = {
   __typename?: 'User';
   email: Scalars['String'];
   id: Scalars['ID'];
@@ -17,7 +20,7 @@ export type User = {
   posts: Array<Post>;
 };
 
-export type Post = {
+type Post = {
   __typename?: 'Post';
   author?: Maybe<User>;
   content?: Maybe<Scalars['String']>;
@@ -26,7 +29,7 @@ export type Post = {
   title: Scalars['String'];
 };
 
-export type Query = {
+type Query = {
   __typename?: 'Query';
   getAllPosts: Array<Maybe<Post>>;
   getOnePostById?: Maybe<Post>;
@@ -34,15 +37,15 @@ export type Query = {
   getOneUserById?: Maybe<User>;
 };
 
-export type QueryGetOnePostByIdArgs = {
+type QueryGetOnePostByIdArgs = {
   id: Scalars['ID'];
 };
 
-export type QueryGetOneUserByIdArgs = {
+type QueryGetOneUserByIdArgs = {
   id: Scalars['ID'];
 };
 
-export type Mutation = {
+type Mutation = {
   __typename?: 'Mutation';
   createPostByEmail: Post;
   updatePostById: Post;
@@ -52,34 +55,34 @@ export type Mutation = {
   deleteUserById?: Maybe<User>;
 };
 
-export type MutationCreatePostByEmailArgs = {
+type MutationCreatePostByEmailArgs = {
   email?: Maybe<Scalars['String']>;
   title: Scalars['String'];
   content?: Maybe<Scalars['String']>;
 };
 
-export type MutationUpdatePostByIdArgs = {
+type MutationUpdatePostByIdArgs = {
   id?: Maybe<Scalars['ID']>;
   title: Scalars['String'];
   content?: Maybe<Scalars['String']>;
   published?: Maybe<Scalars['Boolean']>;
 };
 
-export type MutationDeletePostByIdArgs = {
+type MutationDeletePostByIdArgs = {
   id: Scalars['ID'];
 };
 
-export type MutationCreateUserByEmailArgs = {
+type MutationCreateUserByEmailArgs = {
   email?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
 };
 
-export type MutationUpdateUserByIdArgs = {
+type MutationUpdateUserByIdArgs = {
   id?: Maybe<Scalars['ID']>;
   email?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
 };
 
-export type MutationDeleteUserByIdArgs = {
+type MutationDeleteUserByIdArgs = {
   id: Scalars['ID'];
 };

@@ -4,9 +4,6 @@ import { useMutation } from '@apollo/client';
 import { GET_ALL_USERS } from '../../graphql/remote/queries';
 import { CREATE_USER_BY_EMAIL, DELETE_USER_BY_ID } from '../../graphql/remote/mutations';
 
-// types
-import { Query } from '../../types/profileTypes';
-
 export function useDeleteUserById() {
   return useMutation(DELETE_USER_BY_ID, {
     // cache  동기화 작업 실시

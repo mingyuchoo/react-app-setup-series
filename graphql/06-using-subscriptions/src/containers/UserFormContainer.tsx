@@ -2,14 +2,14 @@ import React from 'react';
 
 // graphql queries, mutations
 import { useCreateUserByEmail } from '../operations/remote/mutations';
+import { useLazyGetAllUsers } from '../operations/remote/queries';
 
 // cache
 import { nameVar, emailVar } from '../cache';
 import localMutations from '../operations/client/mutations';
 
 // components
-import Loading from '../components/Loading';
-import Error from '../components/Error';
+import Status from '../components/Status';
 import UserForm from '../components/UserForm';
 
 export default function UserFormContainer(): React.ReactElement {
@@ -25,7 +25,7 @@ export default function UserFormContainer(): React.ReactElement {
   // }
 
   // error
-  if (error) return <Error />;
+  if (error) return <Status info={'Error!'} />;
 
   return (
     <UserForm

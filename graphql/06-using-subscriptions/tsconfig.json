@@ -19,8 +19,8 @@
     "strict": true,
     "jsx": "react",
     "noEmit": true,
-    "typeRoots": ["./node_modules/@types", "./@types"]
+    "typeRoots": ["./node_modules/@types", "src/@types"]
   },
-  "include": ["src/**/*", "@types/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "public"]
 }

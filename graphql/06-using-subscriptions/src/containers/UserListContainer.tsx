@@ -2,30 +2,59 @@ import React from 'react';
 import { NetworkStatus } from '@apollo/client';
 
 // graphql queries, mutations
-import { useGetAllUsers } from '../operations/remote/queries';
+import { useGetAllUsers, useLazyGetAllUsers } from '../operations/remote/queries';
 
-import Refetching from '../components/Refetching';
-import Loading from '../components/Loading';
-import Error from '../components/Error';
-import NoData from '../components/NoData';
+import Status from '../components/Status';
 import UserList from '../components/UserList';
+import { NEW_USER_JOINED } from '../graphql/remote/subscriptions';
 
 export default function UserListContainer(): React.ReactElement {
-  const { networkStatus, loading, error, data, refetch } = useGetAllUsers();
+  const { networkStatus, loading, error, data, refetch, subscribeToMore } = useGetAllUsers();
+  const [getNewUsers, { loading: lazyLoading, data: lazyData }] = useLazyGetAllUsers();
   // refetching
   if (networkStatus === NetworkStatus.refetch) {
-    return <Refetching />;
+    return <Status info={'Refetching...'} />;
   }
 
   // loading
-  if (loading) return <Loading />;
+  if (loading || lazyLoading) return <Status info={'Loading...'} />;
 
   // error
-  if (error) return <Error />;
+  if (error) return <Status info={'Error!'} />;
 
   // no data
-  if (!data) return <NoData />;
+  if (!data) return <Status info={'No data'} />;
 
   const allUsers = data.getAllUsers;
-  return <UserList allUsers={allUsers} refetch={refetch} />;
+  return (
+    <div>
+      <UserList
+        vars={{
+          allUsers,
+        }}
+        actions={{
+          refetch,
+        }}
+        // TODO Subscription 감지하면 자동으로 조회 하도록
+        // subscribeNewUserJoined={() =>
+        //   subscribeToMore({
+        //     document: NEW_USER_JOINED,
+        //     updateQuery: (prev, { subscriptionData }) => {
+        //       if (!subscriptionData) return prev;
+        //       const newFeedItem = subscriptionData.data.newUserJoined;
+        //       return Object.assign({}, prev, {
+        //         post: {
+        //           comments: [newFeedItem, ...prev.post.comments],
+        //         },
+        //       });
+        //     },
+        //   })
+        // }
+      />
+      // TODO 변경 필요
+      <button className="button" onClick={() => getNewUsers()}>
+        Up new Users
+      </button>
+    </div>
+  );
 }

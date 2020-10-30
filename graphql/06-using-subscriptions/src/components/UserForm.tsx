@@ -53,7 +53,15 @@ export default class UserForm extends React.Component<UserFormProps, UserFormSta
     this.setState({ name: '', email: '' });
   };
 
-  onClickReset = (event) => {
+  onClickReload = (event: React.MouseEvent<HTMLButtonElement>) => {
+    // 원래 event 기본 동작을 못 하도록 막는다.
+    event.preventDefault();
+
+    console.log('Reload button is clicked.');
+    // TODO 데이터 리로딩
+  };
+
+  onClickReset = (event: React.MouseEvent<HTMLButtonElement>) => {
     // 원래 event 기본 동작을 못 하도록 막는다.
     event.preventDefault();
 
@@ -83,6 +91,9 @@ export default class UserForm extends React.Component<UserFormProps, UserFormSta
         />
         <button className="button" type="submit">
           Submit
+        </button>
+        <button className="button" onClick={this.onClickReload}>
+          Reload
         </button>
         <button className="button" onClick={this.onClickReset}>
           Reset
