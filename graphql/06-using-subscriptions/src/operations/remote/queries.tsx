@@ -8,7 +8,11 @@ export function useGetAllUsers() {
   });
 }
 
-// TODO Executeing queries manulally 넣어야 함
 export function useLazyGetAllUsers() {
-  return useLazyQuery(GET_ALL_USERS);
+  const queryResult = useLazyQuery(GET_ALL_USERS, {
+    fetchPolicy: 'cache-and-network', // [cache-first, cache-only, cache-and-network, network-only, no-cache]
+    notifyOnNetworkStatusChange: true,
+  });
+
+  return queryResult;
 }

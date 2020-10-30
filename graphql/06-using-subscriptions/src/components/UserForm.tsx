@@ -57,8 +57,8 @@ export default class UserForm extends React.Component<UserFormProps, UserFormSta
     // 원래 event 기본 동작을 못 하도록 막는다.
     event.preventDefault();
 
-    console.log('Reload button is clicked.');
-    // TODO 데이터 리로딩
+    // lazyQuery 실행
+    this.props.actions.getNewUsers();
   };
 
   onClickReset = (event: React.MouseEvent<HTMLButtonElement>) => {

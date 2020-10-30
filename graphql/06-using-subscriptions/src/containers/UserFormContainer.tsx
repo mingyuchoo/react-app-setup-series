@@ -15,16 +15,14 @@ import UserForm from '../components/UserForm';
 export default function UserFormContainer(): React.ReactElement {
   const [addNewUser, { loading, error, data }] = useCreateUserByEmail();
 
+  // for lazyQuery
+  const [getNewUsers, { data: lazyData }] = useLazyGetAllUsers();
+
   // reactive variable mutation operators
   const { updateName, updateEmail } = localMutations;
 
-  // loading
   // UserForm 자체가 변경되어 주석처리했다.
-  // if (loading) {
-  //   return <Loading />;
-  // }
-
-  // error
+  // if (loading)  return <Status info={'Loading...'} />;
   if (error) return <Status info={'Error!'} />;
 
   return (
@@ -37,6 +35,7 @@ export default function UserFormContainer(): React.ReactElement {
         addNewUser,
         updateName,
         updateEmail,
+        getNewUsers,
       }}
     />
   );

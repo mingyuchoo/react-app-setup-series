@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // components
@@ -10,6 +10,10 @@ export interface UserListProps {
 }
 
 const UserList = ({ vars, actions }: UserListProps): React.ReactElement => {
+  useEffect(() => {
+    actions.more();
+  }, []);
+
   return vars.allUsers.map((user) => (
     <UserItemContainer key={user.id} user={user} refetch={actions.refetch} />
   )) as React.ReactElement; //   Unsafe return of an any typed value 에러 때문에 as React.ReactElement 추가함

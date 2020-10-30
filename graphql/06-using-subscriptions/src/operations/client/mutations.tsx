@@ -13,7 +13,7 @@ export function updateEmail(emailVar: ReactiveVar<string>) {
   };
 }
 
-// 함수를 속성으로 가지는f 객체 생성
+// 함수를 속성으로 가지는 객체 생성
 export const localMutations = {
   updateName: updateName(nameVar),
   updateEmail: updateEmail(emailVar),

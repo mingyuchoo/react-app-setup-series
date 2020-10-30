@@ -41,6 +41,7 @@ const wsLink = new WebSocketLink({
   uri: `ws://${SERVER_URI}`,
   options: {
     reconnect: true,
+    lazy: true, //  prevents our link from connecting to the web socket until the client has been asked to subscribe.
   },
 });
 

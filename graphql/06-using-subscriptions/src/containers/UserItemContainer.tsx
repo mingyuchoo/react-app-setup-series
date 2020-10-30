@@ -14,10 +14,7 @@ export interface UserItemContainer {
 export default function UserItemContainer({ user, refetch }: UserItemContainer): React.ReactElement {
   const [deleteUser, { loading, error }] = useDeleteUserById();
 
-  // loading
   if (loading) return <Status info={'Loading...'} />;
-
-  // error
   if (error) return <Status info={'Error!'} />;
 
   return <UserItem user={user} refetch={refetch} deleteUser={deleteUser} />;
