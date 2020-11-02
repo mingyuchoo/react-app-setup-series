@@ -8,6 +8,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import App from './App';
 import rootReducer from './redux';
 
+import './index.css';
+
 const store = createStore(rootReducer, composeWithDevTools());
 const container = document.getElementById('root');
 

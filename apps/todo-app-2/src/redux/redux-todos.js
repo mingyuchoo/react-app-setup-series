@@ -4,17 +4,27 @@ const initialState = {
   todos: [
     {
       id: 1,
-      text: '리액트 기초 알아보기',
+      text: '주간보고 하기',
       checked: true,
     },
     {
       id: 2,
-      text: '콤포넌트 스타일해 보기',
+      text: '운영 매뉴얼 작성하기',
       checked: true,
     },
     {
       id: 3,
-      text: '일정 관리 앱 만들기',
+      text: '데이터 이관 계획하기',
+      checked: false,
+    },
+    {
+      id: 4,
+      text: '리액트 앱 보완하기',
+      checked: false,
+    },
+    {
+      id: 5,
+      text: '회식 장소 알아보기',
       checked: false,
     },
   ],

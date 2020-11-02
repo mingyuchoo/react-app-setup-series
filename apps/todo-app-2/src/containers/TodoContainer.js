@@ -3,9 +3,9 @@ import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { insert, remove, toggle } from '../redux/redux-todos';
 
+import TodoHeader from 'src/components/TodoHeader';
 import TodoInsert from '../components/TodoInsert';
 import TodoList from '../components/TodoList';
-import TodoTitle from 'src/components/TodoTitle';
 
 const TodoContainer = () => {
   const todos = useSelector((state) => state.todosReducer.todos);
@@ -15,11 +15,19 @@ const TodoContainer = () => {
   const onToggle = useCallback((id) => dispatch(toggle(id)), [dispatch]);
 
   return (
-    <div className="container p-3">
-      <TodoTitle />
-      <TodoInsert onInsert={onInsert} />
-      <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
-    </div>
+    <>
+      <TodoHeader />
+      <section id="main">
+        <div className="inner">
+          <section id="one" class="wrapper style1">
+            <header class="special">
+              <TodoInsert onInsert={onInsert} />
+              <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
+            </header>
+          </section>
+        </div>
+      </section>
+    </>
   );
 };
 

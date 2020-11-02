@@ -15,24 +15,22 @@ const TodoInsert = ({ onInsert }) => {
       onInsert(text);
       setText('');
     },
-    [onInsert, text] // 사용하는 props, state 넣음
+    [onInsert, text]
   );
 
   return (
-    <form onSubmit={onSubmitTodoInsert}>
-      <div className="row border">
-        <input
-          className="col-10 p-3"
-          type="text"
-          placeholder="할 일을 입력하세요."
-          value={text}
-          onChange={onChangeTodoInsert}
-          required={true}
-        />
-        <button className="btn col-2 p-3" type="submit">
-          <FiPlusCircle />
-        </button>
-      </div>
+    <form className="grid" onSubmit={onSubmitTodoInsert}>
+      <input
+        className="grid_item first"
+        type="text"
+        placeholder="INSERT HERE."
+        value={text}
+        onChange={onChangeTodoInsert}
+        required={true}
+      />
+      <button className="grid_item first" type="submit">
+        <FiPlusCircle />
+      </button>
     </form>
   );
 };

@@ -1,0 +1,10 @@
+.grid {
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.grid_item {
+  width: 100px;
+  height: 100px;
+  float: left; /*가로 정렬을 하기위한 float*/
+}

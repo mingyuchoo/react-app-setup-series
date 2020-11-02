@@ -12,7 +12,7 @@ const TodoItem = ({ todo, onRemove, onToggle }) => {
     onRemove(id);
   };
   return (
-    <div className="row p-3 border">
+    <>
       <div
         className={cn('col-1', 'checkbox', { checked })}
         onClick={onClickToggle}>
@@ -22,7 +22,7 @@ const TodoItem = ({ todo, onRemove, onToggle }) => {
       <div className="col-1" onClick={onClickRemove}>
         <FiTrash2 />
       </div>
-    </div>
+    </>
   );
 };
 
