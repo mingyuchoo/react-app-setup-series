@@ -1,10 +1,11 @@
-import React from 'react';
 import './App.scss';
 
-import UserTitleContainer from './containers/UserTitleContainer';
-import UserNotiContainer from './containers/UserNotiContainer';
-import UserListContainer from './containers/UserListContainer';
+import React from 'react';
+
 import UserFormConatiner from './containers/UserFormContainer';
+import UserListContainer from './containers/UserListContainer';
+import UserNotiContainer from './containers/UserNotiContainer';
+import UserTitleContainer from './containers/UserTitleContainer';
 
 const App: React.FC = (): React.ReactElement => {
   return (

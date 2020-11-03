@@ -1,11 +1,11 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import InboxIcon from '@material-ui/icons/Inbox';
+import { makeStyles } from '@material-ui/core/styles';
 import CreateIcon from '@material-ui/icons/Create';
-import NotificationsIcon from '@material-ui/icons/Notifications';
 import FaceIcon from '@material-ui/icons/Face';
+import InboxIcon from '@material-ui/icons/Inbox';
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import React from 'react';
 
 const useStyles = makeStyles({
   stickToBottom: {

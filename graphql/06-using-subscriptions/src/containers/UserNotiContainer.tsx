@@ -1,10 +1,9 @@
 import React from 'react';
 
-// graphql subscription
-import { useNewUserJoined } from '../operations/remote/subscriptions';
-
 import Status from '../components/Status';
 import UserNoti from '../components/UserNoti';
+// graphql subscription
+import { useNewUserJoined } from '../operations/remote/subscriptions';
 
 export default function UserNotiContainer(): React.ReactElement {
   const { data, loading, error } = useNewUserJoined();

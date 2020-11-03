@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
 import './UserItem.scss';
+
+import PropTypes from 'prop-types';
+import React from 'react';
 
 type UserItemProps = {
   user: User;

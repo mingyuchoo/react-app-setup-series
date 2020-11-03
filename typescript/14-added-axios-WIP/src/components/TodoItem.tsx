@@ -1,7 +1,9 @@
-import React from 'react';
 import './TodoItem.scss';
-import { Todo } from '../reducers/todos';
+
+import React from 'react';
+
 import useTodoActions from '../hooks/useTodoActions';
+import { Todo } from '../reducers/todos';
 
 export type TodoItemProps = {
   todo: Todo;

@@ -1,11 +1,10 @@
 import React from 'react';
 
-// graphql queries, mutations
-import { useDeleteUserById } from '../operations/remote/mutations';
-
 // components
 import Status from '../components/Status';
 import UserItem from '../components/UserItem';
+// graphql queries, mutations
+import { useDeleteUserById } from '../operations/remote/mutations';
 
 export interface UserItemContainer {
   user: User;

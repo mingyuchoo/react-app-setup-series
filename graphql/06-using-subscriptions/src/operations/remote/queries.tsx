@@ -1,4 +1,5 @@
 import { useLazyQuery, useQuery } from '@apollo/client';
+
 import { GET_ALL_USERS } from '../../graphql/remote/queries';
 
 export function useGetAllUsers() {

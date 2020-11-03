@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getUsers } from '../redux/api';
+
 import Users from '../components/Users';
+import { getUsers } from '../redux/api';
 
 const UsersContainer = ({ getUsers, users, loadingUsers }) => {
   useEffect(() => {

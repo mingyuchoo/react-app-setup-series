@@ -10,6 +10,7 @@ parserOptions:
     jsx: true
   sourceType: module
 plugins:
+  - simple-import-sort
   - react
   - react-hooks
   - prettier
@@ -19,3 +20,4 @@ extends:
   - plugin:prettier/recommended
 rules:
   prettier/prettier: error
+  simple-import-sort/sort: error

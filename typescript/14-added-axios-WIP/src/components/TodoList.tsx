@@ -1,6 +1,7 @@
 import React from 'react';
-import { TodoItem } from './TodoItem';
+
 import useTodos from '../hooks/useTodos';
+import { TodoItem } from './TodoItem';
 
 export function TodoList(): React.ReactElement {
   const todos = useTodos();

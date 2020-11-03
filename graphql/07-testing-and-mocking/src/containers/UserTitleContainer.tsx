@@ -1,7 +1,7 @@
 import React from 'react';
-import { useGetName, useGetEmail } from '../operations/client/queries';
 
 import UserTitle from '../components/UserTitle';
+import { useGetEmail, useGetName } from '../operations/client/queries';
 
 export default function UserTitleContainer(): React.ReactElement {
   const title = 'Apollo Client Reactive Variable Example';

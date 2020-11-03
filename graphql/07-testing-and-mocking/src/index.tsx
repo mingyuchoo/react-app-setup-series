@@ -1,17 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import * as serviceWorker from './serviceWorker';
-
-import App from './App';
-import { cache } from './cache';
-
 import './index.scss';
 
 // 1
-import { ApolloClient, ApolloProvider, split, HttpLink } from '@apollo/client';
+import { ApolloClient, ApolloProvider, HttpLink, split } from '@apollo/client';
 import { WebSocketLink } from '@apollo/client/link/ws'; // for subscription
-import { persistCacheSync } from 'apollo3-cache-persist'; // Cache 때문에 사용한다.
 import { getMainDefinition } from '@apollo/client/utilities';
+import { persistCacheSync } from 'apollo3-cache-persist'; // Cache 때문에 사용한다.
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import App from './App';
+import { cache } from './cache';
+import * as serviceWorker from './serviceWorker';
 
 // graphql server uri
 const { REACT_APP_SERVER_URI } = process.env;

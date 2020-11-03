@@ -1,4 +1,4 @@
-import { InMemoryCache, ReactiveVar, makeVar } from '@apollo/client';
+import { InMemoryCache, makeVar, ReactiveVar } from '@apollo/client';
 
 // reactive variable 초기값
 const nameInitialValue = '';

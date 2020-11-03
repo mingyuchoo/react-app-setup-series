@@ -3,7 +3,7 @@ import React from 'react';
 export type HelloProps = {
   compiler: string;
   framework: string;
-}
+};
 
 export const Hello1: React.FC<HelloProps> = (
   props: HelloProps

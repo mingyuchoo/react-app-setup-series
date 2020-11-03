@@ -1,5 +1,6 @@
 import { ReactiveVar } from '@apollo/client';
-import { nameVar, emailVar } from '../../cache';
+
+import { emailVar, nameVar } from '../../cache';
 
 export function updateName(nameVar: ReactiveVar<string>) {
   return (name: string) => {

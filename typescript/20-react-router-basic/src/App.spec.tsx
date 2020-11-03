@@ -1,13 +1,10 @@
-import React from 'react';
-
 // ReatTestUtils give you the bare minimum to test a React component. not recommanded.
 // import ReactTestUtils from 'react-dom/test-utils';
-
 // for testing-library
 import { cleanup, render as testingRender } from '@testing-library/react';
-
 // for enzyme
-import { shallow, mount, render } from 'enzyme';
+import { mount, render, shallow } from 'enzyme';
+import React from 'react';
 
 // target to test
 import App from './App';

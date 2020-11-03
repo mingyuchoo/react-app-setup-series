@@ -1,7 +1,8 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../reducers';
-import { increase, decrease, increaseBy } from '../reducers/counter';
 import { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { RootState } from '../reducers';
+import { decrease, increase, increaseBy } from '../reducers/counter';
 
 function useCounter() {
   const count = useSelector((state: RootState) => state.counter.count);

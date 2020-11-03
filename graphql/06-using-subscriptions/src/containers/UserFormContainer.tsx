@@ -1,16 +1,14 @@
 import React from 'react';
 
-// graphql queries, mutations
-import { useCreateUserByEmail } from '../operations/remote/mutations';
-import { useLazyGetAllUsers } from '../operations/remote/queries';
-
 // cache
-import { nameVar, emailVar } from '../cache';
-import localMutations from '../operations/client/mutations';
-
+import { emailVar, nameVar } from '../cache';
 // components
 import Status from '../components/Status';
 import UserForm from '../components/UserForm';
+import localMutations from '../operations/client/mutations';
+// graphql queries, mutations
+import { useCreateUserByEmail } from '../operations/remote/mutations';
+import { useLazyGetAllUsers } from '../operations/remote/queries';
 
 export default function UserFormContainer(): React.ReactElement {
   const [addNewUser, { loading, error, data }] = useCreateUserByEmail();

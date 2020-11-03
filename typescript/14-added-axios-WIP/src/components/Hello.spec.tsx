@@ -1,10 +1,9 @@
-import React from 'react';
-
 // for testing-library
 import { cleanup, render } from '@testing-library/react';
+import React from 'react';
 
 // target to test
-import { HelloProps, Hello1, Hello2 } from './Hello';
+import { Hello1, Hello2, HelloProps } from './Hello';
 
 afterEach(cleanup);
 

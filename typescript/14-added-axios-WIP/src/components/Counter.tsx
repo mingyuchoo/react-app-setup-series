@@ -1,6 +1,6 @@
 import React from 'react';
-import useCounter from '../hooks/useCounter';
 
+import useCounter from '../hooks/useCounter';
 
 export function Counter(): React.ReactElement {
   const { count, onIncrease, onDecrease, onIncreaseBy } = useCounter();

@@ -1,15 +1,14 @@
+import './index.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-
-import rootReducer, { rootSaga } from './redux';
+import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 
 import App from './App';
-
-import './index.css';
+import rootReducer, { rootSaga } from './redux';
 
 const sagaMiddleware = createSagaMiddleware();
 

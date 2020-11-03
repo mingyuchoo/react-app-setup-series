@@ -1,8 +1,8 @@
 import { useMutation } from '@apollo/client';
 
+import { CREATE_USER_BY_EMAIL, DELETE_USER_BY_ID } from '../../graphql/remote/mutations';
 // graphql queries, mutations
 import { GET_ALL_USERS } from '../../graphql/remote/queries';
-import { CREATE_USER_BY_EMAIL, DELETE_USER_BY_ID } from '../../graphql/remote/mutations';
 
 export function useDeleteUserById() {
   return useMutation(DELETE_USER_BY_ID, {

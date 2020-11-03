@@ -1,7 +1,7 @@
-import React, { FormEvent } from 'react';
-import PropTypes from 'prop-types';
-
 import './UserForm.scss';
+
+import PropTypes from 'prop-types';
+import React, { FormEvent } from 'react';
 
 type UserFormProps = {
   vars: any;

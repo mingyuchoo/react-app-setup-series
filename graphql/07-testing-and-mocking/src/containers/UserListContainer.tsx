@@ -1,13 +1,12 @@
-import React from 'react';
 import { NetworkStatus } from '@apollo/client';
-
-// graphql queries, mutations
-import { useGetAllUsers } from '../operations/remote/queries';
-import { moreOptions } from '../operations/remote/subscriptions';
+import React from 'react';
 
 import Status from '../components/Status';
 import UserList from '../components/UserList';
 import { NEW_USER_JOINED } from '../graphql/remote/subscriptions';
+// graphql queries, mutations
+import { useGetAllUsers } from '../operations/remote/queries';
+import { moreOptions } from '../operations/remote/subscriptions';
 
 export default function UserListContainer(): React.ReactElement {
   const { networkStatus, loading, error, data, refetch, subscribeToMore } = useGetAllUsers();
