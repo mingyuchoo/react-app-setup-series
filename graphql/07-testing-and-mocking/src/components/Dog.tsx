@@ -1,7 +1,6 @@
-import React from 'react';
 import { gql, useQuery } from '@apollo/client';
+import React from 'react';
 
-// Make sure the query is also exported -- not just the component
 export const GET_DOG_QUERY = gql`
   query GetDog($name: String) {
     dog(name: $name) {
@@ -14,6 +13,7 @@ export const GET_DOG_QUERY = gql`
 
 export function Dog({ name }): React.ReactElement {
   const { loading, error, data } = useQuery(GET_DOG_QUERY, { variables: { name } });
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error!</p>;
 
