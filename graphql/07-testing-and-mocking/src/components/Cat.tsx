@@ -11,7 +11,10 @@ export const GET_CAT_QUERY = gql`
   }
 `;
 
-export function Cat({ name }): React.ReactElement {
+interface CatProps {
+  name: string;
+}
+const Cat: React.FC<CatProps> = ({ name }: CatProps): React.ReactElement => {
   const { loading, error, data } = useQuery(GET_CAT_QUERY, { variables: { name } });
 
   if (loading) return <p>Loading...</p>;
@@ -22,4 +25,6 @@ export function Cat({ name }): React.ReactElement {
       {data.cat.name} is a {data.cat.breed}
     </p>
   );
-}
+};
+
+export default Cat;

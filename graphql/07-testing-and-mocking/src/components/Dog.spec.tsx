@@ -2,7 +2,7 @@ import { MockedProvider } from '@apollo/client/testing';
 import { act, cleanup, render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 
-import { Dog, GET_DOG_QUERY } from './Dog';
+import Dog, { GET_DOG_QUERY } from './Dog';
 
 // 입력 데이터
 const inputArray = [

@@ -2,7 +2,7 @@ import { MockedProvider } from '@apollo/client/testing';
 import { act, cleanup, render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 
-import { Cat, GET_CAT_QUERY } from './Cat';
+import Cat, { GET_CAT_QUERY } from './Cat';
 
 describe('<Cat />', () => {
   afterEach(cleanup);
