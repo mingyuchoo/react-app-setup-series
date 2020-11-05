@@ -11,12 +11,13 @@ settings:
 parser: '@typescript-eslint/parser'
 parserOptions:
   project: 'tsconfig.json'
-  ecmaVersion: 6
+  sourceType: module
+  ecmaVersion: 7
   ecmaFeatures:
     jsx: true
-  sourceType: module
 plugins:
   - '@typescript-eslint'
+  - jest
   - react
   - react-hooks
   - prettier
@@ -25,6 +26,7 @@ extends:
   - eslint:recommended
   - plugin:@typescript-eslint/recommended
   - plugin:@typescript-eslint/recommended-requiring-type-checking
+  - plugin:jest/recommended
   - plugin:react/recommended
   - plugin:prettier/recommended
 rules:

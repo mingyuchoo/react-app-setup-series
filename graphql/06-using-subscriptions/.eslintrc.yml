@@ -4,23 +4,29 @@ env:
   es6: true
   node: true
   jest: true
+settings:
+  react:
+    pragma: React
+    version: latest
 parser: '@typescript-eslint/parser'
 parserOptions:
   project: 'tsconfig.json'
-  ecmaVersion: 6
+  sourceType: module
+  ecmaVersion: 7
   ecmaFeatures:
     jsx: true
-  sourceType: module
 plugins:
   - '@typescript-eslint'
-  - simple-import-sort
+  - jest
   - react
   - react-hooks
   - prettier
+  - simple-import-sort
 extends:
   - eslint:recommended
   - plugin:@typescript-eslint/recommended
   - plugin:@typescript-eslint/recommended-requiring-type-checking
+  - plugin:jest/recommended
   - plugin:react/recommended
   - plugin:prettier/recommended
 rules:

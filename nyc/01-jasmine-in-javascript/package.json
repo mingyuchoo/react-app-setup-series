@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jasmine": "^3.6.2",
+    "jasmine": "^3.6.3",
     "nyc": "^15.1.0",
     "reflect-metadata": "^0.1.13"
   },
