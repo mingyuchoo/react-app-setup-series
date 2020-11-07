@@ -1,6 +1,10 @@
+/**
+ * @testing-library/react 를 시용하는 사례
+ *
+ */
 import { MockedProvider } from '@apollo/client/testing';
-import { act, cleanup, render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
+import { create, act } from 'react-test-renderer';
 
 import Dog, { GET_DOG_QUERY } from './Dog';
 
@@ -24,13 +28,13 @@ function getMock(query, input) {
 }
 
 describe('<Dog />', () => {
-  afterEach(cleanup);
+  //afterEach(cleanup);
 
   inputArray.map((input, index) => {
     it(`[${index}]`, async () => {
       const dogMock = getMock(GET_DOG_QUERY, input);
-      // component
-      const { container, debug, unmount } = render(
+
+      let component = create(
         <MockedProvider
           mocks={[dogMock]}
           addTypename={false}
@@ -44,59 +48,20 @@ describe('<Dog />', () => {
         </MockedProvider>
       );
 
-      // // Check loading status
-      // await waitFor(() => container.querySelector('p'));
-      // expect(screen.getByText(/Loading.../)).toBeTruthy();
+      await new Promise((resolve) => setTimeout(resolve, 0));
 
-      // Check Data value
-      await waitFor(() => {
-        expect(screen.getByText(`${input.variables.name} is a ${input.data.dog.breed}`)).toBeTruthy();
+      // ASSERTION [1]
+      // 의도한 렌더링 결과를 저장해 놓고
+      // 다시 실행할 때, 같은 렌더링 결과를 갖는지 검증하기에 좋다.
+      // 스냅샷을 갱신하려면 jest --updateSnapshot 이나 jest -u 옵션을 사용하면 된다.
+      const tree = component.toJSON();
+      expect(tree).toMatchSnapshot();
 
-        // Unmount
-        unmount();
-      });
+      // ASSERTION [2]
+      // 렌더링 했을 때 콤포넌트의 props가 제대로 나오는지 확인하는데
+      // 콤포넌트가 전체적으로 어떻게 렌더링되는지 확인할 수 없어 좋지 않은 검증 방법이다.
+      const instance = component.root;
+      expect(instance.findByType(Dog).props.name).toBe(input.variables.name);
     });
   });
-
-  // it('[2]', async () => {
-  //   // mock
-  //   const dogMock = {
-  //     request: {
-  //       query: GET_DOG_QUERY,
-  //       variables: { name: 'Mini' },
-  //     },
-  //     result: {
-  //       data: { dog: { id: 1, name: 'Mini', breed: 'dachshund' } },
-  //     },
-  //   };
-
-  //   // component
-  //   const { container, debug, unmount } = render(
-  //     <MockedProvider
-  //       mocks={[dogMock]}
-  //       addTypename={false}
-  //       defaultOptions={{
-  //         watchQuery: { fetchPolicy: 'no-cache' },
-  //         query: { fetchPolicy: 'no-cache' },
-  //         mutate: { fetchPolicy: 'no-cache' },
-  //       }}
-  //     >
-  //       <Dog name="Mini" />
-  //     </MockedProvider>
-  //   );
-
-  //   // Check loading status
-  //   await waitFor(() => {
-  //     container.querySelector('p');
-  //     expect(screen.getByText(/Loading.../)).toBeTruthy();
-  //   });
-
-  //   // Check Data value
-  //   await waitFor(() => {
-  //     expect(screen.getByText('Mini is a dachshund')).toBeTruthy();
-  //   });
-
-  //   // Unmount
-  //   unmount();
-  // });
 });

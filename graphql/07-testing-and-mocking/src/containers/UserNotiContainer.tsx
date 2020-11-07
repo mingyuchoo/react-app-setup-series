@@ -8,7 +8,7 @@ import { useNewUserJoined } from '../operations/remote/subscriptions';
 export default function UserNotiContainer(): React.ReactElement {
   const { data, loading, error } = useNewUserJoined();
 
-  if (loading) return <Status info={'Loading...'} />;
+  if (loading) return <Status info={'Waiting...'} />;
   if (error) return <Status info={'Error'} />;
   if (!data) return <Status info={'No data'} />;
 
