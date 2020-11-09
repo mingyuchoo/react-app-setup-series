@@ -4,11 +4,9 @@ function TodoHeader() {
   const TITLE = 'TODO LIST';
 
   return (
-    <header id="header">
-      <div className="logo">
-        <a href="#">{TITLE}</a>
-      </div>
-    </header>
+    <div className="row">
+      <h1>{TITLE}</h1>
+    </div>
   );
 }
 

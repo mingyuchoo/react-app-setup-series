@@ -45,7 +45,6 @@ export const insert = createAction(INSERT, (text) => ({
 }));
 
 export const remove = createAction(REMOVE, (id) => id);
-
 export const toggle = createAction(TOGGLE, (id) => id);
 
 const todosReducer = handleActions(

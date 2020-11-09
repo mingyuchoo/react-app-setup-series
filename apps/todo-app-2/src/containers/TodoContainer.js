@@ -15,19 +15,11 @@ const TodoContainer = () => {
   const onToggle = useCallback((id) => dispatch(toggle(id)), [dispatch]);
 
   return (
-    <>
+    <div className="container p-3">
       <TodoHeader />
-      <section id="main">
-        <div className="inner">
-          <section id="one" class="wrapper style1">
-            <header class="special">
-              <TodoInsert onInsert={onInsert} />
-              <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
-            </header>
-          </section>
-        </div>
-      </section>
-    </>
+      <TodoInsert onInsert={onInsert} />
+      <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
+    </div>
   );
 };
 
