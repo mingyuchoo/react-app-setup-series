@@ -1,4 +1,4 @@
-type OmitObjectType = Omit<Record<string, any>, keyof string>;
+type OmitObjectType = Omit<Record<string, any>, keyof string>; // because `{}` actually means "any non-nullish value".
 
 type Maybe<T> = T | null;
 

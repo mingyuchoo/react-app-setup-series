@@ -4,7 +4,7 @@
  */
 import { MockedProvider } from '@apollo/client/testing';
 import React from 'react';
-import { create, act } from 'react-test-renderer';
+import { act, create } from 'react-test-renderer';
 
 import Dog, { GET_DOG_QUERY } from './Dog';
 
@@ -34,7 +34,7 @@ describe('<Dog />', () => {
     it(`[${index}]`, async () => {
       const dogMock = getMock(GET_DOG_QUERY, input);
 
-      let component = create(
+      const component = create(
         <MockedProvider
           mocks={[dogMock]}
           addTypename={false}

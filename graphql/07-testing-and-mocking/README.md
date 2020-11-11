@@ -26,6 +26,7 @@ apollo/client v3과 기존 버전에 사용방법이 다르니 조심해야 합�
 ## Note
 
 - In React App, if you want to use dotenv, you dont need to install dotenv module and variables of .env file start with `REACT_APP_`
+- 예를 들어, Header 콤포넌트와 같은 경우, 'HeaderProps' 를 콤포넌트 선언부 () 인자의 타입({...}: HeaderProps)으로 기술하지 않으면 ESLint에서 'react/prop-types' 관련 '' is missing in props validation 에러를 출력한다. 그래서 'prop-types' 의 PropTypes 를 이용하여 속성을 정의하거나 콤포넌트 선언부 () 인자의 타입({...}: HeaderProps)으로 정의하던지 해야 한다.
 
 ## Bug Fix
 

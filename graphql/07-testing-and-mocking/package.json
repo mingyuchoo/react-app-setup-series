@@ -2,6 +2,16 @@
   "name": "07-testing-and-mocking",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "lint": "eslint --config .eslintrc.yml --fix './src/**/*.{ts,tsx}'",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --watchAll=false",
+    "eject": "react-scripts eject",
+    "codegen": "graphql-codegen --config codegen.yml",
+    "storybook": "start-storybook -p 6006 -s public --no-dll",
+    "build-storybook": "build-storybook -s public --no-dll"
+  },
   "dependencies": {
     "@apollo/client": "^3.2.5",
     "@testing-library/jest-dom": "^5.11.5",
@@ -25,6 +35,15 @@
     "@graphql-codegen/typescript": "^1.17.11",
     "@graphql-codegen/typescript-operations": "^1.17.9",
     "@graphql-codegen/typescript-resolvers": "^1.17.10",
+    "@storybook/addon-actions": "^6.0.28",
+    "@storybook/addon-docs": "^6.0.28",
+    "@storybook/addon-essentials": "^6.0.28",
+    "@storybook/addon-links": "^6.0.28",
+    "@storybook/addon-storysource": "^6.0.28",
+    "@storybook/addons": "^6.0.28",
+    "@storybook/node-logger": "^6.0.28",
+    "@storybook/preset-create-react-app": "^3.1.5",
+    "@storybook/react": "^6.0.28",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/styled-components": "^5.1.4",
     "@typescript-eslint/eslint-plugin": "^4.6.1",
@@ -36,17 +55,10 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^5.0.3",
     "prettier": "^2.1.2",
+    "react-is": "^17.0.1",
     "react-test-renderer": "^17.0.1",
     "styled-components": "^5.2.1",
     "waait": "^1.0.5"
-  },
-  "scripts": {
-    "lint": "eslint --config .eslintrc.yml --fix './src/**/*.{ts,tsx}'",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false",
-    "eject": "react-scripts eject",
-    "codegen": "graphql-codegen --config codegen.yml"
   },
   "eslintConfig": {
     "extends": "react-app"

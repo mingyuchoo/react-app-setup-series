@@ -1,6 +1,5 @@
 import './UserTitle.scss';
 
-import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -18,11 +17,6 @@ const UserTitle: React.FC<UserTitleProps> = ({ title, name, email }: UserTitlePr
       </h1>
     </div>
   );
-};
-
-UserTitle.propTypes = {
-  title: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
 };
 
 export default UserTitle;
