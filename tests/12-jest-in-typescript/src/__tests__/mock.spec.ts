@@ -1,12 +1,12 @@
-describe("mock.spec.ts", () => {
-  test("callback", () => {
+describe('mock.spec.ts', () => {
+  test('callback', () => {
     function forEach(items, callback) {
       for (let index = 0; index < items.length; index++) {
         callback(items[index]);
       }
     }
 
-    const mockCallback = jest.fn((x) => 42 + x);
+    const mockCallback = jest.fn((x: number) => 42 + x);
 
     forEach([0, 1], mockCallback);
 
