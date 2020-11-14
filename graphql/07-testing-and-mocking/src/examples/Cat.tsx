@@ -19,6 +19,7 @@ const Cat: React.FC<CatProps> = ({ name }: CatProps): React.ReactElement => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error!</p>;
+  if (!data) return <p>No data</p>;
 
   return (
     <p>

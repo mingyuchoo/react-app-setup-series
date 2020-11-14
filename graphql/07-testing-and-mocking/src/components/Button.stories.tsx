@@ -36,3 +36,24 @@ Small.args = {
   size: 'small',
   label: 'Button',
 };
+
+export const ButtonType = Template.bind({});
+ButtonType.args = {
+  primary: true,
+  label: 'Button',
+  type: 'button',
+};
+
+export const SubmitType = Template.bind({});
+SubmitType.args = {
+  primary: true,
+  label: 'Button',
+  type: 'submit',
+};
+
+export const ResetType = Template.bind({});
+ResetType.args = {
+  primary: true,
+  label: 'Button',
+  type: 'reset',
+};

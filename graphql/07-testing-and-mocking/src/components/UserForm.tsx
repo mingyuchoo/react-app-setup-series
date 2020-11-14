@@ -3,6 +3,8 @@ import './UserForm.scss';
 import PropTypes from 'prop-types';
 import React, { FormEvent } from 'react';
 
+import Button from './Button';
+
 type UserFormProps = {
   vars: any;
   actions: any;
@@ -89,15 +91,9 @@ export default class UserForm extends React.Component<UserFormProps, UserFormSta
           onChange={this.onChangeEmail}
           onKeyPress={this.onKeyPressEmail}
         />
-        <button className="button" type="submit">
-          Submit
-        </button>
-        <button className="button" onClick={this.onClickReload}>
-          Reload
-        </button>
-        <button className="button" onClick={this.onClickReset}>
-          Reset
-        </button>
+        <Button primary type="submit" label="Submit" />
+        <Button label="Reload" onClick={this.onClickReload} />
+        <Button type="reset" label="Reset" onClick={this.onClickReset} />
       </form>
     );
   }

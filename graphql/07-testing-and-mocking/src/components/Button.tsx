@@ -1,27 +1,28 @@
-import './button.css';
+import './button.scss';
 
-import PropTypes from 'prop-types';
 import React from 'react';
 
 export interface ButtonProps {
   primary?: boolean;
   backgroundColor?: string;
   size?: 'small' | 'medium' | 'large';
+  type?: 'button' | 'submit' | 'reset';
   label: string;
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   primary = false,
-  size = 'medium',
   backgroundColor,
+  size = 'medium',
+  type = 'button',
   label,
   ...props
 }: ButtonProps) => {
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
   return (
     <button
-      type="button"
+      type={type}
       className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
       style={{ backgroundColor }}
       {...props}
@@ -31,10 +32,4 @@ export const Button: React.FC<ButtonProps> = ({
   );
 };
 
-Button.propTypes = {
-  primary: PropTypes.bool,
-  backgroundColor: PropTypes.string,
-  size: PropTypes.any,
-  label: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
-};
+export default Button;

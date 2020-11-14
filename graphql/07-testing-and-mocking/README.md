@@ -3,6 +3,8 @@
 ## References
 
 - https://www.freecodecamp.org/news/react-apollo-client-2020-tutorial/#manuallysettingthefetchpolicy
+- https://www.polvara.me/posts/how-to-test-asynchronous-methods/
+- https://github.com/nearform/graphql-hooks/issues/400
 
 ## Check First
 
