@@ -16,11 +16,11 @@
 ## Note
 
 - In React App, if you want to use dotenv, you dont need to install dotenv module and variables of .env file start with `REACT_APP_`
-- 예를 들어, Header 콤포넌트와 같은 경우, 'HeaderProps' 를 콤포넌트 선언부 () 인자의 타입({...}: HeaderProps)으로 기술하지 않으면 ESLint에서 'react/prop-types' 관련 '' is missing in props validation 에러를 출력한다. 그래서 'prop-types' 의 PropTypes 를 이용하여 속성을 정의하거나 콤포넌트 선언부 () 인자의 타입({...}: HeaderProps)으로 정의하던지 해야 한다.
+- 예를 들어, Header 콤포넌트와 같은 경우, 'HeaderProps' 를 콤포넌트 선언부 () 인자의 타입({...}: HeaderProps)으로 기술하지 않으면 ESLint에서 'react/prop-types' 관련 '' is missing in props validation 에러를 출력합니다. 그래서 'prop-types' 의 PropTypes 를 이용하여 속성을 정의하거나 콤포넌트 선언부 () 인자의 타입({...}: HeaderProps)으로 정의해야 합니다.
 - `yarn add apollo3-cache-persist` 을 추가 했습니다. 이는 apollo/client v3의 문서와 사용법이 다르니 해당 모듈 문서를 따르세요.
 
 ### graphql-codegen 모듈 추가와 사용 방법
-만약, codegen.yml 파일이 있다면 4번만 실행하면 됩니다.
+만약, codegen.yml 파일이 있다면 4번만 실행하세요.
 
 1. `yarn add --dev @graphql-codegen/cli`
 2. `yarn add --dev @graphql-codegen/typescript @graphql-codegen/typescript-resolvers @graphql-codegen/typescript-operations`
