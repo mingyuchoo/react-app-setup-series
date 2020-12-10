@@ -1,16 +1,6 @@
 # 07-testing-and-mocking
 
-## References
-
-- https://www.freecodecamp.org/news/react-apollo-client-2020-tutorial/#manuallysettingthefetchpolicy
-- https://www.polvara.me/posts/how-to-test-asynchronous-methods/
-- https://github.com/nearform/graphql-hooks/issues/400
-
-## Check First
-
-만약, 시작할 때 에러가 난다면 `src/components/UserList.tsx`에 fetchPolicy가 'cache-only' 이면 'cache-first'로 변경하세요.
-
-## Using GraphQL Codegen for TypeScript
+## 실행 방법
 
 만약, codegen.yml 파일이 있다면 4번만 실행하면 됩니다.
 
@@ -19,9 +9,14 @@
 3. `yarn graphql-codegen init` - generate codegen.yml
 4. `yarn codegen`
 
+## 기동이 안 될 때 점검 사항
+
+만약, 시작할 때 에러가 난다면 `src/components/UserList.tsx`에 fetchPolicy가 'cache-only' 이면 'cache-first'로 변경하세요.
+
+
 ## Using `apollo-cache-persist` module for cache
 
-apollo/client v3과 기존 버전에 사용방법이 다르니 조심해야 합니다.
+apollo/client v3은 기존 버전과 사용방법이 다르니 조심해야 합니다.
 
 1. `yarn add apollo3-cache-persist`
 
@@ -35,3 +30,10 @@ apollo/client v3과 기존 버전에 사용방법이 다르니 조심해야 합�
 ### TypeError: Cannot add property noFallthroughCasesInSwitch, object is not extensible
 
 - https://stackoverflow.com/questions/64115884/error-when-updating-create-react-app-to-4-0-with-typescript-template
+
+
+## 참고한 페이지
+
+- https://www.freecodecamp.org/news/react-apollo-client-2020-tutorial/#manuallysettingthefetchpolicy
+- https://www.polvara.me/posts/how-to-test-asynchronous-methods/
+- https://github.com/nearform/graphql-hooks/issues/400
