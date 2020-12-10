@@ -3,10 +3,11 @@
 ## 실행 방법
 
 1. `npm install --global yarn` - yarn 사용할 수 있도록 global에 설치
-2. `yarn` - 관련된 moudle 설치
-3. `yarn linst` - lint 작업
-4. `yarn codegen` - 서버에 있는 graphql schema를 이용하여 typescript에서 사용하는 type 자동 생성
-5. `yarn start` - React App 실행 
+2. `cd ./eact-app-setup-secries; yarn` - 관련된 moudle 설치
+3. `cp .env.test .env` - 접속할 서버 환경변수 파일 설정 (`http://sleepy-plains-38954.herokuapp.com/graphql`)
+4. `yarn linst` - lint 작업
+5. `yarn codegen` - 서버에 있는 graphql schema를 이용하여 typescript에서 사용하는 type 자동 생성
+6. `yarn start` - React App 실행 
 
 
 ## 기동이 안 될 때 점검 사항
