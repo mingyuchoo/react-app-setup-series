@@ -1,7 +1,6 @@
 import './UserTitle.scss';
 
 import React from 'react';
-import styled from 'styled-components';
 
 export interface UserTitleProps {
   title: string;

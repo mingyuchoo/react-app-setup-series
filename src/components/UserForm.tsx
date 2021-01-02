@@ -1,7 +1,7 @@
 import './UserForm.scss';
 
 import PropTypes from 'prop-types';
-import React, { FormEvent } from 'react';
+import React from 'react';
 
 import Button from './Button';
 
