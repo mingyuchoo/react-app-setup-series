@@ -1,6 +1,6 @@
 overwrite: true
-schema: https://sleepy-plains-38954.herokuapp.com/graphql
+schema: https://graphql-weather-api.herokuapp.com
 generates:
-  src/types/profileTypes.ts:
+  '@types/server.d.ts':
     plugins:
       - 'typescript'
