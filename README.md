@@ -55,8 +55,7 @@ query {
 
 ## Fragment로 확장하기
 
-```graphql
-
+```javascript
 // Weather.tsx
 import { gql } from '@apollo/client';
 import PropTypes from 'prop-types';
@@ -105,4 +104,38 @@ Weather.propTypes = {
 Weather.fragments = {
   weather: WEATHER_FRAGMENT,
 };
+```
+
+```javascript
+// City.tsx
+import { gql, useQuery } from '@apollo/client';
+import React, { ReactElement } from 'react';
+
+import Weather from './Weather';
+
+const GET_CITY_BY_NAME = gql`
+  query {
+    getCityByName(name: "Seattle") {
+      id
+      name
+      country
+      coord {
+        lon
+        lat
+      }
+      ...WeatherFragment
+    }
+  }
+  ${Weather.fragments.weather}
+`;
+
+export default function City(): ReactElement {
+  const { loading, error, data } = useQuery(GET_CITY_BY_NAME);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error!</div>;
+  if (!data) return <div>No data</div>;
+
+  return <pre>{JSON.stringify(data.getCityByName, null, 2)}</pre>;
+}
 ```
