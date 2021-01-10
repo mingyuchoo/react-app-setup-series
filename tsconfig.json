@@ -19,6 +19,8 @@
     "strict": true,
     "jsx": "react-jsx",
     "noEmit": true,
+    "declaration": true,
+    "declarationDir": "@types",
     "typeRoots": ["./node_modules/@types", "@types"]
   },
   "include": ["src/**/*", "@types"],
