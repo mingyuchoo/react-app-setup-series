@@ -2,12 +2,12 @@ import './App.scss';
 
 import React from 'react';
 
-import Information from './components/Information';
+import City from './components/City';
 
 const App: React.FC = (): React.ReactElement => {
   return (
     <div className="App">
-      <Information />
+      <City />
     </div>
   );
 };

@@ -38,13 +38,12 @@ const GET_CITY_BY_NAME = gql`
   }
 `;
 
-export default function Information(): ReactElement {
+export default function City(): ReactElement {
   const { loading, error, data } = useQuery(GET_CITY_BY_NAME);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error!</div>;
   if (!data) return <div>No data</div>;
 
-  console.log(data.getCityByName);
-  return <div>Hello, World</div>;
+  return <pre>{JSON.stringify(data.getCityByName, null, 2)}</pre>;
 }
