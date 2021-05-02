@@ -1,0 +1,9 @@
+overwrite: true
+schema:
+  - data/sleepy-plains.graphql
+generates:
+  src/@types/sleepy-plains.d.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-resolvers"

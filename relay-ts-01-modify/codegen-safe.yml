@@ -1,0 +1,9 @@
+overwrite: true
+schema:
+  - data/safe-journey.graphql
+generates:
+  src/@types/safe-journey.d.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-resolvers"

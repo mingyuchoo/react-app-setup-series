@@ -1,0 +1,32 @@
+---
+env:
+  browser: true
+  es6: true
+  node: true
+  jest: true
+parserOptions:
+  ecmaVersion: 9
+  ecmaFeatures:
+    jsx: true
+  sourceType: module
+settings:
+  react:
+    version: latest
+ignorePatterns:
+  - 'reportWebVitals.js'
+plugins:
+  - simple-import-sort
+  - react
+  - react-hooks
+  - prettier
+extends:
+  - eslint:recommended
+  - plugin:react/recommended
+  - plugin:prettier/recommended
+rules:
+  prettier/prettier:
+    - error
+    - endOfLine: auto
+  simple-import-sort/imports: error
+  simple-import-sort/exports: error
+  no-unused-vars: off

@@ -1,0 +1,97 @@
+{
+  "name": "07-testing-and-mocking",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --config .eslintrc.yml --fix './src/**/*.{ts,tsx}'",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "npm run test:unit",
+    "test:unit": "react-scripts test --verbose --watchAll=false",
+    "test:unit:coverage": "react-scripts test --verbose --watchAll=false --coverage",
+    "eject": "react-scripts eject",
+    "codegen": "graphql-codegen --config codegen.yml",
+    "storybook": "start-storybook -p 6006 -s public --no-dll",
+    "build-storybook": "build-storybook -s public --no-dll"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.2.5",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.1.1",
+    "@testing-library/user-event": "^12.2.0",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.6",
+    "@types/react": "^16.9.56",
+    "@types/react-dom": "^16.9.9",
+    "apollo3-cache-persist": "^0.8.0",
+    "graphql": "^15.4.0",
+    "node-sass": "4.14.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.0",
+    "subscriptions-transport-ws": "^0.9.18",
+    "typescript": "~4.0.5"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^1.19.1",
+    "@graphql-codegen/typescript": "^1.17.11",
+    "@graphql-codegen/typescript-operations": "^1.17.9",
+    "@graphql-codegen/typescript-resolvers": "^1.17.10",
+    "@storybook/addon-actions": "^6.0.28",
+    "@storybook/addon-docs": "^6.0.28",
+    "@storybook/addon-essentials": "^6.0.28",
+    "@storybook/addon-links": "^6.0.28",
+    "@storybook/addon-storysource": "^6.0.28",
+    "@storybook/addons": "^6.0.28",
+    "@storybook/node-logger": "^6.0.28",
+    "@storybook/preset-create-react-app": "^3.1.5",
+    "@storybook/react": "^6.0.28",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/styled-components": "^5.1.4",
+    "@typescript-eslint/eslint-plugin": "^4.6.1",
+    "@typescript-eslint/parser": "^4.6.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "prettier": "^2.1.2",
+    "react-is": "^17.0.1",
+    "styled-components": "^5.2.1",
+    "waait": "^1.0.5"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/**/*.stories.{ts,tsx}",
+      "!<rootDir>/node_modules/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "coverageReporters": [
+      "text"
+    ]
+  }
+}

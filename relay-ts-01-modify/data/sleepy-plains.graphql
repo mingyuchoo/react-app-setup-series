@@ -1,0 +1,47 @@
+"""Exposes a URL that specifies the behaviour of this scalar."""
+directive @specifiedBy(
+  """The URL that specifies the behaviour of this scalar."""
+  url: String!
+) on SCALAR
+
+type AuthPayload {
+  user: User!
+  token: String!
+}
+
+type Mutation {
+  createPostByEmail(email: String, title: String!, content: String): Post!
+  updatePostById(id: ID, title: String!, content: String, published: Boolean): Post!
+  deletePostById(id: ID!): Post
+  createUserByEmail(email: String, name: String): User!
+  updateUserById(id: ID, email: String, name: String): User!
+  deleteUserById(id: ID!): User
+  githubAuth(code: String!): AuthPayload!
+}
+
+type Post {
+  author: User
+  content: String
+  id: ID!
+  published: Boolean!
+  title: String!
+}
+
+type Query {
+  getAllPosts: [Post]!
+  getOnePostById(id: ID!): Post
+  getAllUsers: [User]!
+  getOneUserById(id: ID!): User
+}
+
+type Subscription {
+  newUserJoined: User!
+}
+
+type User {
+  email: String!
+  id: ID!
+  name: String
+  posts: [Post!]!
+}
+

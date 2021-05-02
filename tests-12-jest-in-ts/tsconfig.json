@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "types": ["jest", "node"],
+    "target": "es6",
+    "lib": ["esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true, // add because of react-scripts 4.0.0 bug
+    "outDir": "dist",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": false, // error TS1208: All files must be modules when the '--isolatedModules' flag is provided.
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "strict": true,
+    "noEmit": true,
+    "typeRoots": ["./node_modules/@types"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
