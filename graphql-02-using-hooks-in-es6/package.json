@@ -10,23 +10,23 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@apollo/client": "^3.3.2",
-    "graphql": "^15.4.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.1"
+    "@apollo/client": "^3.3.16",
+    "graphql": "^15.5.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.2",
-    "@testing-library/user-event": "^12.3.0",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^13.1.8",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.5",
+    "enzyme-adapter-react-16": "^1.15.6",
     "eslint": "^7.14.0",
-    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-react": "^1.1.7",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "node-sass": "^4.14.1",
     "prettier": "^2.2.1"

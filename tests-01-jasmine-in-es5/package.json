@@ -14,11 +14,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jasmine": "^3.6.3",
+    "jasmine": "^3.7.0",
     "nyc": "^15.1.0",
     "reflect-metadata": "^0.1.13"
   },
   "dependencies": {
-    "jasmine-spec-reporter": "^6.0.0"
+    "jasmine-spec-reporter": "^7.0.0"
   }
 }
