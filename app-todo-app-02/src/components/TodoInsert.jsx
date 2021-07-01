@@ -3,17 +3,21 @@ import { FiPlusCircle } from 'react-icons/fi';
 import styled from 'styled-components';
 
 const StyledTodoForm = styled.form`
-margin 3rem;
-text-align: center;
+  margin 1rem auto;
+  width 100%;
+  // border dashed 1px red;
+
 `;
 
 const StyledTodoInput = styled.input`
-  margin: 0rem 0.5rem 0rem 1rem;
+  margin: auto;
   padding 1rem;
 `;
 const StyledTodoButton = styled.button`
-  margin: 0rem 1rem 0rem 0.5rem;
+  margin-left: 2.5rem;
   padding 1rem;
+  width: 20%;
+  cursor: pointer;
 `;
 
 const TodoInsert = ({ onInsert }) => {

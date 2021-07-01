@@ -8,7 +8,12 @@ import TodoHeader from '../components/TodoHeader';
 import TodoInsert from '../components/TodoInsert';
 import TodoList from '../components/TodoList';
 
-const StyledTodoContainer = styled.div``;
+const StyledTodoContainer = styled.div`
+  margin: auto;
+  width: 50%;
+  padding: 1rem;
+  // border: solid 1px green;
+`;
 
 const TodoContainer = () => {
   const todos = useSelector((state) => state.todosReducer.todos);

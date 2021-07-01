@@ -3,7 +3,11 @@ import styled from 'styled-components';
 
 import TodoItem from './TodoItem';
 
-const StyledTodoList = styled.div``;
+const StyledTodoList = styled.div`
+  margin: auto;
+  width: 100%;
+  // border: dashed 1px red;
+`;
 
 const TodoList = ({ todos, onRemove, onToggle }) => {
   return (

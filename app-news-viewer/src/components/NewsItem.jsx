@@ -17,7 +17,6 @@ const StyledImage = styled.img`
 
 const StyledLink = styled.a`
   font-size: 2em;
-  font-style: italic;
   text-decoration: none;
   &:link {
     color: #171717;

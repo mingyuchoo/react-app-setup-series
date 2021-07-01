@@ -3,8 +3,9 @@ import styled from 'styled-components';
 
 import NewsItem from './NewsItem';
 
-const StyledNewsList = styled.article`
-  text-decoration: none;
+const StyledNewsList = styled.div`
+  margin: auto;
+  width: 100%;
 `;
 
 const NewsList = ({ data }) => {

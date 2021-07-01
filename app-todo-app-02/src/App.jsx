@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import TodoContainer from './containers/TodoContainer';
 
-const StyledApp = styled.body`
+const StyledApp = styled.section`
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',

@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledTodoHeader = styled.h1`
-  margin: 3rem;
+  margin: auto;
   text-align: center;
+  // border: dashed 1px red;
 `;
 
 function TodoHeader() {
