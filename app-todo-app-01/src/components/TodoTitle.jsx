@@ -1,13 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const StyledTodoTitle = styled.h1`
+  margin: 1rem;
+  text-align: center;
+`;
 
 function TodoTitle() {
   const TITLE = 'TODO LIST';
-
-  return (
-    <div className="row">
-      <h1>{TITLE}</h1>
-    </div>
-  );
+  return <StyledTodoTitle>{TITLE}</StyledTodoTitle>;
 }
 
 export default TodoTitle;

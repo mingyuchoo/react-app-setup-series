@@ -36,7 +36,7 @@ const REMOVE = 'todos/REMOVE';
 const TOGGLE = 'todos/TOGGLE';
 
 /* action creators */
-let id = 4;
+let id = 6;
 
 export const insert = createAction(INSERT, (text) => ({
   id: id++,

@@ -1,5 +1,24 @@
 import React, { useState, useCallback } from 'react';
+import styled from 'styled-components';
+
 import { FiPlusCircle } from 'react-icons/fi';
+
+const StyledTodoForm = styled.form`
+  margin: 1rem;
+`;
+
+const StyledInput = styled.input`
+  display: inline;
+  width: 35rem;
+  margin-right: 0.5rem;
+  padding 1rem;
+`;
+const StyledButton = styled.button`
+  display: inline;
+  width: 15rem;
+  margin-left: 0.5rem;
+  padding 1rem;
+`;
 
 const TodoInsert = ({ onInsert }) => {
   const [text, setText] = useState('');
@@ -19,21 +38,18 @@ const TodoInsert = ({ onInsert }) => {
   );
 
   return (
-    <form onSubmit={onSubmitTodoInsert}>
-      <div className="row border">
-        <input
-          className="col-10 p-3"
-          type="text"
-          placeholder="할 일을 입력하세요."
-          value={text}
-          onChange={onChangeTodoInsert}
-          required={true}
-        />
-        <button className="btn col-2 p-3" type="submit">
-          <FiPlusCircle />
-        </button>
-      </div>
-    </form>
+    <StyledTodoForm onSubmit={onSubmitTodoInsert}>
+      <StyledInput
+        type="text"
+        placeholder="할 일을 입력하세요."
+        value={text}
+        onChange={onChangeTodoInsert}
+        required={true}
+      />
+      <StyledButton type="submit">
+        <FiPlusCircle />
+      </StyledButton>
+    </StyledTodoForm>
   );
 };
 

@@ -1,11 +1,14 @@
 import React, { useCallback } from 'react';
+import styled from 'styled-components';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { insert, remove, toggle } from '../redux/redux-todos';
 
+import TodoHeader from '../components/TodoHeader';
 import TodoInsert from '../components/TodoInsert';
 import TodoList from '../components/TodoList';
-import TodoTitle from 'src/components/TodoTitle';
+
+const StyledTodoContainer = styled.div``;
 
 const TodoContainer = () => {
   const todos = useSelector((state) => state.todosReducer.todos);
@@ -15,11 +18,11 @@ const TodoContainer = () => {
   const onToggle = useCallback((id) => dispatch(toggle(id)), [dispatch]);
 
   return (
-    <div className="container p-3">
-      <TodoTitle />
+    <StyledTodoContainer>
+      <TodoHeader />
       <TodoInsert onInsert={onInsert} />
       <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
-    </div>
+    </StyledTodoContainer>
   );
 };
 
