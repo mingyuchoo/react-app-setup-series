@@ -1,14 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import NewsItem from './NewsItem';
 
+const StyledNewsList = styled.article`
+  text-decoration: none;
+`;
+
 const NewsList = ({ data }) => {
   return (
-    <article className="row">
-      <div className="col">
-        {data && data.articles.map((article) => <NewsItem article={article} />)}
-      </div>
-    </article>
+    <StyledNewsList>
+      {data &&
+        data.articles.map((article, index) => (
+          <NewsItem key={index} article={article} />
+        ))}
+    </StyledNewsList>
   );
 };
 
