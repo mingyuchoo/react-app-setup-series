@@ -1,6 +1,15 @@
 import React from 'react';
 import { gql, useQuery, useMutation } from '@apollo/client';
-import './UserList.scss';
+import styled from 'styled-components';
+
+import UserItem from './UserItem';
+import Loading from './Loading';
+import Error from './Error';
+
+const StyledUserList = styled.div`
+  margin: auto;
+  width: 100%;
+`;
 
 const GET_ALL_USERS = gql`
   query {
@@ -31,31 +40,20 @@ const UserList = () => {
     deleteUser({ variables: { id } });
   };
 
-  // loading
   if (loading || loading2) {
-    return (
-      <div className="App">
-        <h2>Loading...</h2>
-      </div>
-    );
+    return <Loading />;
   }
-  // error
   if (error || error2) {
-    return <div>Error</div>;
+    return <Error />;
   }
-
-  // data
   if (data || data2) {
     if (data.getAllUsers.length > 0) {
       return (
-        <div className="list">
+        <StyledUserList>
           {data.getAllUsers.map((user) => (
-            <div className="row" key={user.id} onDoubleClick={(event) => onDoubleClickRow(user.id, event)}>
-              <p className="column">{user.name}</p>
-              <p className="column">{user.email}</p>
-            </div>
+            <UserItem key={user.id} user={user} onDoubleClickRow={onDoubleClickRow} />
           ))}
-        </div>
+        </StyledUserList>
       );
     }
   }

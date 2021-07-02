@@ -18,4 +18,5 @@ extends:
   - plugin:react/recommended
   - plugin:prettier/recommended
 rules:
+  react/prop-types: off
   prettier/prettier: error

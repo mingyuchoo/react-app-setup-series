@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import { gql, useMutation } from '@apollo/client';
-import './Form.scss';
 
-// https://www.apollographql.com/docs/react/data/mutations/
+import Loading from './Loading';
+import Success from './Success';
+import Error from './Error';
+import Input from './Input';
+import Button from './Button';
+
+const StyledForm = styled.form``;
 
 const CREATE_USER_BY_EMAIL = gql`
   mutation createUserByEmail($email: String!, $name: String!) {
@@ -17,29 +23,26 @@ const CREATE_USER_BY_EMAIL = gql`
 const Form = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [disable, setDiasble] = useState(false);
   const [addNewUser, { loading, error, data }] = useMutation(CREATE_USER_BY_EMAIL);
 
-  // loading
   if (loading) {
-    return (
-      <div className="App">
-        <h2>Loading...</h2>
-      </div>
-    );
+    return <Loading />;
   }
 
-  // error
   if (error) {
-    return <div>Error</div>;
+    return <Error />;
   }
 
-  // data
   if (data) {
-    return <div>Successfully added.</div>;
+    return <Success />;
   }
 
+  useEffect(() => {
+    name ? setDiasble(false) : setDiasble(true);
+  }, [name]);
   const onSubmitForm = (event) => {
-    event.preventDefault(); // 원래 event 기본 동작을 못 하도록 막는다.
+    event.preventDefault();
     addNewUser({ variables: { email, name } });
   };
   const onChangeName = (event) => {
@@ -59,22 +62,14 @@ const Form = () => {
   };
 
   const onClickReset = (event) => {
-    event.preventDefault(); // 원래 event 기본 동작을 못 하도록 막는다.
+    event.preventDefault();
     setName('');
     setEmail('');
   };
   return (
-    <form onSubmit={onSubmitForm}>
-      <input
-        className="input"
-        type="text"
-        name="name"
-        placeholder="Input your name"
-        value={name}
-        onChange={onChangeName}
-      />
-      <input
-        className="input"
+    <StyledForm onSubmit={onSubmitForm}>
+      <Input type="text" name="name" placeholder="Input your name" value={name} onChange={onChangeName} />
+      <Input
         type="text"
         name="email"
         placeholder="Input your email address"
@@ -82,13 +77,11 @@ const Form = () => {
         onChange={onChangeEmail}
         onKeyPress={onKeyPressEmail}
       />
-      <button className="button" type="submit">
+      <Button type="submit" disabled={disable}>
         Submit
-      </button>
-      <button className="button" onClick={onClickReset}>
-        Reset
-      </button>
-    </form>
+      </Button>
+      <Button onClick={onClickReset}>Reset</Button>
+    </StyledForm>
   );
 };
 

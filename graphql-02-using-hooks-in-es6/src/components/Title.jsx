@@ -1,18 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import './Title.scss';
+const StyledTitle = styled.h1`
+  color: #61dafb;
+  background-color: #20232a;
+  padding: 2rem;
+`;
 
 const Title = ({ title }) => {
-  return (
-    <div className="title">
-      <h1>{title}</h1>
-    </div>
-  );
-};
-
-Title.propTypes = {
-  title: PropTypes.string,
+  return <StyledTitle>{title}</StyledTitle>;
 };
 
 export default Title;
