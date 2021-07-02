@@ -14,12 +14,12 @@ const StyledNewsContainer = styled.div`
   }
 `;
 
-const NewsContainer = ({ data }) => {
+const NewsContainer = ({ articles, page, setPage }) => {
   return (
     <StyledNewsContainer>
       <NewsTitle />
       <NewsSubTitle />
-      <NewsList data={data} />
+      <NewsList articles={articles} page={page} setPage={setPage} />
     </StyledNewsContainer>
   );
 };

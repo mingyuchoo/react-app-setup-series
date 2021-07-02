@@ -4,8 +4,8 @@ import axios from 'axios';
 
 import NewsContainer from './containers/NewsContainer';
 
-const StyledApp = styled.body`
-  body {
+const StyledApp = styled.div`
+  div {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
       'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
@@ -20,34 +20,39 @@ const StyledApp = styled.body`
   }
 `;
 
-function App() {
-  const URL =
-    'http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=3b1f065bc28b44ee8ad1be9e71e02092';
-  let [data, setData] = useState(null);
+const App = () => {
+  const apiKey = '3b1f065bc28b44ee8ad1be9e71e02092';
+  const country = 'us';
+  const category = 'business';
+  const [pageSize] = useState(5);
+  const [page, setPage] = useState(1);
+  const URL = `http://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}&pageSize=${pageSize}&page=${page}`;
 
-  const fetchData = useCallback(async () => {
+  let [articles, setArticles] = useState([]);
+
+  const fetchArticles = useCallback(async () => {
     try {
       const response = await axios.get(URL);
-      setData(response.data);
-      console.log(response.data);
+      setArticles([...articles, ...response.data.articles]);
+      console.log(response.data.articles);
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [page]);
 
   useEffect(() => {
-    fetchData();
-    console.log('useEffect() is called');
+    fetchArticles();
+    console.log('[Updated]');
     return () => {
-      console.log('useEffect() return is called');
+      console.log('[Unmounting]');
     };
-  }, [fetchData]);
+  }, [page, fetchArticles]);
 
   return (
     <StyledApp>
-      <NewsContainer data={data} />
+      <NewsContainer articles={articles} page={page} setPage={setPage} />
     </StyledApp>
   );
-}
+};
 
 export default App;

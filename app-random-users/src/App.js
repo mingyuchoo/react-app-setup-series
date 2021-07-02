@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import Header from "./components/Header";
-import UserList from "./components/UserList";
+import Header from './components/Header';
+import UserList from './components/UserList';
 
 const StyledApp = styled.div`
   margin: auto;
