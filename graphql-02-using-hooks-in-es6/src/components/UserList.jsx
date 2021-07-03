@@ -3,6 +3,7 @@ import { gql, useQuery, useMutation } from '@apollo/client';
 import styled from 'styled-components';
 
 import UserItem from './UserItem';
+import Button from './Button';
 import Loading from './Loading';
 import Error from './Error';
 
@@ -32,8 +33,8 @@ const DELETE_USER_BY_ID = gql`
 `;
 
 const UserList = () => {
-  const { loading, error, data } = useQuery(GET_ALL_USERS);
-  const [deleteUser, { data2, error2, loading2 }] = useMutation(DELETE_USER_BY_ID);
+  const { data, loading, error } = useQuery(GET_ALL_USERS);
+  const [deleteUser, { data: data2, error: error2, loading: loading2 }] = useMutation(DELETE_USER_BY_ID);
 
   const onDoubleClickRow = (id, event) => {
     event.preventDefault();
@@ -53,6 +54,14 @@ const UserList = () => {
           {data.getAllUsers.map((user) => (
             <UserItem key={user.id} user={user} onDoubleClickRow={onDoubleClickRow} />
           ))}
+          <Button
+            type="submit"
+            onClick={() => {
+              console.log(`button clicked`);
+            }}
+          >
+            Load More
+          </Button>
         </StyledUserList>
       );
     }

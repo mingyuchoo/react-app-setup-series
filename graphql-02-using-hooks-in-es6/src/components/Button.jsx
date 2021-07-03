@@ -11,6 +11,11 @@ const StyledButton = styled.button`
   font-weight: bold;
   text-align: center;
   text-decoration: none;
+  &:hover:focus:active {
+    color: block;
+    background-color: white;
+  }
+  cursor: pointer;
 `;
 
 const Button = ({ type, disabled, onClick, children }) => {

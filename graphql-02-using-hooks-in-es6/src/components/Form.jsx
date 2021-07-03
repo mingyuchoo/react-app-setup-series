@@ -26,39 +26,21 @@ const Form = () => {
   const [disable, setDiasble] = useState(false);
   const [addNewUser, { loading, error, data }] = useMutation(CREATE_USER_BY_EMAIL);
 
-  if (loading) {
-    return <Loading />;
-  }
-
-  if (error) {
-    return <Error />;
-  }
-
-  if (data) {
-    return <Success />;
-  }
-
   useEffect(() => {
     name ? setDiasble(false) : setDiasble(true);
   }, [name]);
-  const onSubmitForm = (event) => {
-    event.preventDefault();
-    addNewUser({ variables: { email, name } });
-  };
   const onChangeName = (event) => {
-    console.log(event.target.name + ': ' + event.target.value);
     setName(event.target.value);
   };
 
   const onChangeEmail = (event) => {
-    console.log(event.target.name + ': ' + event.target.value);
     setEmail(event.target.value);
   };
-
-  const onKeyPressEmail = (event) => {
-    if (event.key === 'Enter') {
-      console.log(event.target.name + ': ' + event.target.value);
-    }
+  const onSubmitForm = (event) => {
+    event.preventDefault();
+    addNewUser({ variables: { email, name } }).catch((error) => {
+      console.log(error);
+    });
   };
 
   const onClickReset = (event) => {
@@ -68,15 +50,11 @@ const Form = () => {
   };
   return (
     <StyledForm onSubmit={onSubmitForm}>
+      {loading && <Loading />}
+      {error && <Error error={error} />}
+      {data && <Success />}
       <Input type="text" name="name" placeholder="Input your name" value={name} onChange={onChangeName} />
-      <Input
-        type="text"
-        name="email"
-        placeholder="Input your email address"
-        value={email}
-        onChange={onChangeEmail}
-        onKeyPress={onKeyPressEmail}
-      />
+      <Input type="text" name="email" placeholder="Input your email address" value={email} onChange={onChangeEmail} />
       <Button type="submit" disabled={disable}>
         Submit
       </Button>
