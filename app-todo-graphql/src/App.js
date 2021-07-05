@@ -9,6 +9,7 @@ const StyledApp = styled.div`
   width: 100%;
 `;
 const StyledTitle = styled.div`
+  background-color: grey;
   margin: auto;
   border: dashed 1px green;
   padding: auto;
@@ -41,6 +42,7 @@ const StyledItem = styled.div`
     color: white;
     background-color: black;
   }
+  cursor: pointer;
 `;
 
 const StyledInput = styled.input`
@@ -78,12 +80,62 @@ const StyledButton = styled.input`
   }
 `;
 
+const StyledPopup = styled.div`
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+`;
+
+const StyledInner = styled.div`
+  margin: auto;
+  padding: 3rem;
+  position: absolute;
+  top: 25%;
+  right: 25%;
+  bottom: 25%;
+  left: 25%;
+  color: black;
+  background-color: white;
+  text-decoration: none;
+  text-align: center;
+`;
+
+const Popup = ({ setPopup, id, title, content }) => {
+  return (
+    <StyledPopup>
+      <StyledInner>
+        <h1>{title}</h1>
+        <h2>{id}</h2>
+        <p>{content}</p>
+        <StyledButton
+          type="button"
+          value="Close"
+          onClick={() => {
+            setPopup(false);
+          }}
+        />
+      </StyledInner>
+    </StyledPopup>
+  );
+};
 const App = () => {
   const LIMIT = 10;
+  const [limit] = useState(LIMIT);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [offset, setOffset] = useState(0);
-  const [limit] = useState(LIMIT);
+  const [popup, setPopup] = useState({
+    show: false,
+    id: 0,
+    title: "",
+    content: "",
+  });
 
   const titleRef = useRef();
 
@@ -137,6 +189,14 @@ const App = () => {
   );
   return (
     <StyledApp>
+      {popup.show ? (
+        <Popup
+          setPopup={setPopup}
+          id={popup.id}
+          title={popup.title}
+          content={popup.content}
+        />
+      ) : null}
       <StyledTitle>
         <h1>Todo List</h1>
       </StyledTitle>
@@ -180,6 +240,14 @@ const App = () => {
           data.tasks.map((item) => (
             <StyledItem
               key={item.id}
+              onClick={() => {
+                setPopup({
+                  show: true,
+                  id: item.id,
+                  title: item.title,
+                  content: item.content,
+                });
+              }}
               onDoubleClick={() => {
                 removeTask({
                   variables: {
@@ -203,6 +271,7 @@ const App = () => {
       <StyledButton
         type="button"
         value="Next"
+        disabled={data && data.tasks.length < 10 ? true : false}
         onClick={() => {
           setOffset(offset + limit);
           console.log(data);
