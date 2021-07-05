@@ -1,5 +1,5 @@
 import { gql, useMutation, useQuery } from "@apollo/client";
-import React, { useEffect, useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 
 const StyledApp = styled.div`
@@ -84,7 +84,10 @@ const App = () => {
   const [content, setContent] = useState("");
   const [offset, setOffset] = useState(0);
   const [limit] = useState(LIMIT);
-  const { loading, error, data, refetch } = useQuery(
+
+  const titleRef = useRef();
+
+  const { loading, error, data } = useQuery(
     gql`
       query GetTasks($offset: Int, $limit: Int) {
         tasks(offset: $offset, limit: $limit) {
@@ -132,9 +135,6 @@ const App = () => {
       }
     `
   );
-  useEffect(() => {
-    console.log(`useEffect`);
-  }, []);
   return (
     <StyledApp>
       <StyledTitle>
@@ -143,16 +143,17 @@ const App = () => {
       <StyledInput
         type="text"
         placeholder="Title"
+        value={title}
         onChange={(event) => {
-          console.log(event.target.value);
           setTitle(event.target.value);
         }}
+        ref={titleRef}
       />
       <StyledInput
         type="text"
         placeholder="Content"
+        value={content}
         onChange={(event) => {
-          console.log(event.target.value);
           setContent(event.target.value);
         }}
       />
@@ -167,6 +168,9 @@ const App = () => {
             },
             refetchQueries: [`GetTasks`],
           });
+          setTitle("");
+          setContent("");
+          titleRef.current.focus();
         }}
       />
       <StyledList>
@@ -176,7 +180,7 @@ const App = () => {
           data.tasks.map((item) => (
             <StyledItem
               key={item.id}
-              onClick={() => {
+              onDoubleClick={() => {
                 removeTask({
                   variables: {
                     id: item.id,
@@ -201,6 +205,7 @@ const App = () => {
         value="Next"
         onClick={() => {
           setOffset(offset + limit);
+          console.log(data);
         }}
       />
     </StyledApp>
