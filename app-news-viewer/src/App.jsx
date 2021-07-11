@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { Switch, Route, Link } from 'react-router-dom';
 
 import NewsContainer from './containers/NewsContainer';
 
@@ -49,9 +50,22 @@ const App = () => {
   }, [page, fetchArticles]);
 
   return (
-    <StyledApp>
-      <NewsContainer articles={articles} page={page} setPage={setPage} />
-    </StyledApp>
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+        </ul>
+      </nav>
+      <Switch>
+        <Route path="/">
+          <StyledApp>
+            <NewsContainer articles={articles} page={page} setPage={setPage} />
+          </StyledApp>
+        </Route>
+      </Switch>
+    </div>
   );
 };
 
